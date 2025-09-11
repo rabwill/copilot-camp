@@ -18,15 +18,15 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
-        <title>ラボ E6a - OAuth を使用した Entra ID 認証の追加 (Agents Toolkit) - Copilot Developer Camp</title>
+        <title>ラボ E6a - Entra ID 認証を OAuth で追加 (Agents Toolkit) - Copilot Developer Camp</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#e6a-oauth-entra-id-agents-toolkit" class="md-skip">
+        <a href="#e6a-entra-id-oauth-agents-toolkit" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ラボ E6a - OAuth を使用した Entra ID 認証の追加 (Agents Toolkit)
+              ラボ E6a - Entra ID 認証を OAuth で追加 (Agents Toolkit)
             
           </span>
         </div>
@@ -194,7 +194,7 @@
         <a href="https://github.com/microsoft/copilot-camp" title="リポジトリへ" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
   </div>
   <div class="md-source__repository">
     microsoft/copilot-camp
@@ -391,7 +391,7 @@
       <a href="https://github.com/microsoft/copilot-camp" title="リポジトリへ" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
   </div>
   <div class="md-source__repository">
     microsoft/copilot-camp
@@ -501,7 +501,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ MAB - Copilot Studio agent builder でエージェントを作成
+    ラボ MAB - Copilot Studio エージェント ビルダーによるエージェント作成
     
   </span>
   
@@ -524,7 +524,7 @@
   
   
   <span class="md-ellipsis">
-    Lab MAB1 - はじめてのエージェント構築
+    ラボ MAB1 - 最初のエージェント構築
     
   </span>
   
@@ -547,7 +547,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ MCS - Microsoft Copilot Studio の概要
+    Lab MCS - Microsoft Copilot Studio の概要
     
   </span>
   
@@ -616,7 +616,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ MCS2 - トピックの定義
+    Lab MCS2 - トピックの定義
     
   </span>
   
@@ -703,12 +703,35 @@
   
   
     <li class="md-nav__item">
+      <a href="../../make/copilot-studio/06-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ラボ MCS6 - MCP サーバーの利用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../make/sharepoint-agents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    ラボ MSA - SharePoint エージェントの概要
+    ラボ MSA - SharePoint エージェントの理解
     
   </span>
   
@@ -731,7 +754,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ MSA1 - 最初の SharePoint エージェントの構築
+    ラボ MSA1 - 最初の SharePoint エージェントを作成する
     
   </span>
   
@@ -978,7 +1001,7 @@
   
   
   <span class="md-ellipsis">
-    Lab E1 - Microsoft 365 Agents Toolkit で TypeSpec 定義を使用して最初の Declarative エージェントを構築する
+    ラボ E1 - Microsoft 365 Agents Toolkit で TypeSpec 定義を使用して初めての Declarative エージェントを構築する
     
   </span>
   
@@ -1001,7 +1024,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ E1 - インストラクション ベースの Gelocator ゲーム エージェント
+    ラボ E1 - 指示ベース Geo Locator ゲーム エージェント
     
   </span>
   
@@ -1078,7 +1101,7 @@
   
   
   <span class="md-ellipsis">
-    Lab E2 - API を構築する
+    ラボ E2 - API の構築
     
   </span>
   
@@ -1101,7 +1124,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ E3 - 宣言型エージェントと API プラグインの追加
+    ラボ E3 - 宣言型 エージェント と API プラグインの追加
     
   </span>
   
@@ -1124,7 +1147,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ E4 - API とプラグインの拡張
+    ラボ E4 - API とプラグインを拡張する
     
   </span>
   
@@ -1147,7 +1170,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ E5 - Adaptive Card の追加
+    Lab E5 - Adaptive Cards の追加
     
   </span>
   
@@ -1235,7 +1258,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ E6a - OAuth を使用した Entra ID 認証の追加 (Agents Toolkit)
+    ラボ E6a - Entra ID 認証を OAuth で追加 (Agents Toolkit)
     
   </span>
   
@@ -1248,7 +1271,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ E6a - OAuth を使用した Entra ID 認証の追加 (Agents Toolkit)
+    ラボ E6a - Entra ID 認証を OAuth で追加 (Agents Toolkit)
     
   </span>
   
@@ -1282,7 +1305,7 @@
         <li class="md-nav__item">
   <a href="#2-agents-toolkit" class="md-nav__link">
     <span class="md-ellipsis">
-      演習 2: 一般的な Agents Toolkit 構成の更新
+      演習 2: 一般的な Agents Toolkit 構成を更新
     </span>
   </a>
   
@@ -1291,7 +1314,7 @@
         <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      演習 3: アプリケーション パッケージの更新
+      演習 3: アプリケーション パッケージを更新
     </span>
   </a>
   
@@ -1300,16 +1323,16 @@
         <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
-      演習 4: アプリケーション コードの更新
+      演習 4: アプリケーション コードを更新
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
+  <a href="#5_1" class="md-nav__link">
     <span class="md-ellipsis">
-      演習 5: アプリケーションのテスト
+      演習 5: アプリケーションをテスト
     </span>
   </a>
   
@@ -1336,7 +1359,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ E6b - OAuth を使用した Entra ID 認証（手動セットアップ）
+    ラボ E6b - OAuth を使用した Entra ID 認証の追加 (手動セットアップ)
     
   </span>
   
@@ -1359,7 +1382,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ E6c - Entra ID 認証とシングル サインオンの追加
+    ラボ E6c - Entra ID 認証と Single Sign-on の追加
     
   </span>
   
@@ -1436,7 +1459,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ E7 ‑ 統合: Microsoft Copilot Connector を使用した Trey Genie への Knowledge 機能の追加
+    ラボ E7 - 統合: Microsoft Copilot Connector を使用して Trey Genie にナレッジ機能を追加
     
   </span>
   
@@ -1517,7 +1540,7 @@
   
   
   <span class="md-ellipsis">
-    カスタム エンジン エージェントの構築
+    カスタムエンジン エージェントの構築
     
   </span>
   
@@ -1583,7 +1606,7 @@
   
   
   <span class="md-ellipsis">
-    イントロ - M365 Agents SDK と Semantic Kernel で独自エージェントを構築
+    イントロ - M365 Agents SDK と Semantic Kernel を使用したエージェント構築
     
   </span>
   
@@ -1606,7 +1629,7 @@
   
   
   <span class="md-ellipsis">
-    Lab BMA0 - 前提条件
+    ラボ BMA0 - 前提条件
     
   </span>
   
@@ -1652,7 +1675,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ BMA2 - M365 Agents SDK を使用した初めてのエージェント構築
+    ラボ BMA2 - M365 Agents SDK を使用して最初のエージェントを構築
     
   </span>
   
@@ -1675,7 +1698,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ BMA3 - Azure AI Foundry エージェントと M365 Agents SDK の統合
+    ラボ BMA3 - Azure AI Foundry エージェントを M365 Agents SDK と統合
     
   </span>
   
@@ -1698,7 +1721,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ MBA4 - エージェントを Copilot Chat へ接続
+    Lab MBA4 - エージェントを Copilot Chat に導入
     
   </span>
   
@@ -1772,7 +1795,7 @@
   
   
   <span class="md-ellipsis">
-    イントロ - Teams AI ライブラリで独自のエージェントを構築
+    イントロ ― Teams AI Library を使用した独自エージェント構築
     
   </span>
   
@@ -1818,7 +1841,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ BTA1 - Teams AI ライブラリによる最初のカスタムエンジン エージェント
+    ラボ BTA1 - Teams AI ライブラリでの最初のカスタム エンジン エージェント
     
   </span>
   
@@ -1841,7 +1864,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ BTA2 - Azure AI Search にデータをインデックス化
+    ラボ BTA2 - Azure AI Search でデータをインデックス
     
   </span>
   
@@ -1864,7 +1887,7 @@
   
   
   <span class="md-ellipsis">
-    ラボ BTA3 - ユーザー エクスペリエンスの強化
+    ラボ BTA3 - ユーザー エクスペリエンスの向上
     
   </span>
   
@@ -1991,7 +2014,7 @@
   
   
   <span class="md-ellipsis">
-    エージェント インストラクション ラボ ― 初心者向けエージェント指示の改善
+    エージェント指示ラボ - エージェント指示の改善（初心者向け）
     
   </span>
   
@@ -2069,15 +2092,15 @@
 
 
 
-<h1 id="e6a-oauth-entra-id-agents-toolkit">ラボ E6a - OAuth を使用した Entra ID 認証の追加 (Agents Toolkit)</h1>
-<p>このラボでは、Entra ID を ID プロバイダーとして利用し、OAuth 2.0 で API プラグインに認証を追加します。Agents Toolkit を使用して Entra ID と Teams Developer Portal の登録を自動化する方法を学びます。</p>
+<h1 id="e6a-entra-id-oauth-agents-toolkit">ラボ E6a - Entra ID 認証を OAuth で追加 (Agents Toolkit)</h1>
+<p>このラボでは、Entra ID を ID プロバイダーとして使用し、OAuth 2.0 で API プラグインに認証を追加します。Agents Toolkit を設定し、Entra ID と Teams Developer Portal への登録を自動化する方法を学習します。</p>
 <div class="lab-intro-video">
     <div style="flex: 1; min-width: 0;">
         <iframe  src="//www.youtube.com/embed/1IhyztqkuJo" frameborder="0" allowfullscreen style="width: 100%; aspect-ratio: 16/9;">          
         </iframe>
-          <div>このビデオでラボの概要を確認できます。</div>
+          <div>このビデオでラボの概要を簡単にご覧ください。</div>
             <div class="note-box">
-            📘 <strong>Note:</strong> このラボは前のラボ E5 を基にしています。ラボ E5 を完了している場合は同じフォルダーで続行できます。まだの場合は <a src="https://github.com/microsoft/copilot-camp/tree/main/src/extend-m365-copilot/path-e-lab05-add-adaptive-cards/trey-research-lab05-END" target="_blank">/src/extend-m365-copilot/path-e-lab05-add-adaptive-cards/trey-research-lab05-END</a> のソリューション フォルダーをコピーして作業してください。  
+            📘 <strong>注:</strong>    このラボは前回のラボ E5 を基にしています。ラボ E5 を完了している場合は、同じフォルダーで作業を続けてください。完了していない場合は、<a src="https://github.com/microsoft/copilot-camp/tree/main/src/extend-m365-copilot/path-e-lab05-add-adaptive-cards/trey-research-lab05-END" target="_blank">/src/extend-m365-copilot/path-e-lab05-add-adaptive-cards/trey-research-lab05-END</a> から Lab E5 のソリューション フォルダーをコピーして作業してください。
     このラボの完成版ソリューションは <a src="https://github.com/microsoft/copilot-camp/tree/main/src/extend-m365-copilot/path-e-lab06a-add-oauth/trey-research-lab06a-END" target="_blank">src/extend-m365-copilot/path-e-lab06a-add-oauth/trey-research-lab06a-END </a> フォルダーにあります。
         </div>
     </div>
@@ -2086,17 +2109,17 @@
   <div class="cc-lab-toc e-path">
       <img src="/copilot-camp/assets/images/path-icons/E-path-heading.png"></img>
       <div>
-          <p>Microsoft 365 が AI モデルとオーケストレーションを提供する宣言型 エージェントを構築したい場合は、これらの ラボ を実施してください。</p>
+          <p>Microsoft 365 が AI モデルとオーケストレーションを提供する宣言型エージェントを構築したい場合は、これらのラボを実施してください。</p>
           <ul id="lab-toc">
-              <li><strong><a href="/copilot-camp/pages/extend-m365-copilot/index">🏁 ようこそ</a></strong></li>
+              <li><strong><a href="/copilot-camp/pages/extend-m365-copilot/index">🏁 はじめに</a></strong></li>
               <li><strong>🔧 セットアップ</strong>
                   <ul>
                       <li><a href="/copilot-camp/pages/extend-m365-copilot/00-prerequisites">ラボ E0 - セットアップ</a></li>
                   </ul>
               </li>
-              <li><strong>🧰 宣言型 エージェントの基礎</strong>
+              <li><strong>🧰 宣言型エージェントの基礎</strong>
                   <ul>
-                      <li><a href="/copilot-camp/pages/extend-m365-copilot/01-typespec-declarative-agent">ラボ E1 - 詳細な宣言型 エージェントを構築する</a>
+                      <li><a href="/copilot-camp/pages/extend-m365-copilot/01-typespec-declarative-agent">ラボ E1 - 詳細な宣言型エージェントを構築する</a>
                       </li>
                       <li><a href="/copilot-camp/pages/extend-m365-copilot/01a-geolocator">ラボ E1a - Geo ロケーターゲーム</a></li>
                   </ul>
@@ -2104,9 +2127,9 @@
               <li><strong>🛠️ API をゼロから構築して統合する</strong>
                   <ul>
                       <li><a href="/copilot-camp/pages/extend-m365-copilot/02-build-the-api">ラボ E2 - API を構築する</a></li>
-                      <li><a href="/copilot-camp/pages/extend-m365-copilot/03-add-declarative-agent">ラボ E3 - 宣言型 エージェント + API を追加する</a></li>
-                      <li><a href="/copilot-camp/pages/extend-m365-copilot/04-enhance-api-plugin">ラボ E4 - API + プラグインを拡張する</a></li>
-                      <li><a href="/copilot-camp/pages/extend-m365-copilot/05-add-adaptive-card">ラボ E5 - Adaptive Cards を追加する</a></li>
+                      <li><a href="/copilot-camp/pages/extend-m365-copilot/03-add-declarative-agent">ラボ E3 - 宣言型エージェント + API を追加する</a></li>
+                      <li><a href="/copilot-camp/pages/extend-m365-copilot/04-enhance-api-plugin">ラボ E4 - API + プラグインを強化する</a></li>
+                      <li><a href="/copilot-camp/pages/extend-m365-copilot/05-add-adaptive-card">ラボ E5 - Adaptive Card を追加する</a></li>
                   </ul>
               </li>
               <li><strong>🔐 認証</strong>
@@ -2161,9 +2184,9 @@
 </div>
 
 <h2 id="1-agents-toolkit">演習 1: ローカル Agents Toolkit 構成の更新</h2>
-<p>この演習では、Agents Toolkit の構成ファイルを修正し、Entra ID でアプリケーションを登録し、その情報を Teams Developer Portal の「Vault」に格納するよう指示します。</p>
-<h3 id="step-1-entra-id">Step 1: Entra ID アプリ マニフェストの追加</h3>
-<p>作業フォルダーのルートに新しいファイル <strong>aad.manifest.json</strong> を作成し、次の行をコピーしてください。</p>
+<p>この演習では、Agents Toolkit の構成ファイルを変更し、Entra ID へのアプリ登録と Teams Developer Portal の「Vault」への情報登録を自動化するように設定します。</p>
+<h3 id="1-entra-id">手順 1: Entra ID アプリ マニフェストを追加</h3>
+<p>作業フォルダーのルートに <strong>aad.manifest.json</strong> という新しいファイルを作成し、次の内容をコピーします。</p>
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;${{AAD_APP_OBJECT_ID}}&quot;,
     &quot;appId&quot;: &quot;${{AAD_APP_CLIENT_ID}}&quot;,
@@ -2205,37 +2228,37 @@
     ]
 }
 </code></pre>
-<p>このファイルには、登録または更新される Entra ID アプリケーションの詳細が含まれています。<code>${{AAD_APP_CLIENT_ID}}</code> などのトークンは、Agents Toolkit がアプリケーションをプロビジョニングする際に実際の値に置き換えられます。</p>
+<p>このファイルには、登録または更新される Entra ID アプリケーションの詳細が含まれています。<code>${{AAD_APP_CLIENT_ID}}</code> のようなトークンは、Agents Toolkit がアプリをプロビジョニングする際に実際の値に置き換えられます。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Entra ID は以前「Azure Active Directory」と呼ばれていました。「AAD」という記載は旧名称である Entra ID を指します。</p>
+<p>Entra ID は以前「Azure Active Directory」と呼ばれていました。「AAD」という表記は旧名称である Entra ID を指します。</p>
 </div>
 <p><cc-end-step lab="e6a" exercise="1" step="1" /></p>
-<h3 id="step-2-teamsapplocalyml">Step 2: <strong>teamsapp.local.yml</strong> のファイル バージョン番号を更新</h3>
-<p><strong>teamsapp.local.yml</strong> ファイルは、ローカルでソリューションを実行・デバッグする際の Agents Toolkit の動作を定義します。この演習の残りではこのファイルを更新します。</p>
+<h3 id="2-teamsapplocalyml">手順 2: <strong>teamsapp.local.yml</strong> のファイル バージョン番号を更新</h3>
+<p><strong>teamsapp.local.yml</strong> ファイルには、ローカルでソリューションを実行・デバッグするときの Agents Toolkit の指示が記載されています。以降の手順でこのファイルを更新します。</p>
 <div class="admonition info">
-<p class="admonition-title">teamsapp.local.yml は m365agents.local.yml に変更されました</p>
-<p>新しい Agents Toolkit では、ツールキット関連タスクのファイル名が <code>m365agents.local.yml</code> に変更されました。新規プロジェクトで エージェント を作成した場合はそちらのファイル名を変更してください。本ラボでは既存の エージェント プロジェクトを使用するため、リネームやリファクタリングは不要です。手順どおり進めてください。</p>
+<p class="admonition-title">teamsapp.local.yml は m365agents.local.yml に変更</p>
+<p>新しい Agents Toolkit ではツールキット関連タスク用のファイル名が <code>m365agents.local.yml</code> に変更されました。新規にエージェントを作成した場合はこちらのファイル名になりますが、本ラボでは既存のプロジェクトを扱うため、リネームやリファクタリングは不要です。手順どおりに進めてください。</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">yaml のインデントは重要です</p>
-<p>yaml ファイルではインデントで階層を示すため編集が難しい場合があります。インデントが正しくないとラボが動作しません。不安な場合は完成版ファイルを参照してください <a _target="blank" href="https://github.com/microsoft/copilot-camp/tree/main/src/extend-m365-copilot/path-e-lab06a-add-oauth/trey-research-lab06a-END/teamsapp.local.yml">こちら</a>。</p>
+<p>yaml ファイルはインデントで階層を表します。インデントを誤るとラボが動作しません。不安な場合は <a _target="blank" href="https://github.com/microsoft/copilot-camp/tree/main/src/extend-m365-copilot/path-e-lab06a-add-oauth/trey-research-lab06a-END/teamsapp.local.yml">完成版ファイル</a> を参照してください。</p>
 </div>
-<p>これらのラボは、バージョン 1.5 を使用するやや古い Agents Toolkit で書かれていました。このステップではファイルをバージョン 1.7 に更新します。</p>
-<p>まず、最初の行を次の新しいスキーマ参照に置き換えます。</p>
+<p>これらのラボは、ファイル バージョン 1.5 を使用するやや古い Agents Toolkit で作成されました。この手順ではファイルをバージョン 1.7 に更新します。</p>
+<p>まず、1 行目を次のスキーマ参照に置き換えます。</p>
 <pre><code class="language-yaml"># yaml-language-server: $schema=https://aka.ms/teams-toolkit/v1.7/yaml.schema.json
 </code></pre>
-<p>続いて 4 行目のバージョン番号を 1.7 に更新します。</p>
+<p>次に 4 行目のバージョン番号を 1.7 に更新します。</p>
 <pre><code class="language-yaml">version: v1.7
 </code></pre>
 <p><cc-end-step lab="e6a" exercise="1" step="2" /></p>
-<h3 id="step-3-entra-id">Step 3: Entra ID アプリケーションのプロビジョニング</h3>
-<p>アプリケーションが ユーザー を認証し何らかの操作を許可できるようにするには、まず Entra ID にアプリを登録する必要があります。この手順では、まだ登録がない場合に追加します。</p>
-<p>ファイル内で次の行を探します:</p>
+<h3 id="3-entra-id">手順 3: Entra ID アプリケーションをプロビジョニング</h3>
+<p>ユーザーを認証し権限を付与するには、アプリケーションを Entra ID に登録する必要があります。この手順でアプリ登録を追加します。</p>
+<p>ファイル内の次の行を探します:</p>
 <pre><code class="language-yaml">provision:
   # Creates a Teams app
 </code></pre>
-<p><code>provision:</code> 行の直下に次の yaml を挿入します。可読性のため空行を入れてもかまいません。</p>
+<p><code>provision:</code> 行の直下に、以下の yaml を挿入します。読みやすさのために空行を入れてもかまいません。</p>
 <pre><code class="language-yaml">  # Creates a new Microsoft Entra app to authenticate users if
   # the environment variable that stores clientId is empty
   - uses: aadApp/create
@@ -2262,14 +2285,14 @@
       authority: AAD_APP_OAUTH_AUTHORITY
       authorityHost: AAD_APP_OAUTH_AUTHORITY_HOST
 </code></pre>
-<p><code>signInAudience</code> を <code>AzureADMyOrg</code> に設定することで、Agents Toolkit は登録したテナント内でのみ使用できるシングル テナント アプリケーションを作成します。顧客テナントなど他のテナントでも使用したい場合は <code>AzureADMultipleOrgs</code> に変更してください。3 つのステップはいずれも前の手順で作成した <strong>aad.manifest.json</strong> を利用します。</p>
-<p>また、このステップでは複数の値が環境ファイルに書き込まれ、<strong>aad.manifest.json</strong> とアプリケーション パッケージに挿入されます。</p>
+<p><code>signInAudience</code> を <code>AzureADMyOrg</code> に設定すると、Agents Toolkit は登録されたテナント内でのみ使用できるシングルテナント アプリを作成します。別のテナント (顧客テナントなど) でも使用したい場合は <code>AzureADMultipleOrgs</code> に変更してください。3 つのステップすべてで、先ほど作成した <strong>aad.manifest.json</strong> を使用します。</p>
+<p>また、このステップでは複数の値が環境ファイルに書き込まれ、それらが <strong>aad.manifest.json</strong> やアプリ パッケージに挿入されます。</p>
 <p><cc-end-step lab="e6a" exercise="1" step="3" /></p>
-<h3 id="step-4-entra-id">Step 4: Entra ID アプリケーションの更新</h3>
+<h3 id="4-entra-id">手順 4: Entra ID アプリケーションを更新</h3>
 <p><strong>teamsapp.local.yml</strong> で次の行を探します  </p>
 <pre><code class="language-yaml">  # Build Teams app package with latest env value
 </code></pre>
-<p>この行の前に次の yaml を挿入します:</p>
+<p>この行の前に以下の yaml を挿入します:</p>
 <pre><code class="language-yaml">  - uses: oauth/register
     with:
       name: oAuth2AuthCode
@@ -2300,18 +2323,18 @@
       manifestPath: ./aad.manifest.json
       outputFilePath: ./build/aad.manifest.${{TEAMSFX_ENV}}.json
 </code></pre>
-<p><code>oauth/register</code> と <code>oauth/update</code> ステップは、Teams Developer Portal の Vault にアプリを登録し、Copilot が OAuth 2.0 の Auth Code フローを実装するために必要な詳細を取得できるようにします。<code>aadApp/update</code> ステップは <strong>aad.manifest.json</strong> にある詳細を使って Entra ID アプリ自体を更新します。</p>
+<p><code>oauth/register</code> と <code>oauth/update</code> ステップはアプリを Teams Developer Portal の Vault に登録し、Copilot が OAuth 2.0 Auth Code フローを実装するための詳細情報を取得できるようにします。<code>aadApp/update</code> ステップは Entra ID アプリ自体を更新します。詳細は別ファイル <strong>aad.manifest.json</strong> にありますが、これは次の演習で追加します。</p>
 <p><cc-end-step lab="e6a" exercise="1" step="4" /></p>
-<h3 id="step-5">Step 5: 出力パスの変更</h3>
-<p>新しい yaml スキーマでは出力パスが少し変更されています。次の行を探してください:</p>
+<h3 id="5">手順 5: 出力パスを変更</h3>
+<p>新しい yaml スキーマでは出力パスが少し変わります。次の行を探します:</p>
 <pre><code class="language-yaml">      outputJsonPath: ./appPackage/build/manifest.${{TEAMSFX_ENV}}.json
 </code></pre>
 <p>これを次の行に置き換えます:</p>
 <pre><code class="language-yaml">      outputFolder: ./appPackage/build
 </code></pre>
 <p><cc-end-step lab="e6a" exercise="1" step="5" /></p>
-<h3 id="step-6-entra-id">Step 6: アプリケーション コードで Entra ID の値を利用可能にする</h3>
-<p>次の行を探してください:</p>
+<h3 id="6-entra-id">手順 6: Entra ID の値をアプリケーション コードで利用可能にする</h3>
+<p>次の行を探します:</p>
 <pre><code class="language-yaml">deploy:
   # Install development tool(s)
   - uses: devTool/install
@@ -2330,24 +2353,24 @@
       envs:
         STORAGE_ACCOUNT_CONNECTION_STRING: ${{SECRET_STORAGE_ACCOUNT_CONNECTION_STRING}}
 </code></pre>
-<p>これはアプリケーション コード内で使用する環境変数を公開しています。<code>STORAGE_ACCOUNT_CONNECTION_STRING</code> の下に次の行を追加して利用可能にします:</p>
+<p>これはアプリケーション コードで使用する環境変数を公開しています。<code>STORAGE_ACCOUNT_CONNECTION_STRING</code> の下に次の行を追加し、利用できるようにします:</p>
 <pre><code class="language-yaml">        AAD_APP_TENANT_ID: ${{AAD_APP_TENANT_ID}}
         AAD_APP_CLIENT_ID: ${{AAD_APP_CLIENT_ID}}
 </code></pre>
 <p><cc-end-step lab="e6a" exercise="1" step="6" /></p>
-<h2 id="2-agents-toolkit">演習 2: 一般的な Agents Toolkit 構成の更新</h2>
-<p><strong>teamsapp-local.yml</strong> がローカル デバッグ時の Agents Toolkit の動作を制御する一方で、<strong>teamsapp.yml</strong> は Microsoft Azure へのデプロイ時の動作を制御します。この演習ではこのファイルを更新します。</p>
+<h2 id="2-agents-toolkit">演習 2: 一般的な Agents Toolkit 構成を更新</h2>
+<p><strong>teamsapp-local.yml</strong> がローカル デバッグ時の Agents Toolkit の動作を制御するのに対し、<strong>teamsapp.yml</strong> は Microsoft Azure へのデプロイ時の動作を制御します。この演習ではこのファイルを更新します。</p>
 <div class="admonition warning">
 <p class="admonition-title">yaml のインデントは重要です</p>
-<p>yaml ファイルではインデントで階層を示すため編集が難しい場合があります。インデントが正しくないとラボが動作しません。不安な場合は完成版ファイルを参照してください <a _target="blank" href="https://github.com/microsoft/copilot-camp/tree/main/src/extend-m365-copilot/path-e-lab06a-add-oauth/trey-research-lab06a-END/teamsapp.yml">こちら</a>。</p>
+<p>yaml ファイルはインデントで階層を表します。インデントを誤るとラボが動作しません。不安な場合は <a _target="blank" href="https://github.com/microsoft/copilot-camp/tree/main/src/extend-m365-copilot/path-e-lab06a-add-oauth/trey-research-lab06a-END/teamsapp.yml">完成版ファイル</a> を参照してください。</p>
 </div>
-<h3 id="step-1-entra-id_1">Step 1: Entra ID アプリケーションのプロビジョニング</h3>
-<p>アプリケーションが ユーザー を認証し何らかの操作を許可できるようにするには、まず Entra ID にアプリを登録する必要があります。この手順では、まだ登録がない場合に追加します。</p>
-<p>ファイル内で次の行を探します:</p>
+<h3 id="1-entra-id_1">手順 1: Entra ID アプリケーションをプロビジョニング</h3>
+<p>ユーザーを認証し権限を付与するには、アプリケーションを Entra ID に登録する必要があります。この手順でアプリ登録を追加します。</p>
+<p>ファイル内の次の行を探します:</p>
 <pre><code class="language-yaml">provision:
   # Creates a Teams app
 </code></pre>
-<p><code>provision:</code> 行の直下に次の yaml を挿入します。可読性のため空行を入れてもかまいません。</p>
+<p><code>provision:</code> 行の直下に以下の yaml を挿入します。読みやすさのために空行を入れてもかまいません。</p>
 <pre><code class="language-yaml">  # Creates a new Microsoft Entra app to authenticate users if
   # the environment variable that stores clientId is empty
   - uses: aadApp/create
@@ -2374,10 +2397,10 @@
       authority: AAD_APP_OAUTH_AUTHORITY
       authorityHost: AAD_APP_OAUTH_AUTHORITY_HOST
 </code></pre>
-<p><code>signInAudience</code> が <code>AzureADMyOrg</code> に設定されているため、Agents Toolkit は登録したテナント内でのみ使用できるシングル テナント アプリケーションを作成します。他のテナントでも使用したい場合は <code>AzureADMultipleOrgs</code> に変更してください。3 つのステップはいずれも前の手順で作成した <strong>aad.manifest.json</strong> を利用します。</p>
-<p>また、このステップでは複数の値が環境ファイルに書き込まれ、<strong>aad.manifest.json</strong> とアプリケーション パッケージに挿入されます。</p>
+<p><code>signInAudience</code> を <code>AzureADMyOrg</code> に設定すると、Agents Toolkit は登録されたテナント内でのみ使用できるシングルテナント アプリを作成します。別のテナント (顧客テナントなど) でも使用したい場合は <code>AzureADMultipleOrgs</code> に変更してください。3 つのステップすべてで、先ほど作成した <strong>aad.manifest.json</strong> を使用します。</p>
+<p>また、このステップでは複数の値が環境ファイルに書き込まれ、それらが <strong>aad.manifest.json</strong> やアプリ パッケージに挿入されます。</p>
 <p><cc-end-step lab="e6a" exercise="2" step="1" /></p>
-<h3 id="step-2-teams-developer-portal-vault">Step 2: Teams Developer Portal Vault へのアプリ登録</h3>
+<h3 id="2-teams-developer-portal-vault">手順 2: Teams Developer Portal Vault にアプリを登録</h3>
 <p><strong>teamsapp.yml</strong> で次の行を探します</p>
 <pre><code class="language-yaml">  # Validate using manifest schema
   # - uses: teamsApp/validateManifest
@@ -2387,7 +2410,7 @@
 
   # Build Teams app package with latest env value
 </code></pre>
-<p>最後の行の前に次を挿入します:</p>
+<p>最後の行の前に以下を挿入します:</p>
 <pre><code class="language-yaml">  # Apply the Microsoft Entra manifest to an existing Microsoft Entra app. Will use the object id in
   # manifest file to determine which Microsoft Entra app to update.
   - uses: aadApp/update
@@ -2410,10 +2433,10 @@
       configurationId: OAUTH2AUTHCODE_CONFIGURATION_ID
 </code></pre>
 <p><cc-end-step lab="e6a" exercise="2" step="2" /></p>
-<h2 id="3">演習 3: アプリケーション パッケージの更新</h2>
-<p>Agents Toolkit で Entra ID の登録が設定できたので、次はアプリケーション パッケージを更新し、Copilot が認証情報を認識できるようにします。この演習では必要なファイルを更新します。</p>
-<h3 id="step-1-open-api-specification">Step 1: Open API Specification ファイルの更新</h3>
-<p>Visual Studio Code で作業フォルダーを開き、<strong>appPackage</strong> フォルダーの <strong>trey-definition.json</strong> ファイルを開きます。次の行を探します:</p>
+<h2 id="3">演習 3: アプリケーション パッケージを更新</h2>
+<p>Agents Toolkit が Entra ID 登録を設定できたので、次はアプリケーション パッケージを更新し、Copilot に認証情報を伝えます。</p>
+<h3 id="1-open-api-specification">手順 1: Open API Specification ファイルを更新</h3>
+<p>Visual Studio Code で作業フォルダーを開きます。<strong>appPackage</strong> フォルダーの <strong>trey-definition.json</strong> を開き、次の行を探します:</p>
 <pre><code class="language-json">    &quot;paths&quot;: {
 </code></pre>
 <p>その前に次の JSON を挿入します:</p>
@@ -2435,12 +2458,12 @@
         }
     },
 </code></pre>
-<p>これにより、API 呼び出し時に使用される新しいセキュリティ スキームが設定されます。</p>
+<p>これで API を呼び出す際に使用される新しいセキュリティ スキームが設定されます。</p>
 <p>次に、このスキームを各 API パスに追加します。各パスの <code>responses</code> オブジェクトを探します:</p>
 <pre><code class="language-json">    &quot;responses&quot;: {
       ...
 </code></pre>
-<p>各 <code>responses</code> の前に次の JSON を挿入します（ファイル内に 5 か所あります。すべての前に挿入してください）:</p>
+<p>各 <code>responses</code> の前に以下の JSON を挿入します (ファイル内に 5 か所あります。すべてに忘れず挿入してください):</p>
 <pre><code class="language-json">    &quot;security&quot;: [
         {
             &quot;oAuth2AuthCode&quot;: []
@@ -2449,39 +2472,39 @@
 </code></pre>
 <p>編集後は必ず保存してください。</p>
 <p><cc-end-step lab="e6a" exercise="3" step="1" /></p>
-<h3 id="step-2">Step 2: プラグイン ファイルの更新</h3>
-<p><strong>appPackage</strong> フォルダーの <strong>trey-plugin.json</strong> ファイルを開きます。ここには、Open API Specification (OAS) ファイルに存在しない Copilot が必要とする情報が保存されています。</p>
-<p><code>Runtimes</code> の下に <code>auth</code> プロパティがあり、<code>"None"</code> と設定されているため、現在 API は認証されていません。以下のように変更し、Vault に保存した OAuth 設定を使用して Copilot に認証させます。</p>
+<h3 id="2">手順 2: プラグイン ファイルを更新</h3>
+<p><strong>appPackage</strong> フォルダー内の <strong>trey-plugin.json</strong> を開きます。このファイルには Open API Specification (OAS) に含まれない Copilot が必要とする情報が格納されています。</p>
+<p><code>Runtimes</code> の下に <code>auth</code> プロパティがあり、<code>"None"</code> になっています。これを次のように変更し、Vault に保存されている OAuth 設定で認証するよう Copilot に指示します。</p>
 <pre><code class="language-json">  &quot;auth&quot;: {
     &quot;type&quot;: &quot;OAuthPluginVault&quot;,
     &quot;reference_id&quot;: &quot;${{OAUTH2AUTHCODE_CONFIGURATION_ID}}&quot;
   },
 </code></pre>
-<p>次のステップでは、アプリケーション コードを更新して有効なログインをチェックし、"Avery Howard"（Microsoft の架空名ジェネレーターの名前）ではなく実際の Microsoft 365 ユーザーとして API にアクセスします。</p>
+<p>次の手順では、アプリケーション コードを更新し、実際の Microsoft 365 ユーザーとして API にアクセスするようにします (現在は Microsoft の架空名ジェネレーターで生成された "Avery Howard" となっています)。</p>
 <p><cc-end-step lab="e6a" exercise="3" step="2" /></p>
-<h2 id="4">演習 4: アプリケーション コードの更新</h2>
-<h3 id="step-1-jwt">Step 1: JWT 検証ライブラリのインストール</h3>
-<p>作業ディレクトリのコマンド ラインで次を実行します:</p>
+<h2 id="4">演習 4: アプリケーション コードを更新</h2>
+<h3 id="1-jwt">手順 1: JWT 検証ライブラリをインストール</h3>
+<p>作業ディレクトリでコマンド ラインを開き、次を実行します:</p>
 <pre><code class="language-sh">npm i jwt-validate
 </code></pre>
 <p>これにより、受信した Entra ID 認可トークンを検証するライブラリがインストールされます。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Microsoft は NodeJS で Entra ID トークンを検証するサポート付きライブラリを提供していません。その代わり、<a href="https://learn.microsoft.com/entra/identity-platform/access-tokens#validate-tokens" target="_blank">詳細なドキュメント</a> で独自に記述する方法を案内しています。<a href="https://www.voitanos.io/blog/validating-entra-id-generated-oauth-tokens/" target="_blank">参考記事</a> も <a href="https://www.voitanos.io/pages/about/#whos-behind-voitanos" target="_blank">Microsoft MVP Andrew Connell</a> から提供されています。</p>
-<p><strong>このラボでは、<a href="https://github.com/waldekmastykarz" target="_blank">Waldek Mastykarz</a> 氏が作成した <a href="https://www.npmjs.com/package/jwt-validate" target="_blank">コミュニティ提供ライブラリ</a> を使用します。このライブラリはガイダンスに従うことを意図していますが、Microsoft によるサポートはなく MIT ライセンスの下で提供されています。使用は自己責任でお願いします。</strong></p>
-<p>サポート付きライブラリの進捗を追跡したい場合は <a href="https://github.com/AzureAD/microsoft-authentication-library-for-js/issues/6113" target="_blank">この GitHub issue</a> をフォローしてください。</p>
+<p>Microsoft は NodeJS で Entra ID トークンを検証する公式ライブラリを提供していません。その代わり、<a href="https://learn.microsoft.com/entra/identity-platform/access-tokens#validate-tokens" target="_blank">詳細ドキュメント</a> が用意されています。また、<a href="https://www.voitanos.io/pages/about/#whos-behind-voitanos" target="_blank">Microsoft MVP の Andrew Connell</a> による <a href="https://www.voitanos.io/blog/validating-entra-id-generated-oauth-tokens/" target="_blank">有用な記事</a> もあります。</p>
+<p><strong>このラボでは <a href="https://www.npmjs.com/package/jwt-validate" target="_blank">コミュニティ提供ライブラリ</a> (作者: <a href="https://github.com/waldekmastykarz" target="_blank">Waldek Mastykarz</a>) を使用します。このライブラリは MIT ライセンスで提供され、Microsoft によるサポートはありません。自己責任で使用してください。</strong></p>
+<p>サポートされるライブラリの進捗を追跡したい場合は、<a href="https://github.com/AzureAD/microsoft-authentication-library-for-js/issues/6113" target="_blank">この GitHub issue</a> をフォローしてください。</p>
 </div>
 <p><cc-end-step lab="e6a" exercise="4" step="1" /></p>
-<h3 id="step-2-identity">Step 2: Identity サービスの更新</h3>
-<p>この時点で OAuth ログインは機能し、有効なアクセス トークンが提供されますが、トークンが有効かどうかをコードで確認しなければソリューションは安全ではありません。この手順ではトークンを検証し、ユーザー 名や ID などの情報を抽出するコードを追加します。</p>
+<h3 id="2-identity">手順 2: identity サービスを更新</h3>
+<p>OAuth ログインは機能しますが、トークンが有効かどうかを確認しなければセキュリティは確保されません。この手順では、トークンを検証し、ユーザー名や ID などの情報を取得するコードを追加します。</p>
 <p><strong>src/services</strong> フォルダーの <strong>IdentityService.ts</strong> を開きます。<br />
-ファイル上部の他の <code>import</code> 行と共に次を追加します:</p>
+ファイルの先頭の <code>import</code> 群に次を追加します:</p>
 <pre><code class="language-typescript">import { TokenValidator, ValidateTokenOptions, getEntraJwksUri } from 'jwt-validate';
 </code></pre>
-<p>次に、<code>class Identity</code> 宣言の直下に次の行を追加します:</p>
+<p>次に、<code>class Identity</code> の直下に次の行を追加します:</p>
 <pre><code class="language-typescript">    private validator: TokenValidator;
 </code></pre>
-<p>次に、次のコメントを探します</p>
+<p>次のコメントを探します:</p>
 <pre><code class="language-typescript">// ** INSERT REQUEST VALIDATION HERE (see Lab E6) **
 </code></pre>
 <p>コメントを次のコードに置き換えます:</p>
@@ -2528,78 +2551,86 @@
   }
 </code></pre>
 <div class="admonition note">
-<p class="admonition-title">コードから学ぶ</p>
-<p>追加したコードを見てみましょう。まず、HTTP リクエストの <code>Authorization</code> ヘッダーからトークンを取得します。このヘッダーには「Bearer トークン」という形式で値が格納されているため、JavaScript の <code>split(" ")</code> を利用してトークン部分のみを取得しています。</p>
+<p class="admonition-title">コードを読み解く</p>
+<p>追加したコードを確認しましょう。まず <code>Authorization</code> ヘッダーからトークンを取得します。このヘッダーは "Bearer トークン" の形式なので、JavaScript の <code>split(" ")</code> でトークンのみを取得しています。</p>
 <p>認証に失敗した場合は例外をスローし、Azure Function が適切なエラーを返します。</p>
-<p>続いて <code>jwt-validate</code> ライブラリ用のバリデーターを作成します。この呼び出しは Entra ID から最新の公開鍵を取得するため非同期で時間がかかる可能性があります。</p>
-<p>次に <code>ValidateTokenOptions</code> オブジェクトを設定します。ライブラリは、トークンが Entra ID の公開鍵で署名されていることに加え、以下を検証します:</p>
+<p>次に <code>jwt-validate</code> ライブラリ用のバリデーターを作成します。Entra ID の署名キーを取得するため非同期呼び出しです。</p>
+<p><code>ValidateTokenOptions</code> オブジェクトを設定し、以下を検証します:</p>
 <ul>
-<li><em>audience</em> が API サービスの app URI と一致すること（トークンがこの Web サービス専用であることを保証）  </li>
-<li><em>issuer</em> が自テナントのセキュリティ トークン サービスであること  </li>
-<li><em>scope</em> がアプリ登録で定義した <code>"access_as_user"</code> と一致すること  </li>
+<li><em>audience</em> が API サービス アプリ URI と一致すること (トークンが本 Web サービス専用であることを保証)</li>
+<li><em>issuer</em> が自テナントのセキュリティ トークン サービスであること</li>
+<li><em>scope</em> がアプリ登録で定義した <code>"access_as_user"</code> であること</li>
 </ul>
-<p>トークンが有効であれば、ライブラリは内部の "claims" を含むオブジェクトを返します。これには ユーザー の一意 ID、名前、メールが含まれます。これらの値を使用し、架空の "Avery Howard" ではなく実際の ユーザー を処理します。</p>
+<p>トークンが有効なら、ライブラリはユーザー ID、名前、メールなどを含むクレームを返します。これらを使用し、架空ユーザー "Avery Howard" ではなく実ユーザーとして処理します。</p>
 </div>
 <p><cc-end-step lab="e6a" exercise="4" step="2" /></p>
-<h2 id="5">演習 5: アプリケーションのテスト</h2>
-<h3 id="step-1">Step 1: アプリ マニフェストのバージョン番号を更新</h3>
-<p>アプリケーションをテストする前に <code>appPackage\manifest.json</code> 内のマニフェスト バージョンを更新します:</p>
+<h2 id="5_1">演習 5: アプリケーションをテスト</h2>
+<h3 id="1">手順 1: アプリ マニフェストのバージョン番号を更新</h3>
+<p>テスト前に <code>appPackage\manifest.json</code> の manifest バージョンを更新します。</p>
 <ol>
-<li>プロジェクトの <code>appPackage</code> フォルダーにある <code>manifest.json</code> を開きます。  </li>
-<li>JSON 内の <code>version</code> フィールドを見つけます:<br />
+<li>
+<p>プロジェクトの <code>appPackage</code> フォルダーにある <code>manifest.json</code> を開きます。</p>
+</li>
+<li>
+<p><code>version</code> フィールドを探します。例:<br />
 <code>json
-   "version": "1.0.0"</code>  </li>
-<li>バージョン番号を小さくインクリメントします。例:<br />
+   "version": "1.0.0"</code></p>
+</li>
+<li>
+<p>バージョン番号を小数点以下でインクリメントします。例:<br />
 <code>json
-   "version": "1.0.1"</code>  </li>
-<li>保存します。</li>
+   "version": "1.0.1"</code></p>
+</li>
+<li>
+<p>保存します。</p>
+</li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">jwt-validate パッケージのコンパイル問題</p>
-<p>現在 <code>jwt-validate</code> パッケージは <code>@types/jsonwebtoken</code> の型定義でエラーを投げる場合があります。回避策として、プロジェクト ルートの tsconfig.json に <code>"skipLibCheck": true</code> を追加してください。将来のライブラリ バージョンで修正される可能性があります。</p>
+<p>現時点で jwt-validate パッケージは @types/jsonwebtoken に関する型エラーを投げます。回避策としてプロジェクト ルートの tsconfig.json に <code>"skipLibCheck": true</code> を追加してください。将来のバージョンで修正される可能性があります。</p>
 </div>
 <p><cc-end-step lab="e6a" exercise="5" step="1" /></p>
-<h3 id="step-2_1">Step 2: アプリケーションの (再) 起動</h3>
-<p>前のラボからアプリが実行中の場合は停止し、アプリ パッケージを再作成させます。</p>
-<p>その後 F5 を押してアプリを再実行し、以前と同様にインストールします。</p>
+<h3 id="2_1">手順 2: アプリケーションを (再) 起動</h3>
+<p>以前のラボからアプリが実行中の場合は停止し、アプリ パッケージを再生成させます。</p>
+<p>その後 F5 キーで再実行し、これまでと同様にインストールします。</p>
 <p><cc-end-step lab="e6a" exercise="5" step="2" /></p>
-<h3 id="step-3">Step 3: 宣言型 エージェント の実行</h3>
-<p>Microsoft 365 Copilot に戻り、Trey Research エージェント を選択します。<br />
-「自分が担当している Trey プロジェクトは何ですか？」と入力してください。API を呼び出してよいか確認するカードが表示される場合があります。ここでは認証は行われていませんので、「Allow Once」をクリックして続行します。</p>
+<h3 id="3_1">手順 3: 宣言型エージェントを実行</h3>
+<p>Microsoft 365 Copilot に戻り、Trey Research エージェントを選択します。<br />
+「What Trey projects am I assigned to?」と入力します。API 呼び出しの確認カードが表示されたら、「Allow Once」をクリックしてください (ここでは認証は行われていません)。</p>
 <p><img alt="Microsoft 365 Copilot showing a confirmation card asking if it is ok to call your API. There are buttons to 'Always allow', 'Allow once', or 'Cancel.'" src="../../../../assets/images/extend-m365-copilot-06/oauth-run-01small.png" /></p>
-<p>確認カードがログイン カードに置き換わります。<br />
-「Sign in to Trey」をクリックしてサインインします。初回はポップアップ ウィンドウが表示され、ログインと権限付与を求められます。次回以降はブラウザーにキャッシュされ、表示されない場合があります。</p>
+<p>確認カードの後にログイン カードが表示されます。<br />
+「Sign in to Trey」をクリックしてサインインします。最初はポップアップ ウィンドウが開き、ログインと同意が求められます。再訪時はブラウザーのキャッシュにより表示されない場合があります。</p>
 <p><img alt="Microsoft 365 Copilot showing a login card with a button to 'Sign in to Trey' and another one to 'Cancel.'" src="../../../../assets/images/extend-m365-copilot-06/oauth-run-02small.png" /></p>
 <div class="admonition tip">
-<p class="admonition-title">管理者承認が必要な場合があります</p>
-<p>管理者が ユーザー による同意を許可していない場合、次のような画面が表示されることがあります。</p>
+<p class="admonition-title">管理者承認が必要な場合</p>
+<p>管理者がユーザーによる同意を許可していない場合、次のような画面が表示されることがあります:</p>
 <p><img alt="The Microsoft Entra popup dialog asking for an admin approval to consume the API." src="../../../../assets/images/extend-m365-copilot-06/need-admin-approval.png" /></p>
-<p>これは管理者がアプリへの権限付与を ユーザー に許可していないためです。管理者に依頼し、Microsoft 365 Admin / Identity / Applications / App Registrations でプラグイン API 登録に対してグローバル同意を付与してもらう必要があります。</p>
+<p>この場合、管理者に依頼してアプリ登録に対し全ユーザーへのグローバル同意を付与してもらう必要があります。Microsoft 365 管理センター / Identity / Applications / App Registrations でアプリを開き、「Grant admin consent」を実行してください。</p>
 <p><img alt="The 'API permissions' page of the 'API Plugin' application registered in Microsoft Entra with the 'Grant admin consent ...' command highlighted." src="../../../../assets/images/extend-m365-copilot-06/approval-admin.png" /></p>
 </div>
-<p>ログイン カードはあなたのプロンプトに対する Copilot の応答に置き換わります。データベースに追加されたばかりなので、まだプロジェクトには割り当てられていません。</p>
-<p>以前は架空の "Avery Howard" がハードコードされていましたが、新しいコードが初めて実行されるとあなたのユーザー ID を見つけられないため、新しいコンサルタント レコードが作成され、まだプロジェクトに割り当てられていません。</p>
+<p>ログイン カードが消え、Copilot からの応答が表示されます。データベースに追加されたばかりなので、まだプロジェクトは割り当てられていません。</p>
+<p>ユーザーは架空の "Avery Howard" から実ユーザーに変わりました。新しいコードが初めて実行されると、ユーザー ID が見つからないため、新しいコンサルタント レコードが作成されますが、まだプロジェクトは割り当てられていません。</p>
 <div class="admonition note">
 <p class="admonition-title">ユーザー情報の更新</p>
-<p>これはラボ用のため、スキルや所在地などの詳細はハードコードされています。変更したい場合は <a href="https://azure.microsoft.com/en-us/products/storage/storage-explorer/" target="_blank">Azure Storage Explorer</a> を使ってください。</p>
+<p>これはラボなので、スキルや所在地などはハードコードされています。変更したい場合は <a href="https://azure.microsoft.com/en-us/products/storage/storage-explorer/" target="_blank">Azure Storage Explorer</a> を使用して編集できます。</p>
 <p><img alt="The Azure Storage Explorer in action while editing the Consultant table. The actual current user is highlighted." src="../../../../assets/images/extend-m365-copilot-06/oauth-azure-storage-explorer.png" /></p>
 </div>
 <p><cc-end-step lab="e6a" exercise="5" step="3" /></p>
-<h3 id="step-4">Step 4: 自分をプロジェクトに追加する</h3>
-<p>データベースに追加されたばかりなので、まだプロジェクトに割り当てられていません。プロジェクトの割り当ては <code>Assignment</code> テーブルに保存され、プロジェクト ID と割り当てられたコンサルタントの consultant ID を参照します。<br />
-「自分の担当プロジェクトを教えて」と エージェント に聞くと、プロジェクトが見つからない旨が返り、スキルと役割を特定して手伝う提案をします。</p>
+<h3 id="4_1">手順 4: 自分をプロジェクトに追加</h3>
+<p>データベースに追加されたばかりなので、プロジェクトは割り当てられていません。<code>Assignment</code> テーブルにプロジェクト ID とコンサルタント ID が保存されます。<br />
+エージェントにプロジェクトを尋ねると、割り当てが見つからず、スキルと役割を提示して手助けを申し出ます。</p>
 <p><img alt="The response from the 'Trey Genie' agent when the actual user doesn't have any assigned project." src="../../../../assets/images/extend-m365-copilot-06/oauth-run-03bsmall.png" /></p>
-<p>「自分を Woodgrove プロジェクトに追加して」と エージェント に依頼してください。必須値を忘れた場合、エージェント は詳細を求めます。</p>
+<p>エージェントに「Add me to the Woodgrove project」と頼みます。必須情報が不足している場合は詳細を尋ねられます。</p>
 <p><img alt="The response from the 'Trey Genie' agent when adding the current user to a project. If some information are missing, Copilot asks to confirm them. Once all the information are provided, the agent provides a confirmation of the action." src="../../../../assets/images/extend-m365-copilot-06/oauth-run-05.png" /></p>
-<p>不足情報を提供すると、エージェント が再度確認します。</p>
+<p>不足情報を提供すると、エージェントが詳細を再確認します。</p>
 <p><img alt="The response from the 'Trey Genie' agent when adding the current user to a project. If some information are missing, Copilot asks to confirm them. Once all the information are provided, the agent provides a confirmation of the action." src="../../../../assets/images/extend-m365-copilot-06/oauth-run-06.png" /></p>
-<p>最終的に確認すると、エージェント はあなたを適切な役割と予測でプロジェクトに追加します。</p>
+<p>最終確認後、エージェントは適切な役割と工数であなたをプロジェクトに追加します。</p>
 <p><img alt="The response from the 'Trey Genie' agent after adding user to project" src="../../../../assets/images/extend-m365-copilot-06/oauth-run-07.png" /></p>
-<p>続けて「自分のスキルと担当プロジェクトを教えて」と尋ね、デフォルトのスキルとプロジェクト割り当てを確認してください。</p>
+<p>続けて「What are my skills and what projects am I assigned to?」と尋ねて、スキルとプロジェクト割り当てを確認しましょう。</p>
 <p><cc-end-step lab="e6a" exercise="5" step="4" /></p>
 <p><span style="font-size: large; font-weight: bold; color: #1c8fd2;">おめでとうございます！</span></p>
-<p>Entra ID 認証を追加するラボ Ea6 を完了しました。お疲れさまでした!</p>
-<p>もっと試してみませんか? ソリューションに Copilot Connector を追加してみましょう。</p>
+<p>これでラボ Ea6「Agents Toolkit で Entra ID 認証を追加」が完了しました!</p>
+<p>次に何か面白いことを試してみませんか? Copilot コネクタをソリューションに追加してみましょう。</p>
 <p><cc-next url="../07-add-graphconnector" /></p>
 <p><img src="https://pnptelemetry.azurewebsites.net/copilot-camp/extend-m365-copilot/06a-add-authentication" /></p>
 
@@ -2653,16 +2684,18 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
         <script src="../../../../javascripts/cc-award.js"></script>
       
         <script src="../../../../javascripts/cc-next.js"></script>
       
         <script src="../../../../javascripts/cc-lab-step.js"></script>
+      
+        <script src="../../../../javascripts/cc-card.js"></script>
       
     
   </body>
