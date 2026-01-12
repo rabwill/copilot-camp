@@ -103,7 +103,7 @@ Go to this url and it will automatically download the files required for this la
 Extract the files into your machine,
 Copy files to the `appPackage/EmbeddedKnowledge` folder inside your project.
 
-The project should look like belwo after you have copied the files.
+The project should look like below after you have copied the files.
 
 ![Embedd knowledge](../../../assets/images/integrate/ICA/images/embedd.png)
 
@@ -292,15 +292,21 @@ In VS Code with your project open:
 1. Click **"Preview"** in the Agents Toolkit panel
 2. This will open Microsoft Teams with your agent available
 3. In Teams, open **Copilot** and look for your **"Zava Procurement"** agent
-4. Try the conversation starters:
-   - "What are the rates for emergency water extraction and drying services?"
-   - "Which contractors offer 24/7 emergency response and what are their rates?"
+4. Try the following conversation starters:
 
-   ![Embedd knowledge in Copilot](../../../assets/images/integrate/ICA/images/ek.png)
+```
+What are the rates for emergency water extraction and drying services?
+```
 
-  <cc-end-step lab="ica3" exercise="3" step="2" />
+```
+Which contractors offer 24/7 emergency response and what are their rates?
+```
 
-  ---
+![Embedd knowledge in Copilot](../../../assets/images/integrate/ICA/images/ek.png)
+
+<cc-end-step lab="ica3" exercise="3" step="2" />
+
+---
 
 Congratulations! You've successfully transformed Zava's agent from a simple conversational interface into a powerful, knowledge-driven procurement intelligence system! 🚀
 Ready to take it to the next level? Proceed to the **Next** lab where you'll learn to orchestrate multiple agents together, combining the power of your MCP-enabled agent and embedded knowledge agent into a comprehensive multi-agent solution for Zava's claims processing workflow.
