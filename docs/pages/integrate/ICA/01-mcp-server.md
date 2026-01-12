@@ -405,6 +405,7 @@ The MCP Inspector now opens a new browser session with a publicly accessible end
 You've successfully tested how AI agents interact with Zava's claims system through the MCP protocol and you now have a public HTTPS endpoint for your MCP server that can be accessed by external AI agents and services.
 
 <cc-end-step lab="ica1" exercise="4" step="6" />
+
 ---
 
 ## Exercise 5: Explore the MCP Server Code (Optional but recommended)

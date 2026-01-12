@@ -37,6 +37,7 @@ Zava's CTO proposed creating a **Connected Agent** that would orchestrate both s
 ### Benefits for Enterprise Workflows
 
 For complex business scenarios like insurance claims processing, Connected Agents provide:
+
 - **Domain expertise** from specialized agents
 - **Comprehensive coverage** across multiple data sources
 - **Efficient scaling** by adding focused agents

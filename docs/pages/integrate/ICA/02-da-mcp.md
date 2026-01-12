@@ -65,7 +65,7 @@ In this exercise, you'll use the Microsoft 365 Agents Toolkit to create a new De
 1. In the Agents Toolkit panel, click **"Create a New Agent/App"**
 2. Select **"Declarative Agent"** from the template options
 3. Next choose **"Add an Action"** to add to your agent
-4. Next select **Start wuth an MCP server**
+4. Next select **Start with an MCP server**
 5. Enter the publicly accessible MCP Server URl from previous lab (dev tunnel id/mcp/messages)
 6. Choose the Default folder to scafold the agent (or choose a prefered location in your machine)
 7. When prompted for project details:
@@ -103,7 +103,7 @@ Open `appPackage/ai-plugin.json` and examine the structure with your chosen tool
 
 ```json
 {
-     "$schema": "https://aka.ms/json-schemas/copilot-extensions/v2.1/plugin.schema.json",
+    "$schema": "https://aka.ms/json-schemas/copilot-extensions/v2.1/plugin.schema.json",
     "schema_version": "v2.4",
     "name_for_human": "Zava Claims Assistant",
     "description_for_human": "Zava Claims Assistant${{APP_NAME_SUFFIX}}",
@@ -329,15 +329,23 @@ In VS Code with your `zava-claims-agent` project open:
 Try these natural language queries to test the agent's capabilities:
 
 ```
-1. "What claims do we have for storm damage?"
+What claims do we have for storm damage?
+```
 
-2. "Create a new urgent inspection for claim CN202504990 to assess water damage in the basement"
+```
+Create a new urgent inspection for claim CN202504990 to assess water damage in the basement
+```
 
-3. "Find contractors who specialize in roofing and are marked as preferred"
+```
+Find contractors who specialize in roofing and are marked as preferred
+```
 
-4. "Show me the details for claim number CN202504991"
+```
+Show me the details for claim number CN202504991
+```
 
-5. "Create a new claim for Alice Johnson at 456 Oak Street with fire damage from yesterday"
+```
+Create a new claim for Alice Johnson at 456 Oak Street with fire damage from yesterday
 ```
 
 Your agent should successfully respond to natural language queries and interact with the MCP server data.
@@ -708,27 +716,51 @@ Provision your enhanced agent and test all the integrated capabilities with the 
 Test these end-to-end workflows in Microsoft 365 Copilot:
 
 **Workflow 1: Complete Claims Investigation**
+
 ```
-1. "Show me details for claim CN202504990"
-2. "Create an urgent inspection for this claim to assess the roof damage"
-3. "Find preferred contractors who specialize in roofing"
-4. "What's the current status of all inspections for this claim?"
+Show me details for claim CN202504990
+```
+
+```
+Create an urgent inspection for this claim to assess the roof damage
+```
+
+```
+Find preferred contractors who specialize in roofing
+```
+
+```
+What's the current status of all inspections for this claim?
 ```
 
 ![adaptive cards in response](../../../assets/images/integrate/ICA/images/adaptive-cards.png)
 
 **Workflow 2: New Claim Processing**
+
 ```
-1. "Create a new claim for John Doe at 123 Elm Street with hail damage from yesterday, policy POL-12345, estimated loss $8000"
-2. "Schedule an initial inspection for this new claim with high priority"
-3. "Find contractors specializing in hail damage repair"
+Create a new claim for John Doe at 123 Elm Street with hail damage from yesterday, policy POL-12345, estimated loss $8000
+```
+
+```
+Schedule an initial inspection for this new claim with high priority
+```
+
+```
+Find contractors specializing in hail damage repair
 ```
 
 **Workflow 3: Operational Overview**
+
 ```
-1. "Show me all claims with urgent inspections"
-2. "What contractors are available for emergency water damage repairs?"
-3. "Give me a summary of all open claims and their inspection status"
+Show me all claims with urgent inspections
+```
+
+```
+What contractors are available for emergency water damage repairs?
+```
+
+```
+Give me a summary of all open claims and their inspection status
 ```
 
 
