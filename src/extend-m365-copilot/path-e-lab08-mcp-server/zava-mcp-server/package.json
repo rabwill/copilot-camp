@@ -17,7 +17,7 @@
     "init-data-prod": "npm run build && node dist/src/scripts/initializeAzureData.js",
     "start:mcp-http": "npm run build && node dist/src/mcp-server-http.js",
     "inspector": "npx @modelcontextprotocol/inspector --transport http --server-url http://localhost:3001/mcp/messages",
-    "inspector-prod": "npx @modelcontextprotocol/inspector --transport http --server-url https://claims-mcp-app.proudglacier-5e06022c.eastus.azurecontainerapps.io/mcp/messages",
+    "inspector-prod": "npx @modelcontextprotocol/inspector --transport http --server-url https://claims-mcp-app.yellowcliff-c66c6908.eastus.azurecontainerapps.io/mcp/messages",
     "test": "jest",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix"
