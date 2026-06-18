@@ -1,6 +1,6 @@
 # Lab: Evaluate Your Declarative Agent with the M365 Copilot Evaluations CLI
 
-In this lab, you'll use the **Microsoft 365 Copilot Agent Evaluations CLI** (`runevals`) to measure the quality of a Declarative Agent automatically. You'll learn how to write test datasets grounded in real operational data, run evaluations, read an HTML report, and use both AI-based and deterministic scoring to improve your agent — without manual testing.
+In this lab, you'll use the **Microsoft 365 Copilot Agent Evaluations CLI** (`runevals`) to measure the quality of a Declarative Agent automatically. You'll learn how to write test datasets grounded in real operational data, run evaluations, read an HTML report, and use both AI-based and deterministic scoring to improve your agent, without manual testing.
 
 ---
 
@@ -49,10 +49,7 @@ Before starting, ensure you have:
 - Admin consent granted for the Agent Evaluations CLI WorkIQ client app in your tenant
 
 !!! note "Platform support"
-    The CLI supports **Windows** (built-in authentication), **macOS** (requires Microsoft Company Portal installed), and **Linux/WSL** (requires `libwebkit2gtk-4.1-0 libdbus-1-dev python3-gi gir1.2-secret-1` — install with `sudo apt install ...` before running). Install the appropriate broker for your OS before starting.
-
-!!! tip "Already have an agent?"
-    If you've already deployed your own Declarative Agent pointing at `https://zava-insurance-mcp.azurewebsites.net/mcp`, skip Exercise 1 and go straight to Exercise 2.
+    to be added
 
 ---
 
