@@ -774,16 +774,7 @@ done
 
 ## 🎉 Congratulations!
 
-You've completed the Declarative Agent Evaluation lab! Here's what you accomplished:
-
-✅ Installed the `@microsoft/m365-copilot-eval` CLI and configured Azure OpenAI credentials  
-✅ Set up the Zava Claims MCP server and Declarative Agent, verified end-to-end connectivity  
-✅ Wrote a structured `evals.json` dataset grounded in real claim numbers, names, and statuses  
-✅ Ran an automated evaluation and interpreted the per-prompt HTML report  
-✅ Enabled all 7 evaluator types and understood which matter most for MCP-connected agents  
-✅ Used `ExactMatch` and `PartialMatch` for deterministic, zero-LLM-cost data accuracy tests  
-✅ Wrote a 4-turn conversation thread following claim CN202504990 through its lifecycle  
-✅ Built a comprehensive accuracy test suite covering claims, inspections, purchase orders, and contractors  
+You've completed the Declarative Agent Evaluation lab!
 
 ---
 
