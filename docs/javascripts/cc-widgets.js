@@ -599,38 +599,38 @@
       name: "Bundle A",
       color: "teal",
       labs: [
-        { url: "08-mcp-server/", label: "Lab E8" },
-        { url: "10-mcp-auth/", label: "Lab E10" },
+        { url: "08-mcp-server/", label: "Lab E8 - Connect Declarative Agent to MCP Server" },
+        { url: "10-mcp-auth/", label: "Lab E10 - Connect Declarative Agent to OAuth-Protected MCP Server" },
       ],
     },
     b: {
       name: "Bundle B",
       color: "coral",
       labs: [
-        { url: "08-mcp-server/", label: "Lab E8" },
-        { url: "09-connected-agent/", label: "Lab E9" },
-        { url: "11-mcp-app/", label: "Lab E11" },
+        { url: "08-mcp-server/", label: "Lab E8 - Connect Declarative Agent to MCP Server" },
+        { url: "09-connected-agent/", label: "Lab E9 - Connected Agents" },
+        { url: "11-mcp-app/", label: "Lab E11 - Build an MCP App with Interactive Widgets" },
       ],
     },
     c: {
       name: "Bundle C",
       color: "blue",
       labs: [
-        { url: "02-build-the-api/", label: "Lab E2" },
-        { url: "03-add-declarative-agent/", label: "Lab E3" },
-        { url: "04-enhance-api-plugin/", label: "Lab E4" },
-        { url: "05-add-adaptive-card/", label: "Lab E5" },
-        { url: "06a-add-authentication-ttk/", label: "Lab E6a" },
+        { url: "02-build-the-api/", label: "Lab E2 - Build a Backend API" },
+        { url: "03-add-declarative-agent/", label: "Lab E3 - Add Declarative Agent and API Plugin" },
+        { url: "04-enhance-api-plugin/", label: "Lab E4 - Enhance API and Plugin" },
+        { url: "05-add-adaptive-card/", label: "Lab E5 - Add Adaptive Cards" },
+        { url: "06a-add-authentication-ttk/", label: "Lab E6a - Add Entra ID Authentication" },
       ],
     },
     d: {
       name: "Bundle D",
       color: "purple",
       labs: [
-        { url: "02-build-the-api/", label: "Lab E2" },
-        { url: "03-add-declarative-agent/", label: "Lab E3" },
-        { url: "04-enhance-api-plugin/", label: "Lab E4" },
-        { url: "07-add-graphconnector/", label: "Lab E7" },
+        { url: "02-build-the-api/", label: "Lab E2 - Build a Backend API" },
+        { url: "03-add-declarative-agent/", label: "Lab E3 - Add Declarative Agent and API Plugin" },
+        { url: "04-enhance-api-plugin/", label: "Lab E4 - Enhance API and Plugin" },
+        { url: "07-add-graphconnector/", label: "Lab E7 - Add Copilot Connector" },
       ],
     },
   };
@@ -803,6 +803,89 @@
               : ""}
         </div>
         ${switcherHtml}
+      </div>`;
+  }
+
+  function renderBundlePrelude(el) {
+    const activeKey = getBundle();
+    const positions = findPositions();
+    const key = (activeKey && BUNDLES[activeKey])
+      ? activeKey
+      : (positions.length === 1 ? positions[0].key : "");
+
+    const baseMatch = window.location.pathname.match(/^(.*)\/pages\/extend-m365-copilot\//);
+    const siteBase = baseMatch?.[1] || "";
+    const extendBase = `${siteBase}/pages/extend-m365-copilot/`;
+
+    const current = currentSegment();
+    const currentHref = `${window.location.pathname}${window.location.search || ""}`;
+
+    function youAreHere(url) {
+      return urlSegment(url) === current ? '<span class="you-are-here">YOU&nbsp;ARE&nbsp;HERE</span>' : "";
+    }
+
+    if (key && BUNDLES[key]) {
+      const bundle = BUNDLES[key];
+      const labs = bundle.labs.map(lab => {
+        const href = withBundleQuery(`${extendBase}${lab.url.replace(/\/$/, "")}`, key);
+        return `<li><a href="${esc(href)}">${esc(lab.label)}</a>${youAreHere(lab.url)}</li>`;
+      }).join("");
+
+      const bundleStart = withBundleQuery(`${extendBase}bundle-${key}`, key);
+      const overview = withBundleQuery(`${extendBase}bundles`, key);
+      const welcome = withBundleQuery(`${extendBase}index`, key);
+
+      el.innerHTML = `
+        <div class="cc-lab-toc e-path">
+          <img src="/copilot-camp/assets/images/path-icons/E-path-heading.png" alt="Extend path" />
+          <div>
+            <p>Focused path: ${esc(bundle.name)}. Navigation is scoped to this bundle.</p>
+            <ul>
+              <li><strong><a href="${esc(welcome)}">🏁 Welcome</a></strong></li>
+              <li><strong><a href="${esc(overview)}">🧩 Bundle overview</a></strong></li>
+              <li><strong>🚦 Mandatory on-ramp</strong>
+                <ul>
+                  <li><a href="${esc(withBundleQuery(`${extendBase}00-prerequisites`, key))}">Lab E0 - Prerequisites</a>${youAreHere("00-prerequisites/")}</li>
+                  <li><a href="${esc(withBundleQuery(`${extendBase}01-first-agent-new`, key))}">Lab E1 (NEW) - Your First Declarative Agent</a>${youAreHere("01-first-agent-new/")}</li>
+                </ul>
+              </li>
+              <li><strong>${esc(bundle.name)}</strong>
+                <ul>
+                  <li><a href="${esc(bundleStart)}">Start ${esc(bundle.name)}</a></li>
+                  ${labs}
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>`;
+      return;
+    }
+
+    const pickButtons = positions.length > 1
+      ? positions.map(({ key: pk, bundle }) => {
+          const c = bundleColor(pk);
+          const pickHref = withBundleQuery(window.location.pathname, pk);
+          return `<a class="ccw-bundle-pick"
+            style="display:inline-block;text-decoration:none;background:${c.light};color:${c.dark};border-color:${c.mid}"
+            href="${esc(pickHref)}"
+            onclick="ccwSetBundle('${pk}')">${esc(bundle.name)}</a>`;
+        }).join("")
+      : Object.entries(BUNDLES).map(([bk, bundle]) => {
+          const c = bundleColor(bk);
+          const startHref = withBundleQuery(`${extendBase}bundle-${bk}`, bk);
+          return `<a class="ccw-bundle-pick"
+            style="display:inline-block;text-decoration:none;background:${c.light};color:${c.dark};border-color:${c.mid}"
+            href="${esc(startHref)}"
+            onclick="ccwSetBundle('${bk}')">${esc(bundle.name)}</a>`;
+        }).join("");
+
+    el.innerHTML = `
+      <div class="cc-lab-toc e-path">
+        <img src="/copilot-camp/assets/images/path-icons/E-path-heading.png" alt="Extend path" />
+        <div>
+          <p>Choose a bundle to see a focused lab path in this prelude.</p>
+          <div class="ccw-picker-btns">${pickButtons}</div>
+        </div>
       </div>`;
   }
 
@@ -1090,6 +1173,7 @@
     verify:        renderVerify,
     terminal:      renderTerminal,
     tree:          renderTree,
+    bundleprelude: renderBundlePrelude,
     labnav:        renderLabNav,
     bundle:        renderBundle,
     bundleseq:     renderBundleSeq,
