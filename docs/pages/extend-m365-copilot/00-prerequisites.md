@@ -223,7 +223,9 @@ The Declarative Agent doesn't talk to the MCP server directly at config time —
 
 ## Next step
 
-<div data-widget="labnav"></div>
+<div data-widget="labnav"
+     data-next="../01-first-agent-new/"
+     data-next-label="Lab E1"></div>
 
 
 <img src="https://m365-visitor-stats.azurewebsites.net/copilot-camp/extend-m365-copilot/00-prerequisites" />

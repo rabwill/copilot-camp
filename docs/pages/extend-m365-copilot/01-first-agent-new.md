@@ -262,4 +262,10 @@ Provision again, then ask: "Is there a canteen at HQ?"
 
 You are now ready to choose a bundle path from the landing page.
 
+## Next step
+
+<div data-widget="labnav"
+  data-next="../bundles/"
+  data-next-label="Choose Your Bundle"></div>
+
 <img src="https://m365-visitor-stats.azurewebsites.net/copilot-camp/extend-m365-copilot/01-first-agent-new" />
