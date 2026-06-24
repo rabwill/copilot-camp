@@ -703,6 +703,7 @@
   function renderBundleSeq(el) {
     const d = el.dataset;
     const DONE_KEY = k => `ccw-done-${k}`;
+    const ACTIVE_SEQ_KEY = "cc-active-bundle-seq";
 
     const steps = (d.steps || "").split("|").filter(Boolean).map(raw => {
       const parts = raw.split("::");
@@ -715,6 +716,19 @@
         url:        parts[5] || "#",
       };
     });
+
+    // Resolve all step URLs to absolute paths so navigation works regardless of referrer page.
+    function getSequencePaths() {
+      return steps
+        .map(step => {
+          try {
+            return new URL(step.url, window.location.href).pathname;
+          } catch {
+            return null;
+          }
+        })
+        .filter(Boolean);
+    }
 
     function isDone(key) {
       return localStorage.getItem(DONE_KEY(key)) === "true";
@@ -766,6 +780,18 @@
 
       el.querySelectorAll(".ccw-bseq-btn").forEach(btn => {
         btn.addEventListener("click", () => toggle(btn.dataset.key));
+      });
+
+      // Remember active bundle sequence when learners use Start/Go/Revisit links.
+      el.querySelectorAll(".ccw-bseq-cta").forEach(link => {
+        link.addEventListener("click", () => {
+          const payload = {
+            source: window.location.pathname,
+            paths: getSequencePaths(),
+            updatedAt: Date.now(),
+          };
+          localStorage.setItem(ACTIVE_SEQ_KEY, JSON.stringify(payload));
+        });
       });
     }
 
