@@ -1,5 +1,23 @@
 # Lab 08 : Connect Declarative agent to MCP Server
 
+<div data-widget="hero"
+    data-badge="Bundle A/B · Lab E8"
+    data-badge-color="teal"
+    data-icon="🔌"
+    data-title="Connect Declarative Agent to MCP Server"
+    data-subtitle="Run Zava's MCP server locally, expose claims tools, and wire a Declarative Agent to invoke them in natural language."
+    data-time="90-120 min"
+    data-requires="E0 + E1 (NEW)"
+    data-toolkit="MCP SDK + Agents Toolkit"></div>
+
+<div data-widget="checklist"
+    data-items="MCP server running with seeded claims data~Azurite and server runtime verified locally|Tool metadata fetched into agent package~ai-plugin.json generated and validated|Copilot tool-calling flow working~Natural language prompts invoke MCP tools correctly"></div>
+
+## Key concepts before you build
+
+<div data-widget="concepts"
+    data-cards="MCP tool contract::teal::Typed tool interface for agents::The server exposes tools with structured schemas so Copilot can choose and call them reliably.||Manifest synchronization::green::Fetch actions into ai-plugin.json::The agent relies on fetched tool metadata; refresh it whenever server tools change.||Local-to-cloud bridge::amber::Dev tunnel enables host reachability::Copilot runs in the cloud, so your local MCP server must be reachable through a public HTTPS tunnel."></div>
+
 In this lab, you'll run a complete Model Context Protocol (MCP) server for Zava Insurance's claims system and integrate it with Declarative Agent in Microsoft 365 Copilot that you will create, enabling natural language interactions with real claims data through secure, standardized AI agent communication.
 
 

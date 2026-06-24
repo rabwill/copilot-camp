@@ -1,5 +1,23 @@
 # Lab E1 (NEW): Your First Declarative Agent
 
+<div data-widget="hero"
+  data-badge="On-ramp · Lab E1 (NEW)"
+  data-badge-color="blue"
+  data-icon="🧰"
+  data-title="Your First Declarative Agent"
+  data-subtitle="Scaffold, customize, provision, and test a minimal Declarative Agent so you're ready for all bundles."
+  data-time="30-45 min"
+  data-requires="Lab E0"
+  data-toolkit="Microsoft 365 Agents Toolkit"></div>
+
+<div data-widget="checklist"
+  data-items="First Declarative Agent scaffolded~Created from Agents Toolkit with no actions|Agent identity and instructions customized~Updated declarativeAgent.json and instruction.txt|Provision and test loop completed~Validated edit -> provision -> test workflow in Copilot"></div>
+
+## Key concepts before you build
+
+<div data-widget="concepts"
+  data-cards="Declarative Agent anatomy::purple::Three core files::&lt;code&gt;declarativeAgent.json&lt;/code&gt; defines behavior, &lt;code&gt;instruction.txt&lt;/code&gt; defines policy/prompting, and &lt;code&gt;manifest.json&lt;/code&gt; defines app packaging metadata.||No Action template::teal::Start minimal on purpose::This template removes API complexity so you can focus on the core provisioning and testing loop first.||Provisioning lifecycle::blue::Edit -> provision -> test::Most labs follow this same cycle. E1 establishes the exact workflow you'll reuse in bundles A-D."></div>
+
 In this lab, you will scaffold, configure, provision, and test your first Declarative Agent using Microsoft 365 Agents Toolkit, without TypeSpec and without backend APIs. This lab is the mandatory bridge between prerequisites and all bundle tracks.
 
 ## Scenario

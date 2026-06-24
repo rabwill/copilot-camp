@@ -1,6 +1,24 @@
 
 # Lab E3 - Add a declarative agent and API plugin
 
+<div data-widget="hero"
+  data-badge="Bundle C/D Core · Lab E3"
+  data-badge-color="teal"
+  data-icon="🧭"
+  data-title="Add Declarative Agent and API Plugin"
+  data-subtitle="Connect the API from E2 to a Declarative Agent and add focused SharePoint knowledge for grounded responses."
+  data-time="45-60 min"
+  data-requires="Lab E2"
+  data-toolkit="Declarative Agent + API plugin"></div>
+
+<div data-widget="checklist"
+  data-items="Declarative agent added to project~Configured persona, starters, and instructions|API plugin wired to agent actions~Connected trey-plugin.json and operation mappings|Focused knowledge configured~SharePoint content added as agent capability"></div>
+
+## Key concepts before you build
+
+<div data-widget="concepts"
+  data-cards="Capability composition::purple::Actions plus knowledge::Declarative agents can blend API actions with focused content sources for better answer quality and task support.||Plugin contract::green::Operation metadata guides tool use::The plugin manifest and OpenAPI definitions tell Copilot what actions exist and how to call them.||Grounding scope::amber::Constrain to trusted sources::By targeting a specific SharePoint site, the agent retrieves focused documents instead of broad tenant-wide content."></div>
+
 In this lab you will add a declarative agent which is grounded in the API plugin you created in the previous lab, as well as in specific SharePoint files
 
 <div class="lab-intro-video">

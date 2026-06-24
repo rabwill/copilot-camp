@@ -1,5 +1,23 @@
 # Lab 10: Connect Declarative Agent to OAuth-Protected MCP Server
 
+<div data-widget="hero"
+  data-badge="Bundle A · Lab E10"
+  data-badge-color="purple"
+  data-icon="🛡️"
+  data-title="Secure MCP with OAuth and Entra ID"
+  data-subtitle="Upgrade the MCP integration from anonymous development mode to authenticated, enterprise-ready access control."
+  data-time="90-120 min"
+  data-requires="Lab E8 recommended"
+  data-toolkit="OAuth 2.0 + Entra ID"></div>
+
+<div data-widget="checklist"
+  data-items="Entra app registration configured~Client ID, scope, and redirect settings established|OAuth-enabled MCP server running~JWT validation and protected metadata endpoints active|Authenticated Declarative Agent validated~Copilot prompts succeed with authorized token flow"></div>
+
+## Key concepts before you build
+
+<div data-widget="concepts"
+  data-cards="Protected MCP resources::purple::Authentication required for tool execution::Unlike E8, protected endpoints require valid tokens before tool handlers run.||JWT validation::teal::Trust and claims verification::The server validates issuer, audience, and claims to ensure only authorized access reaches claims data.||Production hardening path::amber::From demo to enterprise controls::E10 demonstrates the minimum identity/security upgrades needed before broader deployment."></div>
+
 In this lab, you'll run an **OAuth 2.0 protected** Model Context Protocol (MCP) server for Zava Insurance's claims system and integrate it with a Declarative Agent in Microsoft 365 Copilot. While Lab 08 demonstrates an anonymous MCP server, this lab adds **Microsoft Entra ID authentication** for secure, enterprise-grade access to claims data.
 
 

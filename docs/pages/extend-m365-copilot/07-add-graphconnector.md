@@ -1,5 +1,23 @@
 # Lab E7 - Integration: Add Knowledge capability to Trey Genie using a Microsoft Copilot Connector
 
+<div data-widget="hero"
+    data-badge="Bundle D · Lab E7"
+    data-badge-color="purple"
+    data-icon="🔗"
+    data-title="Add Copilot Connector Grounding"
+    data-subtitle="Load external data into Microsoft Graph and connect it as focused knowledge for your Declarative Agent."
+    data-time="45-75 min"
+    data-requires="Labs E2-E4 + tenant admin"
+    data-toolkit="Graph connectors + Agents Toolkit"></div>
+
+<div data-widget="checklist"
+    data-items="External connection deployed~Connector schema and content ingestion completed|Connector data discoverable in Microsoft 365~Validated indexed results through search|Declarative agent grounded with connector~Agent capability updated with connection ID"></div>
+
+## Key concepts before you build
+
+<div data-widget="concepts"
+    data-cards="Connector ingestion pipeline::purple::External content into Graph::Copilot connectors normalize and index external content so it can participate in Microsoft 365 retrieval experiences.||Grounding through capabilities::teal::Targeted knowledge source::Adding Graph connector capability lets your agent answer using indexed connector content as focused context.||Admin consent model::amber::App-only permissions required::Connector setup needs tenant-level consent because ingestion runs with service-level permissions."></div>
+
 ---8<--- "e-labs-prelude.md"
 
 In this lab you will learn how to add your own data into the Microsoft Graph to be then organically utilised by the declarative agent as it's own knowledge.  In the process you will learn all how to deploy a Microsoft Copilot Connector and use the connector in Trey Genie declarative agent. 

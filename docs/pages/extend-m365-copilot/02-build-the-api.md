@@ -1,6 +1,24 @@
 
 # Lab E2 - Build an API
 
+<div data-widget="hero"
+  data-badge="Bundle C/D Core · Lab E2"
+  data-badge-color="blue"
+  data-icon="🛠️"
+  data-title="Build a Backend API"
+  data-subtitle="Set up the Trey Research Azure Functions API and run it locally as the foundation for API-based Declarative Agent labs."
+  data-time="45-60 min"
+  data-requires="E0 + E1 (NEW)"
+  data-toolkit="Node.js 22 + Agents Toolkit"></div>
+
+<div data-widget="checklist"
+  data-items="API project running locally~Azure Functions host starts successfully|Sample data available via Azurite~Local table storage emulator is wired and seeded|REST endpoints verified~Validated /me and consultant/project queries through HTTP tests"></div>
+
+## Key concepts before you build
+
+<div data-widget="concepts"
+  data-cards="API-first agent pattern::blue::Backend before agent wiring::In Bundles C and D, the API is implemented first so actions can later be mapped cleanly into plugin operations.||Local cloud emulation::coral::Azurite for fast iteration::Azurite simulates Azure Table Storage locally so you can test data-backed workflows without cloud deployment.||Function app surface::teal::Operations exposed as REST::The HTTP routes you validate in this lab become the operations the Declarative Agent will call in following labs."></div>
+
 In this lab you will set up an API based on Azure Functions and install it as an API plugin for Microsoft 365 Copilot.
 <div class="lab-intro-video">
     <div style="flex: 1; min-width: 0;">

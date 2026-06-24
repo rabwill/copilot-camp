@@ -1,5 +1,23 @@
 # Lab 09: Connected Agents - Zava's Multi-Agent Claims Orchestration
 
+<div data-widget="hero"
+    data-badge="Bundle B · Lab E9"
+    data-badge-color="coral"
+    data-icon="🕸️"
+    data-title="Build Connected Agent Orchestration"
+    data-subtitle="Create specialized agents and orchestrate them together so users get unified answers across pricing knowledge and live claims systems."
+    data-time="120+ min"
+    data-requires="Lab E8 + pre-release toolkit"
+    data-toolkit="Connected agents + embedded knowledge"></div>
+
+<div data-widget="checklist"
+    data-items="Specialized procurement agent created~EmbeddedKnowledge configured with pricing content|Orchestrator agent connected to multiple agents~Zava Care routes across procurement and claims capabilities|Hybrid responses validated~Combined embedded knowledge and MCP-backed live data in one conversation"></div>
+
+## Key concepts before you build
+
+<div data-widget="concepts"
+    data-cards="Connected agent model::coral::Specialists coordinated by an orchestrator::Each agent handles a focused domain while an orchestrator unifies user interaction.||Embedded knowledge::teal::Fast local content grounding::Embedded files provide low-latency retrieval for stable content like pricing and policy references.||Hybrid architecture::blue::Live tools plus static knowledge::Combining MCP tools and embedded sources balances freshness, coverage, and response quality."></div>
+
 In this lab, you'll build a multi-agent orchestration system for Zava Insurance. First, you'll create a **Zava Procurement** agent with embedded contractor pricing knowledge for instant pricing intelligence. Then, you'll create a **Zava Care** orchestrator agent that connects both **Zava Procurement** and **Zava Claims Assistant** (from Lab 08), enabling claims adjusters to access embedded pricing data and real-time claims information from the MCP server through a single, unified conversational interface.
 
 <div class="lab-intro-video">

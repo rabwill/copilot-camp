@@ -1,5 +1,23 @@
 # Lab 11: Build an MCP App with Interactive Widgets
 
+<div data-widget="hero"
+  data-badge="Bundle B · Lab E11"
+  data-badge-color="green"
+  data-icon="🧪"
+  data-title="Build an MCP App with Interactive Widgets"
+  data-subtitle="Pair MCP tools with rich UI resources so users can submit requests, approve actions, and track status directly in Copilot."
+  data-time="90-120 min"
+  data-requires="E0 + E1 (NEW)"
+  data-toolkit="MCP Apps SDK + React"></div>
+
+<div data-widget="checklist"
+  data-items="Base MCP app running locally~Request and approval widgets work with sample workflow|Tool and UI resource mapping understood~Structured content is rendered through interactive widget resources|New status timeline widget added~Server tool and widget integration validated in Copilot"></div>
+
+## Key concepts before you build
+
+<div data-widget="concepts"
+  data-cards="Tool plus UI pairing::green::Data and interaction together::MCP apps can return structured data and render matching widget UI for user actions.||Component bridge model::teal::Cross-host widget portability::The same widget patterns can run across supported hosts when capabilities align with SDK contracts.||Conversation-native workflows::blue::Act without leaving chat::Interactive widgets convert static agent responses into operational workflows inside the same Copilot session."></div>
+
 In this lab, you'll run a Model Context Protocol (MCP) app that powers an **Access Request & Approval Workflow** with interactive widgets rendered directly in the AI agent's response. You'll explore the existing tools, add a new **Status Timeline** widget, and integrate the MCP server into a Declarative Agent using Microsoft 365 Agents Toolkit.
 
 

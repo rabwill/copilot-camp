@@ -1,5 +1,23 @@
 # Lab E4 - Enhance the API and Plugin
 
+<div data-widget="hero"
+    data-badge="Bundle C/D Core · Lab E4"
+    data-badge-color="green"
+    data-icon="⚙️"
+    data-title="Enhance API and Plugin"
+    data-subtitle="Add richer API operations and extend plugin packaging so Copilot can call new project-related workflows."
+    data-time="45-60 min"
+    data-requires="Lab E3"
+    data-toolkit="OpenAPI + plugin manifest"></div>
+
+<div data-widget="checklist"
+    data-items="New /projects endpoint implemented~Supports retrieval and assignment workflows|Plugin definitions extended~Updated OpenAPI and app package metadata for new operations|Enhanced operations tested end-to-end~Validated both HTTP behavior and Copilot-callable action surface"></div>
+
+## Key concepts before you build
+
+<div data-widget="concepts"
+    data-cards="Multi-layer API definition::blue::Code + OpenAPI + plugin packaging::For Copilot to use an API operation, each layer must align: backend route, OpenAPI schema, and plugin manifest metadata.||Operation discoverability::teal::Descriptions shape model behavior::Clear operation names and descriptions improve tool selection quality during agent reasoning.||Change propagation::amber::Re-test after each contract update::Whenever API contracts change, revalidate both direct HTTP calls and agent action behavior to avoid schema drift."></div>
+
 In this lab you will add additional REST calls to the API and add them to the API Plugin packaging so Copilot can call them. In the process you will learn all the places where an API needs to be defined for Copilot.
 
 
