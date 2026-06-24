@@ -1099,15 +1099,6 @@
   function renderAll() {
     injectStyles();
 
-    /* Hide sidebar for extend-m365-copilot pages */
-    const pathname = window.location.pathname;
-    if (pathname.includes("/extend-m365-copilot/")) {
-      const sidebar = document.querySelector(".md-sidebar");
-      if (sidebar) {
-        sidebar.style.display = "none";
-      }
-    }
-
     document.querySelectorAll("[data-widget]").forEach(el => {
       const name = el.dataset.widget;
       const fn = RENDERERS[name];
