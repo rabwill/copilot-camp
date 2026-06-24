@@ -83,6 +83,18 @@ Build a Declarative Agent that queries your own external data indexed into Micro
      data-variant="soft"
      data-items="No Dev Tunnel needed~Connector flow does not require local tunnel exposure|No Azure subscription needed~Path stays in local tooling + Microsoft 365 services|Complete Labs E2-E4 first~Bundle D shares the Bundle C API setup before diverging to Lab E7"></div>
 
+### Bundle E — DA with CLI Tools (Placeholder)
+
+Use command-line tooling to inspect, test, and evaluate your Declarative Agent workflows with fast iteration loops.
+
+<div data-widget="arch"
+     data-rows="row::Microsoft 365 Copilot::copilot::Invokes your Declarative Agent|Declarative Agent::agent::instructions + tool manifest||label::CLI loop runs inspection and eval tooling for rapid iteration||row::WIQD-style CLI tools::mcp::Inspect and validate DA + tools behavior|Evals CLI tools::data::Run prompt/test evaluations|Iteration loop::tunnel::Refine prompts, tools, and configs"></div>
+
+<div data-widget="checklist"
+     data-title="Extra prerequisites for Bundle E"
+     data-variant="soft"
+     data-items="Comfort with terminal workflows~Most actions in this bundle are CLI-first|WIQD-style tooling access~Use organization-approved CLI tooling for inspection/debug|Evals tooling access~Run local eval commands on prompt/test sets|Placeholder status~Labs E12 and E13 are starter placeholders for upcoming content"></div>
+
 ---
 
 ## Exercise 1: Configure your M365 tenant

@@ -647,6 +647,14 @@
         { url: "07-add-graphconnector/", label: "Lab E7 - Add Copilot Connector" },
       ],
     },
+    e: {
+      name: "Bundle E",
+      color: "gray",
+      labs: [
+        { url: "12-da-cli-wiqd/", label: "Lab E12 - DA CLI with WIQD Tooling" },
+        { url: "13-da-cli-evals/", label: "Lab E13 - DA CLI with Evals Tooling" },
+      ],
+    },
   };
 
   const BUNDLE_STORAGE_KEY = "ccw-active-bundle";

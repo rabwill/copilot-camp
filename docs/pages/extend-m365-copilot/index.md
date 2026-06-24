@@ -27,8 +27,9 @@ Your journey is:
      - **MCP path (Bundles A/B)** — Build agent capabilities using MCP servers, then add security, orchestration, and rich UI
      - **API path (Bundle C)** — Build a Declarative Agent that calls a custom API directly (non-MCP)
      - **Connector grounding path (Bundle D)** — Build a Declarative Agent grounded with connectors
+     - **CLI tooling path (Bundle E)** — Build and iterate Declarative Agents using CLI-first workflows (WIQD/Evals placeholders)
 
-By the end, you will have an HR-focused Copilot agent that can be adapted to your production architecture, whether your organization uses MCP, direct APIs, or connector-grounded data.
+By the end, you will have an HR-focused Copilot agent that can be adapted to your production architecture, whether your organization uses MCP, direct APIs, connector-grounded data, or CLI-driven validation and evaluation workflows.
 
 <div data-widget="sectionlabel" data-text="Learning path sections"></div>
 
@@ -39,6 +40,7 @@ By the end, you will have an HR-focused Copilot agent that can be adapted to you
 | **Bundle B — MCP Advanced**        | E8 + E9 + E11 | Add orchestration and rich interactive widget experiences |
 | **Bundle C — API-Based Declarative Agent**     | E2 + E3 + E4 + E5 + E6a | Build a Declarative Agent that retrieves data from a custom API (not MCP) |
 | **Bundle D — DA with Connectors**  | E2 + E3 + E4 + E7 | Ground your agent using connectors for domain relevance |
+| **Bundle E — DA + CLI Tools**      | E12 + E13 (placeholder) | Use CLI-first workflows for tool inspection and eval-driven iteration |
 
 ---
 

@@ -7,7 +7,7 @@ title: Declarative Agent Developer Bundles
      data-badge-color="blue"
      data-title="Declarative Agent Developer Bundles"
      data-subtitle="Complete the mandatory on-ramp first, then choose a focused bundle path based on your goals."
-     data-path="0::Prerequisites (E0)|1::First Declarative Agent (E1 NEW)|*A::MCP Foundations|*B::MCP Advanced|*C::API-Based Declarative Agent|*D::DA with Connectors"></div>
+     data-path="0::Prerequisites (E0)|1::First Declarative Agent (E1 NEW)|*A::MCP Foundations|*B::MCP Advanced|*C::API-Based Declarative Agent|*D::DA with Connectors|*E::DA + CLI Tools"></div>
 
 <div data-widget="sectionlabel" data-text="Mandatory on-ramp"></div>
 
@@ -97,6 +97,26 @@ title: Declarative Agent Developer Bundles
      data-lab2-items="Add Graph connector integration|Ground agent with indexed data|Validate grounded responses"
      data-arc="Labs: E2 + E3 + E4 + E7"
      data-start-url="../bundle-d/"></div>
+
+<div data-widget="bundle"
+     data-icon="🛠️"
+     data-label="Bundle E"
+     data-bundle-key="e"
+     data-label-color="gray"
+     data-title="DA + CLI Tools: Build, Validate, Evaluate"
+     data-tagline="Focus on command-line workflows for Declarative Agent development, including WIQD-style tooling and eval loops."
+     data-time="~3 hrs (placeholder)"
+     data-lab1-badge="Lab E12"
+     data-lab1-badge-color="gray"
+     data-lab1-title="CLI foundations for DA workflows"
+     data-lab1-items="Set up CLI-first project commands|Run WIQD-style inspection flow|Capture outputs for iteration"
+     data-transition="then evaluate"
+     data-lab2-badge="Lab E13"
+     data-lab2-badge-color="amber"
+     data-lab2-title="Evaluate and iterate with CLI tools"
+     data-lab2-items="Run eval commands against sample prompts|Interpret metrics and failures|Apply iterative prompt/tool improvements"
+     data-arc="Labs: E12 + E13 (placeholders)"
+     data-start-url="../bundle-e/"></div>
 
 <div data-widget="footernote"
      data-text="Mandatory order: complete On-ramp (E0 + E1 NEW) first, then pick any bundle."></div>
