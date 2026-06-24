@@ -186,6 +186,13 @@
   color:var(--md-default-fg-color,#1a1a18)}
 .ccw-cl-sub{display:block;font-size:.8rem;
   color:var(--md-default-fg-color--light,#888780);margin-top:1px}
+.ccw-checklist.soft{border:.5px solid rgba(0,0,0,.08);padding:14px 16px;margin-bottom:20px}
+.ccw-checklist.soft h2{font-size:.92rem;font-weight:600;margin:0 0 10px;color:var(--md-default-fg-color--light,#6F6E68)}
+.ccw-checklist.soft .ccw-cl-grid{gap:6px}
+.ccw-checklist.soft .ccw-cl-item{padding:7px 9px;background:rgba(0,0,0,.015);border:.5px solid rgba(0,0,0,.07)}
+.ccw-checklist.soft .ccw-cl-dot{width:14px;height:14px;margin-top:2px;border-width:1.25px;opacity:.75}
+.ccw-checklist.soft .ccw-cl-main{font-size:.88rem;font-weight:500}
+.ccw-checklist.soft .ccw-cl-sub{font-size:.76rem;color:var(--md-default-fg-color--light,#7C7B75)}
 
 /* ── concept grid ── */
 .ccw-concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0 28px}
@@ -223,6 +230,10 @@
 .ccw-callout.tip    {background:#E1F5EE;border-color:#1D9E75;color:#0F6E56}
 .ccw-callout.warn   {background:#FAEEDA;border-color:#EF9F27;color:#854F0B}
 .ccw-callout.concept{background:#EEEDFE;border-color:#7F77DD;color:#534AB7}
+.ccw-callout.prereqs{background:transparent;border:none;border-radius:0;padding:14px 0 0;margin:20px 0 6px;color:inherit}
+.ccw-callout.prereqs strong{display:block;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#64748b;margin-bottom:6px}
+.ccw-callout.prereqs a{color:inherit;text-decoration:underline}
+.ccw-callout.prereqs code{font-size:.85em;padding:1px 5px;border-radius:4px;background:rgba(0,0,0,.07);color:inherit}
 
 /* ── step header ── */
 .ccw-step{display:flex;align-items:center;gap:12px;margin:28px 0 10px}
@@ -476,6 +487,9 @@
   }
 
   function renderChecklist(el) {
+    const title = (el.dataset.title || "✅ What you'll have by the end").trim();
+    const variant = (el.dataset.variant || "").trim().toLowerCase();
+    const checklistClass = variant === "soft" ? "ccw-checklist soft" : "ccw-checklist";
     const items = (el.dataset.items || "").split("|").filter(Boolean).map(raw => {
       const [main, sub] = raw.split("~");
       return `
@@ -488,8 +502,8 @@
         </div>`;
     }).join("");
     el.innerHTML = `
-      <div class="ccw-checklist">
-        <h2>✅ What you'll have by the end</h2>
+      <div class="${checklistClass}">
+        <h2>${esc(title)}</h2>
         <div class="ccw-cl-grid">${items}</div>
       </div>`;
   }
