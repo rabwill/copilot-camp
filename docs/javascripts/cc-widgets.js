@@ -102,6 +102,12 @@
  *        data-lab2-items="Register app in Microsoft Entra ID|Add client secret + expose API scope|Rebuild server with JWT validation"
  *        data-arc="Here's a working MCP server — now make it production-grade"
  *        data-start-url="https://microsoft.github.io/…"></div>
+ *
+ * Bundle sequence stepper (landing page or bundle overview):
+ *   Each step: labKey::badge::badgeColor::title::item1~item2~item3::url
+ *   Steps are pipe-separated. Completion tracked in localStorage.
+ *   <div data-widget="bundleseq"
+ *        data-steps="e1::Lab E1::blue::Build a Declarative Agent::Create agent~Add instructions~Test in Copilot::./01-typespec-declarative-agent/|e3::Lab E3::teal::Add Declarative Agent & Plugin::Scaffold plugin~Wire actions~Provision::./03-add-declarative-agent/|e4::Lab E4::purple::Enhance API & Plugin::Add auth~Improve responses~Re-test::./04-enhance-api-plugin/"></div>
  */
 
 (function () {
@@ -256,14 +262,42 @@
 .ccw-tree .ccw-dim{color:#888780}
 
 /* ── lab nav ── */
+.ccw-lab-nav-wrap{margin-top:52px;padding-top:24px;
+  border-top:.5px solid rgba(0,0,0,.12)}
+.ccw-bundle-context{border:.5px solid;border-radius:8px;
+  padding:10px 16px;margin-bottom:14px;display:flex;
+  align-items:center;gap:12px;flex-wrap:wrap;
+  background:var(--md-default-bg-color--light,#F9F8F5)}
+.ccw-context-label{font-size:.75rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.07em}
+.ccw-context-pos{font-size:.8rem;color:#888780;margin-left:auto}
+.ccw-pips{display:flex;gap:4px;align-items:center}
+.ccw-pip{width:8px;height:8px;border-radius:50%;
+  background:rgba(0,0,0,.15);transition:background .2s}
+.ccw-pip.active{width:10px;height:10px}
 .ccw-lab-nav{display:flex;justify-content:space-between;align-items:center;
-  margin-top:52px;padding-top:24px;border-top:.5px solid rgba(0,0,0,.12);
   gap:12px;flex-wrap:wrap}
 .ccw-lab-nav a{text-decoration:none;border-radius:8px;padding:8px 16px;
   border:.5px solid rgba(0,0,0,.15);color:#185FA5;
   background:var(--md-default-bg-color,#fff)}
 .ccw-lab-nav a.ccw-next{background:#185FA5;color:#fff;border-color:#185FA5}
+.ccw-lab-nav a.ccw-done{background:#0F6E56;border-color:#0F6E56;font-size:.875rem}
 .ccw-lab-nav a:hover{opacity:.85}
+/* bundle picker (no bundle set, multiple options) */
+.ccw-bundle-picker{padding:16px;background:var(--md-default-bg-color--light,#F9F8F5);
+  border:.5px solid rgba(0,0,0,.12);border-radius:8px}
+.ccw-picker-label{display:block;font-weight:600;margin-bottom:10px}
+.ccw-picker-btns{display:flex;gap:8px;flex-wrap:wrap}
+.ccw-bundle-pick{border:.5px solid;border-radius:8px;padding:7px 16px;
+  font-size:.875rem;font-weight:600;cursor:pointer;font-family:inherit}
+.ccw-bundle-pick:hover{opacity:.85}
+/* "also in" switcher */
+.ccw-bundle-switcher{display:flex;align-items:center;gap:8px;
+  margin-top:12px;flex-wrap:wrap}
+.ccw-switcher-label{font-size:.75rem;color:#888780}
+.ccw-switcher-btn{border:.5px solid;border-radius:6px;padding:3px 10px;
+  font-size:.75rem;font-weight:600;cursor:pointer;font-family:inherit}
+.ccw-switcher-btn:hover{opacity:.85}
 
 /* ── bundle card ── */
 .ccw-bundle{background:var(--md-default-bg-color,#fff);
@@ -281,7 +315,7 @@
   background:var(--md-default-bg-color--light,#F9F8F5);
   border:.5px solid rgba(0,0,0,.1);border-radius:12px;padding:3px 10px;
   white-space:nowrap;margin-left:auto;flex-shrink:0;align-self:flex-start}
-.ccw-bundle-labs{display:grid;grid-template-columns:1fr 64px 1fr;
+.ccw-bundle-labs{display:grid;grid-template-columns:1fr 36px 1fr;
   align-items:center;padding:18px 22px}
 .ccw-lab-card{background:var(--md-default-bg-color--light,#F9F8F5);
   border:.5px solid rgba(0,0,0,.1);border-radius:8px;padding:14px 16px}
@@ -333,34 +367,31 @@
 .ccw-ostep h3{font-weight:600;margin:0 0 8px;line-height:1.35}
 .ccw-ostep p{color:var(--md-default-fg-color--light,#5F5E5A);
   margin:0 0 12px;line-height:1.5;font-size:.875rem;flex:1}
-.ccw-ostep a{color:#185FA5;text-decoration:none;font-weight:600;font-size:.875rem;align-self:flex-start}
+.ccw-ostep a{color:#185FA5;text-decoration:none;font-weight:600;font-size:.875rem;
+  align-self:flex-start}
 .ccw-onramp-arr{flex:0 0 22px;display:flex;align-items:center;justify-content:center;
-  text-align:center;color:#B4B2A9;font-size:1rem;padding-top:0}
-
-/* ── section label ── */
-.ccw-section-label{font-size:.7rem;font-weight:700;letter-spacing:.09em;
-  text-transform:uppercase;color:#888780;margin:0 0 12px;display:block}
-
-/* ── footer note ── */
-.ccw-footer-note{margin-top:32px;color:#888780;text-align:center;line-height:1.6;
-  font-size:.875rem}
+  color:#B4B2A9;font-size:1rem}
 
 /* ── bundle sequence stepper ── */
 .ccw-bseq{padding:8px 0}
 .ccw-bseq-step{display:flex;gap:16px;margin-bottom:0}
-.ccw-bseq-indicator{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:32px}
-.ccw-bseq-dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;
-  justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;z-index:1}
-.ccw-bseq-step.done .ccw-bseq-dot{background:#1D9E75;color:#fff}
-.ccw-bseq-step.current .ccw-bseq-dot{background:#185FA5;color:#fff;box-shadow:0 0 0 4px #E6F1FB}
+.ccw-bseq-indicator{display:flex;flex-direction:column;align-items:center;
+  flex-shrink:0;width:32px}
+.ccw-bseq-dot{width:32px;height:32px;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;font-size:.8rem;font-weight:700;
+  flex-shrink:0;z-index:1}
+.ccw-bseq-step.done    .ccw-bseq-dot{background:#1D9E75;color:#fff}
+.ccw-bseq-step.current .ccw-bseq-dot{background:#185FA5;color:#fff;
+  box-shadow:0 0 0 4px #E6F1FB}
 .ccw-bseq-step.upcoming .ccw-bseq-dot{background:#E8E6DF;color:#888780}
 .ccw-bseq-line{flex:1;width:2px;background:#E8E6DF;margin:4px 0;min-height:24px}
 .ccw-bseq-step.done .ccw-bseq-line{background:#1D9E75}
 .ccw-bseq-card{flex:1;background:var(--md-default-bg-color,#fff);
   border:.5px solid rgba(0,0,0,.1);border-radius:10px;padding:16px 18px;
   margin-bottom:16px;transition:border-color .15s,box-shadow .15s}
-.ccw-bseq-step.current .ccw-bseq-card{border-color:#378ADD;box-shadow:0 2px 12px rgba(55,138,221,.12)}
-.ccw-bseq-step.done .ccw-bseq-card{opacity:.7}
+.ccw-bseq-step.current .ccw-bseq-card{border-color:#378ADD;
+  box-shadow:0 2px 12px rgba(55,138,221,.12)}
+.ccw-bseq-step.done    .ccw-bseq-card{opacity:.7}
 .ccw-bseq-step.upcoming .ccw-bseq-card{opacity:.5}
 .ccw-bseq-card h3{font-weight:600;margin:6px 0 8px}
 .ccw-bseq-card ul{list-style:none;padding:0;margin:0 0 12px}
@@ -372,11 +403,20 @@
 .ccw-bseq-cta.active{background:#185FA5;color:#fff;padding:6px 14px;border-radius:6px}
 .ccw-bseq-cta.revisit{color:#888780;font-size:.875rem;text-decoration:none}
 .ccw-bseq-btn{border:none;background:transparent;cursor:pointer;font-size:.75rem;
-  color:#888780;padding:4px 8px;border-radius:4px;border:.5px solid #D9D8D1}
+  color:#888780;padding:4px 8px;border-radius:4px;border:.5px solid #D9D8D1;
+  font-family:inherit}
 .ccw-bseq-btn:hover{background:#F1EFE8}
 .ccw-bseq-complete{margin-top:8px;padding:16px 20px;background:#E1F5EE;
   border-radius:10px;font-weight:600;color:#0F6E56;text-align:center}
 .ccw-bseq-complete a{color:#0F6E56;margin-left:8px}
+
+/* ── section label ── */
+.ccw-section-label{font-size:.7rem;font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;color:#888780;margin:0 0 12px;display:block}
+
+/* ── footer note ── */
+.ccw-footer-note{margin-top:32px;color:#888780;text-align:center;line-height:1.6;
+  font-size:.875rem}
 
 /* ── responsive ── */
 @media(max-width:600px){
@@ -537,16 +577,232 @@
     el.innerHTML = `<div class="ccw-tree">${lines}</div>`;
   }
 
+  /* ── Bundle navigation system ───────────────────────────────────────────
+   *
+   * BUNDLE MAP — define every bundle and its ordered lab sequence here.
+   * url: the MkDocs page path (relative, must match href MkDocs generates)
+   * label: short display name used in prev/next buttons
+   *
+   * Landing page bundle card start links call ccwSetBundle("a") etc.
+   * via data-bundle attribute on the start button — see renderBundle().
+   *
+   * Each lab page has ONE labnav widget. The widget:
+   *   1. Reads active bundle from localStorage
+   *   2. Matches current page URL to a position in that bundle's lab list
+   *   3. Renders contextual prev / next with bundle name shown
+   *   4. Shows a "switch bundle" pill if multiple bundles contain this lab
+   *   5. Falls back to a bundle picker if no bundle is set yet
+   * ─────────────────────────────────────────────────────────────────────── */
+
+  const BUNDLES = {
+    a: {
+      name: "Bundle A",
+      color: "teal",
+      labs: [
+        { url: "08-mcp-server/", label: "Lab E8" },
+        { url: "10-mcp-auth/", label: "Lab E10" },
+      ],
+    },
+    b: {
+      name: "Bundle B",
+      color: "coral",
+      labs: [
+        { url: "08-mcp-server/", label: "Lab E8" },
+        { url: "09-connected-agent/", label: "Lab E9" },
+        { url: "11-mcp-app/", label: "Lab E11" },
+      ],
+    },
+    c: {
+      name: "Bundle C",
+      color: "blue",
+      labs: [
+        { url: "02-build-the-api/", label: "Lab E2" },
+        { url: "03-add-declarative-agent/", label: "Lab E3" },
+        { url: "04-enhance-api-plugin/", label: "Lab E4" },
+        { url: "05-add-adaptive-card/", label: "Lab E5" },
+        { url: "06a-add-authentication-ttk/", label: "Lab E6a" },
+      ],
+    },
+    d: {
+      name: "Bundle D",
+      color: "purple",
+      labs: [
+        { url: "02-build-the-api/", label: "Lab E2" },
+        { url: "03-add-declarative-agent/", label: "Lab E3" },
+        { url: "04-enhance-api-plugin/", label: "Lab E4" },
+        { url: "07-add-graphconnector/", label: "Lab E7" },
+      ],
+    },
+  };
+
+  const BUNDLE_STORAGE_KEY = "ccw-active-bundle";
+
+  /* Normalise a URL to just its last path segment(s) for loose matching.
+     MkDocs may render /pages/extend-m365-copilot/04-enhance-api-plugin/
+     but the bundle map might store "04-enhance-api-plugin/".
+     We match on the last non-empty segment so both resolve. */
+  function urlSegment(url) {
+    return url.replace(/\/$/, "").split("/").pop() || "";
+  }
+
+  function currentSegment() {
+    return urlSegment(window.location.pathname);
+  }
+
+  function bundleColor(key) {
+    return P[BUNDLES[key]?.color] || P.blue;
+  }
+
+  function getBundleFromQuery() {
+    try {
+      const key = new URLSearchParams(window.location.search).get("bundle") || "";
+      return BUNDLES[key] ? key : "";
+    } catch {
+      return "";
+    }
+  }
+
+  function withBundleQuery(url, key) {
+    const u = String(url || "").trim();
+    if (!u || !key || !BUNDLES[key]) return u;
+    if (u.startsWith("http://") || u.startsWith("https://") || u.startsWith("#")) {
+      return u;
+    }
+    if (/([?&])bundle=/.test(u)) {
+      return u;
+    }
+    return u + (u.includes("?") ? "&" : "?") + `bundle=${encodeURIComponent(key)}`;
+  }
+
+  /* Preserve bundle context when building href links */
+  function bundleHref(url) {
+    const u = String(url || "").trim();
+    if (!u) return "";
+
+    let resolved = u;
+    if (!(u.startsWith("http://") || u.startsWith("https://") || u.startsWith("/") || u.startsWith("../") || u.startsWith("./"))) {
+      // Bundle lab URLs are siblings under /extend-m365-copilot/, not children of current lab route.
+      resolved = `../${u}`;
+    }
+
+    return withBundleQuery(resolved, getBundle());
+  }
+
+  window.ccwSetBundle = function (key) {
+    try { localStorage.setItem(BUNDLE_STORAGE_KEY, key); } catch (e) {}
+  };
+
+  function getBundle() {
+    const fromQuery = getBundleFromQuery();
+    if (fromQuery) {
+      try { localStorage.setItem(BUNDLE_STORAGE_KEY, fromQuery); } catch (e) {}
+      return fromQuery;
+    }
+    try { return localStorage.getItem(BUNDLE_STORAGE_KEY) || ""; } catch (e) { return ""; }
+  }
+
+  /* Find which bundles contain the current page and the position within each */
+  function findPositions() {
+    const seg = currentSegment();
+    const results = [];
+    for (const [key, bundle] of Object.entries(BUNDLES)) {
+      const idx = bundle.labs.findIndex(l => urlSegment(l.url) === seg);
+      if (idx !== -1) results.push({ key, bundle, idx });
+    }
+    return results;
+  }
+
   function renderLabNav(el) {
-    const d = el.dataset;
+    const positions  = findPositions();
+    const activeKey  = getBundle();
+
+    /* ── case 1: no bundle set yet, and this page is in multiple bundles ── */
+    if (!activeKey && positions.length > 1) {
+      const picks = positions.map(({ key, bundle }) => {
+        const c = bundleColor(key);
+        return `
+          <button class="ccw-bundle-pick"
+            style="background:${c.light};color:${c.dark};border-color:${c.mid}"
+            onclick="ccwSetBundle('${key}');location.reload()">
+            ${esc(bundle.name)}
+          </button>`;
+      }).join("");
+      el.innerHTML = `
+        <div class="ccw-lab-nav">
+          <div class="ccw-bundle-picker">
+            <span class="ccw-picker-label">Which bundle are you following?</span>
+            <div class="ccw-picker-btns">${picks}</div>
+          </div>
+        </div>`;
+      return;
+    }
+
+    /* ── case 2: bundle set (or only one option) ── */
+    const pos = positions.find(p => p.key === activeKey) || positions[0];
+
+    /* not in any bundle — fall back to simple static nav */
+    if (!pos) {
+      const d = el.dataset;
+      el.innerHTML = `
+        <div class="ccw-lab-nav">
+          ${d.prev ? `<a href="${esc(d.prev)}">← ${esc(d.prevLabel)}</a>` : "<span></span>"}
+          ${d.next ? `<a href="${esc(d.next)}" class="ccw-next">${esc(d.nextLabel)} →</a>` : ""}
+        </div>`;
+      return;
+    }
+
+    const { key, bundle, idx } = pos;
+    const c      = bundleColor(key);
+    const prev   = bundle.labs[idx - 1] || null;
+    const next   = bundle.labs[idx + 1] || null;
+    const isLast = idx === bundle.labs.length - 1;
+
+    /* "also in" switcher — other bundles that share this lab */
+    const others = positions.filter(p => p.key !== key);
+    const switcherHtml = others.length ? `
+      <div class="ccw-bundle-switcher">
+        <span class="ccw-switcher-label">Also in:</span>
+        ${others.map(({ key: ok, bundle: ob }) => {
+          const oc = bundleColor(ok);
+          return `<button class="ccw-switcher-btn"
+            style="background:${oc.light};color:${oc.dark};border-color:${oc.mid}"
+            onclick="ccwSetBundle('${ok}');location.reload()">${esc(ob.name)}</button>`;
+        }).join("")}
+      </div>` : "";
+
+    /* progress pip strip */
+    const pips = bundle.labs.map((l, i) => `
+      <span class="ccw-pip${i === idx ? " active" : ""}"
+        style="${i === idx ? `background:${c.mid}` : ""}"></span>`
+    ).join("");
+
     el.innerHTML = `
-      <div class="ccw-lab-nav">
-        ${d.prev
-          ? `<a href="${esc(d.prev)}">← ${esc(d.prevLabel)}</a>`
-          : "<span></span>"}
-        ${d.next
-          ? `<a href="${esc(d.next)}" class="ccw-next">${esc(d.nextLabel)} →</a>`
-          : ""}
+      <div class="ccw-lab-nav-wrap">
+        <div class="ccw-bundle-context" style="border-color:${c.mid}">
+          <span class="ccw-context-label" style="color:${c.dark}">
+            ${esc(bundle.name)}
+          </span>
+          <span class="ccw-context-pos" style="color:${c.text}">
+            Lab ${idx + 1} of ${bundle.labs.length}
+          </span>
+          <div class="ccw-pips">${pips}</div>
+        </div>
+        <div class="ccw-lab-nav">
+          ${prev
+            ? `<a href="${bundleHref(prev.url)}">← ${esc(prev.label)}</a>`
+            : "<span></span>"}
+          ${isLast
+            ? `<a href="../bundles/" class="ccw-next ccw-done"
+                onclick="ccwSetBundle('')">
+                ✓ Bundle complete — back to overview
+              </a>`
+            : next
+              ? `<a href="${bundleHref(next.url)}" class="ccw-next">
+                  ${esc(next.label)} →
+                </a>`
+              : ""}
+        </div>
+        ${switcherHtml}
       </div>`;
   }
 
@@ -589,7 +845,10 @@
         </div>
         <div class="ccw-bundle-foot">
           <em>${esc(d.arc)}</em>
-          <a href="${esc(d.startUrl)}">Start ${esc(d.label)} →</a>
+          <a href="${esc(withBundleQuery(d.startUrl, d.bundleKey || ""))}"
+             onclick="ccwSetBundle('${esc(d.bundleKey || "")}')">
+            Start ${esc(d.label)} →
+          </a>
         </div>
       </div>`;
   }
@@ -695,15 +954,21 @@
     el.innerHTML = `<div class="ccw-footer-note">${el.dataset.text}</div>`;
   }
 
-  /* Bundle sequence stepper — Option 1 + dynamic nav
+  /* Bundle sequence stepper — vertical timeline with localStorage progress tracking.
      Each step: labKey::badge::badgeColor::title::item1~item2~item3::url
      Steps are pipe-separated.
-     Completion tracked via localStorage key: ccw-done-{labKey}
+     - done    = learner marked it complete (green ✓ dot, faded card)
+     - current = first non-done step (blue dot, highlighted card, "Start Lab" CTA)
+     - upcoming = not yet reached (grey dot, dimmed card)
+     Clicking "Mark done ✓" toggles localStorage and re-renders in place.
+     Clicking any Start/Go/Revisit link stores the sequence in localStorage
+     so the labnav widget on each lab page can resolve prev/next correctly.
   */
   function renderBundleSeq(el) {
     const d = el.dataset;
-    const DONE_KEY = k => `ccw-done-${k}`;
-    const ACTIVE_SEQ_KEY = "cc-active-bundle-seq";
+    const DONE_KEY    = k => `ccw-done-${k}`;
+    const ACTIVE_SEQ  = "cc-active-bundle-seq";
+    const ACTIVE_BUNDLE = BUNDLE_STORAGE_KEY;
 
     const steps = (d.steps || "").split("|").filter(Boolean).map(raw => {
       const parts = raw.split("::");
@@ -717,25 +982,21 @@
       };
     });
 
-    // Resolve all step URLs to absolute paths so navigation works regardless of referrer page.
     function getSequencePaths() {
-      return steps
-        .map(step => {
-          try {
-            return new URL(step.url, window.location.href).pathname;
-          } catch {
-            return null;
-          }
-        })
-        .filter(Boolean);
+      return steps.map(step => {
+        try { return new URL(step.url, window.location.href).pathname; }
+        catch { return null; }
+      }).filter(Boolean);
     }
 
     function isDone(key) {
-      return localStorage.getItem(DONE_KEY(key)) === "true";
+      try { return localStorage.getItem(DONE_KEY(key)) === "true"; } catch { return false; }
     }
 
     function toggle(key) {
-      localStorage.setItem(DONE_KEY(key), String(!isDone(key)));
+      try {
+        localStorage.setItem(DONE_KEY(key), String(!isDone(key)));
+      } catch {}
       render();
     }
 
@@ -753,6 +1014,8 @@
         const items    = step.items.map(it => `<li>${esc(it)}</li>`).join("");
         const ctaClass = done ? "revisit" : current ? "active" : "";
         const ctaText  = done ? "Revisit →" : current ? "Start Lab →" : "Go to Lab →";
+        const bundleKey = (d.bundleKey || "").trim();
+        const ctaHref = withBundleQuery(step.url, bundleKey);
         return `
           <div class="ccw-bseq-step ${cls}">
             <div class="ccw-bseq-indicator">
@@ -760,12 +1023,16 @@
               ${!isLast ? `<div class="ccw-bseq-line"></div>` : ""}
             </div>
             <div class="ccw-bseq-card">
-              <span class="ccw-ln" style="background:${bc.light};color:${bc.dark}">${esc(step.badge)}</span>
+              <span class="ccw-ln"
+                style="background:${bc.light};color:${bc.dark}">${esc(step.badge)}</span>
               <h3>${esc(step.title)}</h3>
               ${items ? `<ul>${items}</ul>` : ""}
               <div class="ccw-bseq-foot">
-                <a href="${esc(step.url)}" class="ccw-bseq-cta ${ctaClass}">${ctaText}</a>
-                <button class="ccw-bseq-btn" data-key="${esc(step.key)}">${done ? "Undo" : "Mark done ✓"}</button>
+                <a href="${esc(ctaHref)}"
+                   class="ccw-bseq-cta ${ctaClass}"
+                   data-seq-link="true">${ctaText}</a>
+                <button class="ccw-bseq-btn"
+                  data-key="${esc(step.key)}">${done ? "Undo" : "Mark done ✓"}</button>
               </div>
             </div>
           </div>`;
@@ -773,24 +1040,33 @@
 
       const allDone = steps.every(s => isDone(s.key));
       const celebration = allDone
-        ? `<div class="ccw-bseq-complete">🎉 Bundle complete! <a href="../bundles/">Choose another bundle →</a></div>`
+        ? `<div class="ccw-bseq-complete">
+            🎉 Bundle complete!
+            <a href="../">Choose another bundle →</a>
+          </div>`
         : "";
 
       el.innerHTML = `<div class="ccw-bseq">${stepsHtml}${celebration}</div>`;
 
+      /* toggle buttons */
       el.querySelectorAll(".ccw-bseq-btn").forEach(btn => {
         btn.addEventListener("click", () => toggle(btn.dataset.key));
       });
 
-      // Remember active bundle sequence when learners use Start/Go/Revisit links.
-      el.querySelectorAll(".ccw-bseq-cta").forEach(link => {
+      /* store sequence paths when learner navigates so labnav can resolve them */
+      el.querySelectorAll("[data-seq-link]").forEach(link => {
         link.addEventListener("click", () => {
-          const payload = {
-            source: window.location.pathname,
-            paths: getSequencePaths(),
-            updatedAt: Date.now(),
-          };
-          localStorage.setItem(ACTIVE_SEQ_KEY, JSON.stringify(payload));
+          try {
+            const bundleKey = (d.bundleKey || "").trim();
+            localStorage.setItem(ACTIVE_SEQ, JSON.stringify({
+              source:    window.location.pathname,
+              paths:     getSequencePaths(),
+              updatedAt: Date.now(),
+            }));
+            if (bundleKey) {
+              localStorage.setItem(ACTIVE_BUNDLE, bundleKey);
+            }
+          } catch {}
         });
       });
     }

@@ -526,7 +526,7 @@ You've successfully created and deployed Zava Insurance's **OAuth-protected** De
 <cc-award badgeId="DeclarativePioneer" badgeName="Declarative Pioneer" />
 <cc-award badgeId="MCPIntegrator" badgeName="MCP Integrator" />
 
-<cc-next />
+<div data-widget="labnav"></div>
 
 <img src="https://m365-visitor-stats.azurewebsites.net/copilot-camp/extent/10-mcp-auth" />
 

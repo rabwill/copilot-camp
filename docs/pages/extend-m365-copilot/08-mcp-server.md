@@ -707,7 +707,7 @@ Analyze debugger information in the Agent debug info panel at the end of each ag
 ![agent debugger](../../assets/images/extend-m365-copilot-08/agent-debugger.png)
 
 Congratulations! You've successfully created and deployed Zava Insurance's Declarative Agent that seamlessly integrates with their MCP server. Proceed "Next" to add another Declarative agent to help prepare you for multi-agent orchestration. 
-<cc-next />
+<div data-widget="labnav"></div>
 
 <cc-award badgeId="DeclarativePioneer" badgeName="Declarative Pioneer" />
 <cc-award badgeId="MCPIntegrator" badgeName="MCP Integrator" />

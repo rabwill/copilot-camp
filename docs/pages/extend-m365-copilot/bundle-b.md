@@ -32,6 +32,7 @@ This advanced track assumes the same foundation from E0/E1 plus comfort with the
      data-cards="Prerequisites::amber::E0 + E1 (NEW) completed::This bundle expects the full on-ramp setup, plus readiness to move quickly through multiple MCP labs.||Foundation first::teal::E8 is the starting point::Bundle B includes E8 because orchestration and widgets depend on a working MCP server and declarative agent tool wiring.||Connected-agent orchestration::coral::Route work across agents::Lab E9 introduces a pattern where specialized agents collaborate, each handling a focused responsibility in the workflow.||Interactive tool UX::green::Widget surface in Copilot::Lab E11 maps tool results into interactive UI so users can act on data directly in conversation instead of reading plain text only."></div>
 
 <div data-widget="bundleseq"
+     data-bundle-key="b"
      data-steps="e8::Lab E8::amber::Connect Declarative Agent to MCP Server::Run Azurite + seed claims data~Start the Zava MCP server~Wire tools via ai-plugin.json~Validate natural language tool calls::../08-mcp-server/|e9::Labs E8 + E9::amber::MCP Foundations + Orchestration::Build MCP foundation (E8)~Implement connected agents (E9)~Validate orchestration routing::../09-connected-agent/|e11::Lab E11::green::MCP App with Interactive Widgets::Run the MCP app~Build React + Fluent UI widget~Register tool UI mapping~Test in Copilot conversation::../11-mcp-app/"></div>
 
 <div data-widget="labnav"

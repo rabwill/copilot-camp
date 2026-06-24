@@ -517,9 +517,7 @@ Now check out your default skills and confirm the project assignment by asking:
 ---8<--- "e-congratulations.md"
 
 You have completed lab Ea6, Add Entra ID authentication with Agents Toolkit!
+<div data-widget="labnav"></div>
 
-Want to try something cool? How about adding a Copilot Connector to your solution?
-
-<cc-next url="../07-add-graphconnector" />
 
 <img src="https://pnptelemetry.azurewebsites.net/copilot-camp/extend-m365-copilot/06a-add-authentication" />

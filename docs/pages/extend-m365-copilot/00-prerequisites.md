@@ -223,7 +223,7 @@ The Declarative Agent doesn't talk to the MCP server directly at config time —
 
 ## Next step
 
-After completing prerequisites, go to the [bundles page](/bundles) to choose your learning bundle.
+<div data-widget="labnav"></div>
 
 
 <img src="https://m365-visitor-stats.azurewebsites.net/copilot-camp/extend-m365-copilot/00-prerequisites" />

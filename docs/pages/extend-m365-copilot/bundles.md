@@ -14,13 +14,14 @@ title: Declarative Agent Developer Bundles
 <div data-widget="onramp"
      data-title="Complete these two labs first (required)"
      data-sub="This on-ramp is mandatory for all bundles. Total time: ~75–90 min."
-     data-steps="Prerequisites::prereq::Lab E0 — Prerequisites &amp; Concepts::Install and verify tools, configure tenant settings, and build the core mental model for Declarative Agents and MCP.::Go to Lab E0::00-prerequisites.md|First Agent (NEW)::lab::Lab E1 (NEW) — Your First Declarative Agent::Scaffold, configure, provision, and test your first Declarative Agent without TypeSpec. This replaces the old TypeSpec-first E1 flow.::Go to Lab E1 (NEW)::01-first-agent-new.md"></div>
+     data-steps="Prerequisites::prereq::Lab E0 — Prerequisites &amp; Concepts::Install and verify tools, configure tenant settings, and build the core mental model for Declarative Agents and MCP.::Go to Lab E0::../00-prerequisites/|First Agent (NEW)::lab::Lab E1 (NEW) — Your First Declarative Agent::Scaffold, configure, provision, and test your first Declarative Agent without TypeSpec. This replaces the old TypeSpec-first E1 flow.::Go to Lab E1 (NEW)::../01-first-agent-new/"></div>
 
 <div data-widget="sectionlabel" data-text="Learning bundles"></div>
 
 <div data-widget="bundle"
      data-icon="🔌"
      data-label="Bundle A"
+     data-bundle-key="a"
      data-label-color="teal"
      data-title="MCP Foundations: Build, Connect &amp; Secure"
      data-tagline="Build and connect an MCP server, then harden it with OAuth 2.0 and Entra ID."
@@ -35,11 +36,12 @@ title: Declarative Agent Developer Bundles
      data-lab2-title="OAuth-Protected MCP Server"
      data-lab2-items="Register app in Entra ID|Add API scope and secret|Enable JWT validation|Test authenticated Copilot flow"
      data-arc="Labs: E8 + E10"
-     data-start-url="bundle-a.md"></div>
+     data-start-url="../bundle-a/"></div>
 
 <div data-widget="bundle"
      data-icon="🕸️"
      data-label="Bundle B"
+     data-bundle-key="b"
      data-label-color="coral"
      data-title="MCP Advanced: Orchestrate, Scale &amp; Visualise"
      data-tagline="Start with MCP foundations, then add connected-agent orchestration and interactive UI widgets."
@@ -54,11 +56,12 @@ title: Declarative Agent Developer Bundles
      data-lab2-title="MCP App with Interactive Widgets"
      data-lab2-items="Run MCP app|Build React + Fluent UI widget|Register tool UI mapping|Test in Copilot conversation"
      data-arc="Labs: E8 + E9 + E11"
-     data-start-url="bundle-b.md"></div>
+     data-start-url="../bundle-b/"></div>
 
 <div data-widget="bundle"
      data-icon="🧭"
      data-label="Bundle C"
+     data-bundle-key="c"
      data-label-color="blue"
      data-title="API-Based Declarative Agent: From API to Agent"
      data-tagline="Build a Declarative Agent that retrieves data from a custom API (not MCP)."
@@ -73,11 +76,12 @@ title: Declarative Agent Developer Bundles
      data-lab2-title="Complete the fundamentals flow"
      data-lab2-items="Add adaptive cards (E5)|Add authentication with toolkit (E6a)|Validate complete experience"
      data-arc="Labs: E2 + E3 + E4 + E5 + E6a"
-     data-start-url="bundle-c.md"></div>
+     data-start-url="../bundle-c/"></div>
 
 <div data-widget="bundle"
      data-icon="🔗"
      data-label="Bundle D"
+     data-bundle-key="d"
      data-label-color="purple"
      data-title="Declarative Agents with Connectors: Grounding Your Agent"
      data-tagline="Follow the declarative agent core and then ground responses with connectors."
@@ -92,7 +96,7 @@ title: Declarative Agent Developer Bundles
      data-lab2-title="Connector grounding"
      data-lab2-items="Add Graph connector integration|Ground agent with indexed data|Validate grounded responses"
      data-arc="Labs: E2 + E3 + E4 + E7"
-     data-start-url="bundle-d.md"></div>
+     data-start-url="../bundle-d/"></div>
 
 <div data-widget="footernote"
      data-text="Mandatory order: complete On-ramp (E0 + E1 NEW) first, then pick any bundle."></div>
