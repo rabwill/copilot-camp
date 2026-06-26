@@ -37,33 +37,11 @@ In this lab, you'll run a complete Model Context Protocol (MCP) server for Zava 
 
 ## Scenario
 
-**Zava Insurance**, a mid-sized home fictitious insurance company serving 150,000+ homes across the Pacific Northwest, struggled with manual claims operations that caused 3-week delays and coordination issues when severe storms brought 2,000 claims in 48 hours during October 2025. To address this crisis, Zava's CTO envisioned AI-powered claims operations where intelligent agents could handle routine tasks, enabling adjusters to focus on complex cases and customer care. The development team built a **Model Context Protocol (MCP) server** using Azure infrastructure to provide standardized, secure access to claims data for AI agents, offering real-time synchronization and rich contextual information about damage assessments, contractor specialties, and inspection scheduling. After successfully deploying the MCP server, Zava integrated it with **Microsoft 365 Copilot** using **Declarative Agents**, enabling claims adjusters to interact with the system through natural language conversations like "Show me all urgent storm damage claims" rather than complex API calls, seamlessly embedding AI-powered claims management into their existing Microsoft 365 workflows.
+<div data-widget="arch"
+    data-rows="row::Claims Adjuster::tunnel::&quot;Show me urgent storm damage claims&quot;|Microsoft 365 Copilot::copilot::Routes query to your Declarative Agent||label::Declarative Agent reads ai-plugin.json → calls MCP tools over HTTPS via Dev Tunnel||row::Declarative Agent::agent::declarativeAgent.json + instruction.txt|Dev Tunnel::tunnel::Public HTTPS ↔ localhost:3001||label::MCP server handles tool calls → reads claims data from Azurite||row::MCP Server (Node.js)::mcp::15 claims tools · runs on your machine|Azurite::data::Claims · Inspections · Contractors"></div>
 
 ---
 
-## 🎯 Lab Objectives
-
-By completing this lab, you will:
-
-- Understand how MCP servers connect AI agents to backend systems
-- Build and run Zava's MCP server with insurance claims data
-- Create a Declarative Agent using Microsoft 365 Agents Toolkit
-- Connect your agent to the MCP server and configure claims management capabilities
-- Test the agent with natural language queries and real claims data
-
----
-
-## 📚 Prerequisites
-
-Before starting this lab, ensure you have:
-
-- **Node.js 22+** installed on your machine
-- **VS Code** with **Microsoft 365 Agents Toolkit extension** V 6.4.2 or higher
-- **Microsoft 365 developer account** with Copilot license
-- Basic knowledge of **TypeScript/JavaScript**,**REST APIs** and **JSON**
-- GitHub account for using VS Code tunneling
-
----
 
 ## Exercise 1: Set Up Your Development Environment
 
@@ -75,7 +53,7 @@ Open your terminal and run:
 
 ```bash
 git clone https://github.com/microsoft/copilot-camp.git
-cd src/extend-m365-copilot/path-e-lab08-mcp-server/zava-mcp-server
+cd copilot-camp/src/extend-m365-copilot/path-e-lab08-mcp-server/zava-mcp-server
 ```
 
 <cc-end-step lab="e8" exercise="1" step="1" />
@@ -197,10 +175,14 @@ Check the console output. You should see:
 ✨ All tables initialized successfully
 ```
 
+
 Your local claims database is now running with sample data that mirrors Zava's production environment.
+
 <cc-end-step lab="e8" exercise="2" step="3" />
 
+
 ---
+
 
 ## Exercise 3: Launch the MCP Server
 
@@ -221,6 +203,8 @@ You should see a message as below (parts of the message):
 🚀 Zava Claims MCP HTTP Server started on 127.0.0.1:3001 
 ...
 ```
+
+
 <cc-end-step lab="e8" exercise="3" step="1" />
 
 ### Step 2: Test Server Health
@@ -318,66 +302,48 @@ You should see claims like:
 
 ### Step 4: Set Up Public Access with Dev Tunnel
 
-To enable external access to your MCP server (useful for testing with cloud-based AI agents or sharing with team members), you'll use VS Code's built-in Dev Tunnel feature to create a public HTTPS endpoint.
+Copilot runs in the cloud, so your local MCP server needs a public HTTPS address it can reach. VS Code's built-in Dev Tunnel creates one in seconds.
 
-#### Why Use HTTPS Instead of HTTP?
+<div data-widget="callout"
+    data-type="concept"
+    data-title="Why HTTPS and not HTTP?"
+    data-body="Copilot is a cloud service — it cannot reach &lt;code&gt;localhost&lt;/code&gt;. A Dev Tunnel gives your local port 3001 a public &lt;code&gt;https://…devtunnels.ms&lt;/code&gt; address. HTTPS is also required for CORS and matches production deployment patterns."></div>
 
-- **Security**: HTTPS encrypts communication between AI agents and your MCP server
-- **Cloud Compatibility**: Many cloud-based AI services require HTTPS endpoints
-- **Production Readiness**: Mirrors real-world deployment scenarios where MCP servers are accessed over secure connections
-- **Cross-Origin Support**: HTTPS tunnels handle CORS (Cross-Origin Resource Sharing) better than local HTTP servers
+#### 1: Forward port 3001
 
-#### Create a Dev Tunnel in VS Code
+1. In VS Code, open the **Ports** tab (in the terminal panel)
+2. Click **Forward a Port**, enter `3001`, and press Enter
 
-- In VS Code's terminal panel, locate the Ports tab.
+####  2: Make it public
 
-- Click the Forward a Port button and enter port number 3001.
+1. Right-click the new port entry → **Port Visibility** → **Public**
+2. Sign in with your GitHub account if prompted
+3. Copy the forwarded address — it looks like `https://abc123def456.use.devtunnels.ms`
 
-- Right-click on the forwarded port address and select Configure the Tunnel:
+Save this URL. It will be referred to as `<tunnel-url>` throughout the rest of this lab.
 
-- Port Visibility: Select "Public" to make it accessible externally
-- Set Port Label: Enter zava-mcp-server (optional but recommended)
-- Copy Local Address: Click to copy the tunnel URL to your clipboard
-- Authenticate: If prompted, sign in with your Microsoft/GitHub account to create the tunnel.
+<div data-widget="callout"
+    data-type="warn"
+    data-title="Tunnels expire on VS Code restart"
+    data-body="You will need to recreate the tunnel each new session and update &lt;code&gt;package.json&lt;/code&gt;'s inspector script with the new URL."></div>
 
-    The copied URL will look similar to this:
+#### 3: Update the inspector script in package.json
 
-    ```
-    https://abc123def456.use.devtunnels.ms 
-    ```
-
-    Save this URL - you'll need it for the next step. We'll refer to this as `<tunnel-url>`.
-
-#### Update Package.json with Tunnel URL
-
-Now update your package.json to use the tunnel URL for testing:
-
-- Open **package.json** in the zava-mcp-server directory.
-
-- Locate the inspector script and update it from:
-
-```json
-"inspector": "npx @modelcontextprotocol/inspector --transport http --server-url http://localhost:3001/mcp/messages"
-```
-
-to
+Open **package.json** in the `zava-mcp-server` directory and update the `inspector` script:
 
 ```json
 "inspector": "npx @modelcontextprotocol/inspector --transport http --server-url <tunnel-url>/mcp/messages"
 ```
-- Replace <tunnel-url> with your actual tunnel URL from above step. 
 
-- Keep a copy of `<tunnel-url>/mcp/messages` - this is your  public HTTPS MCP server endpoint for agent integration.
+Replace `<tunnel-url>` with your actual tunnel address. Keep a copy of `<tunnel-url>/mcp/messages` — this is your public MCP endpoint for agent integration.
 
-- If the inspector is currently running, stop it by pressing Ctrl+C in the terminal, then restart it:
+If the inspector is running, stop it (`Ctrl+C`) and restart:
 
-```
+```bash
 npm run inspector
 ```
 
-The MCP Inspector now opens a new browser session with a publicly accessible endpoint. Test all tools and prompts available to see how it works and brings back data. 
-
-You've successfully tested how AI agents interact with Zava's claims system through the MCP protocol and you now have a public HTTPS endpoint for your MCP server that can be accessed by external AI agents and services.
+The MCP Inspector now connects through your public tunnel. Test the available tools to confirm data flows end-to-end.
 
 <cc-end-step lab="e8" exercise="4" step="4" />
 
@@ -472,7 +438,8 @@ Replace the content of `appPackage/declarativeAgent.json` with Zava's configurat
 
 ```json
 {
-    "version": "v1.6",
+    "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.7/schema.json",
+    "version": "v1.7",
     "name": "Zava Claims",
     "description": "An intelligent insurance claims management assistant that leverages MCP server integration to streamline inspection workflows, analyze damage patterns, coordinate contractor services, and generate comprehensive operational reports for efficient claims processing",
     "instructions": "$[file('instruction.txt')]",
@@ -588,21 +555,7 @@ You are an intelligent insurance claims management assistant with access to the 
 Open `appPackage/manifest.json` and update it with Zava's branding:
 
 ```json
-{
-    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.23/MicrosoftTeams.schema.json",
-    "manifestVersion": "1.23",
-    "version": "1.0.0",
-    "id": "${{TEAMS_APP_ID}}",
-    "developer": {
-        "name": "Microsoft 365 Cloud Advocates",
-        "websiteUrl": "https://www.zavainsurance.com",
-        "privacyUrl": "https://www.zavainsurance.com/privacy",
-        "termsOfUseUrl": "https://www.zavainsurance.com/terms"
-    },
-    "icons": {
-        "color": "color.png",
-        "outline": "outline.png"
-    },
+
     "name": {
         "short": "Zava Claims",
         "full": "Zava Insurance Claims Assistant"
@@ -611,22 +564,7 @@ Open `appPackage/manifest.json` and update it with Zava's branding:
         "short": "An intelligent insurance claims management assistant",
         "full": "An AI-powered claims management assistant that leverages MCP server capabilities to streamline inspection workflows, coordinate contractors, and provide comprehensive operational insights for efficient claims processing."
     },
-    "accentColor": "#0078D4",
-    "composeExtensions": [],
-    "copilotAgents": {
-        "declarativeAgents": [            
-            {
-                "id": "declarativeAgent",
-                "file": "declarativeAgent.json"
-            }
-        ]
-    },
-    "permissions": [
-        "identity",
-        "messageTeamMembers"
-    ],
-    "validDomains": []
-}
+  
 ```
 
 Your agent now has a clear identity as Zava's claims assistant with comprehensive instructions.
@@ -661,11 +599,15 @@ In VS Code with your `zava-claims-agent` project open:
 
 ### Step 3: Test in Microsoft 365 Copilot
 
-1. Open Copilot using URL https://m365.cloud.microsoft/chat/ 
-2. Under Agents on left hand side, find Zava Claims agent, and select it.  
-3. Try the conversation starters:
-   - "Find all inspections for claim number CN202504991"
-   - "Show me all high-priority claims and their inspection status"
+Now validate that your provisioned agent appears in Copilot and can call MCP-backed tools.
+
+1. Open Microsoft 365 Copilot: https://m365.cloud.microsoft/chat/
+2. In the left pane, under **Agents**, select **Zava Claims**.
+3. Run these conversation starters:
+    - `Find all inspections for claim number CN202504991`
+    - `Show me all high-priority claims and their inspection status`
+
+Expected result: the agent responds with claims/inspection data from your MCP server, not a generic answer.
 
   <cc-end-step lab="e8" exercise="7" step="3" />
 
@@ -708,16 +650,11 @@ Analyze debugger information in the Agent debug info panel at the end of each ag
 
 ![agent debugger](../../assets/images/extend-m365-copilot-08/agent-debugger.png)
 
-Congratulations! You've successfully created and deployed Zava Insurance's Declarative Agent that seamlessly integrates with their MCP server. Proceed "Next" to add another Declarative agent to help prepare you for multi-agent orchestration. 
+---8<--- "e-congratulations.md"
+
 <div data-widget="labnav"></div>
 
 <cc-award badgeId="DeclarativePioneer" badgeName="Declarative Pioneer" />
 <cc-award badgeId="MCPIntegrator" badgeName="MCP Integrator" />
 
 <img src="https://m365-visitor-stats.azurewebsites.net/copilot-camp/extent/08-mcp-server" />
-
-### 🔗 Additional Resources
-
-- **MCP Protocol Documentation**: [https://modelcontextprotocol.io/](https://modelcontextprotocol.io/)
-- **Azure Table Storage**: [Azure Documentation](https://docs.microsoft.com/en-us/azure/storage/tables/)
-- **Zava Insurance Demo**: [GitHub Repository](https://github.com/microsoft/Ignite25-BRK319-Demos/src/DA/zava-mcp-server)
