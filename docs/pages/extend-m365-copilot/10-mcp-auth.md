@@ -46,10 +46,19 @@ In this lab, you'll run an **OAuth 2.0 protected** Model Context Protocol (MCP) 
   data-title="Before you begin this lab"
   data-body="If Lab E8 is still running, stop all related terminal processes first (for example Azurite, MCP server, and Inspector). Then close the previous MCP server project window. This lab uses a different OAuth-protected MCP server, so start with a clean terminal/session state to avoid port and configuration conflicts."></div>
 
+<div data-widget="checklist"
+  data-title="Hands-on flow"
+  data-items="Exercise 1~Clone and set up the authenticated MCP server project|Exercise 2~Create Entra app registration and OAuth scope|Exercise 3~Configure .env, Dev Tunnel, and local claims data|Exercise 4~Run OAuth-protected MCP server and validate security behavior|Exercise 5~Create and provision authenticated Declarative Agent|Exercise 6~Test end-to-end authenticated agent flow in Copilot"></div>
+
 
 ## Exercise 1: Set Up Your Development Environment
 
 In this exercise, you'll clone Zava's authenticated MCP server codebase and set up your local development environment.
+
+<div data-widget="callout"
+  data-type="info"
+  data-title="Exercise outcome"
+  data-body="By the end of this exercise, your authenticated MCP server project is cloned, dependencies are installed, and the auth module structure is ready to use."></div>
 
 ### Step 1: Clone the Repository
 
@@ -99,6 +108,11 @@ Your codebase is now ready with sample data and authentication support.
 ## Exercise 2: Create Microsoft Entra ID App Registration
 
 Before running the authenticated MCP server, you need to register an application in Microsoft Entra ID to handle OAuth 2.0 authentication.
+
+<div data-widget="callout"
+  data-type="concept"
+  data-title="Exercise outcome"
+  data-body="By the end of this exercise, your Entra app registration has redirect URIs, client secret, and an API scope ready for OAuth token flows."></div>
 
 ### Step 1: Create App Registration
 
@@ -193,6 +207,11 @@ Your Microsoft Entra ID app registration is now complete!
 ## Exercise 3: Configure Environment and Start Local Database
 
 In this exercise, you'll configure the OAuth environment variables and start the local database.
+
+<div data-widget="callout"
+  data-type="info"
+  data-title="Exercise outcome"
+  data-body="By the end of this exercise, your tunnel URL and .env configuration are in place, and local claims data is running in Azurite."></div>
 
 ### Step 1: Set Up Public Access with Dev Tunnel
 
@@ -305,6 +324,11 @@ You should see confirmation messages for all tables being initialized.
 
 Now you'll start Zava's authenticated MCP server that validates OAuth tokens before allowing access.
 
+<div data-widget="callout"
+  data-type="tip"
+  data-title="Exercise outcome"
+  data-body="By the end of this exercise, the MCP server is running with OAuth enabled, metadata discovery works, and unauthenticated tool calls are correctly rejected."></div>
+
 ### Step 1: Build and Start the MCP Server
 
 In **Terminal 2** (keeping Azurite running in Terminal 1):
@@ -398,6 +422,11 @@ This confirms that authentication is working correctly.
 
 In this exercise, you'll use the Microsoft 365 Agents Toolkit to create a new Declarative Agent project that connects to Zava's authenticated claims system.
 
+<div data-widget="callout"
+  data-type="info"
+  data-title="Exercise outcome"
+  data-body="By the end of this exercise, you have a provisioned Declarative Agent wired to the OAuth-protected MCP server with registered authentication settings."></div>
+
 ### Step 1: Create New Agent using Microsoft 365 Agents Toolkit
 
 1. Open a new window in **VS Code**
@@ -461,6 +490,11 @@ You now have a Declarative Agent connected to your OAuth-protected MCP Server.
 
 Test your Declarative Agent to ensure it can successfully authenticate and communicate with the OAuth-protected MCP server.
 
+<div data-widget="callout"
+  data-type="tip"
+  data-title="Exercise outcome"
+  data-body="By the end of this exercise, you verify sign-in, token-based tool calls, and successful authenticated responses in Copilot."></div>
+
 ### Step 1: Ensure MCP Server is Running
 
 Before testing, verify your MCP server from previous exercises is still running:
@@ -513,11 +547,3 @@ You've successfully created and deployed Zava Insurance's **OAuth-protected** De
 <div data-widget="labnav"></div>
 
 <img src="https://m365-visitor-stats.azurewebsites.net/copilot-camp/extent/10-mcp-auth" />
-
-### 🔗 Additional Resources
-- **Build declarative agents for Microsoft 365 Copilot with MCP**:[https://devblogs.microsoft.com/microsoft365dev/build-declarative-agents-for-microsoft-365-copilot-with-mcp/](https://devblogs.microsoft.com/microsoft365dev/build-declarative-agents-for-microsoft-365-copilot-with-mcp/)
-
-- **MCP Protocol Documentation**: [https://modelcontextprotocol.io/](https://modelcontextprotocol.io/)
-- **Microsoft Entra ID Documentation**: [https://docs.microsoft.com/en-us/azure/active-directory/](https://docs.microsoft.com/en-us/azure/active-directory/)
-- **RFC 9728 - OAuth 2.0 Protected Resource Metadata**: [https://datatracker.ietf.org/doc/html/rfc9728](https://datatracker.ietf.org/doc/html/rfc9728)
-- **Azure Table Storage**: [Azure Documentation](https://docs.microsoft.com/en-us/azure/storage/tables/)
