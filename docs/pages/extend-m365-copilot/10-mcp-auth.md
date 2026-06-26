@@ -496,18 +496,10 @@ Before testing, verify your MCP server from previous exercises is still running:
 
 You've successfully created and deployed Zava Insurance's **OAuth-protected** Declarative Agent that securely integrates with their authenticated MCP server.
 
-### What You Accomplished
-
-- ✅ Created a Microsoft Entra ID app registration for OAuth 2.0
-- ✅ Configured environment variables for secure authentication
-- ✅ Ran an OAuth-protected MCP server with JWT token validation
-- ✅ Tested RFC 9728-compliant OAuth discovery endpoints
-- ✅ Created a Declarative Agent with authenticated MCP integration
-- ✅ Tested secure natural language queries with claims data
 
 ### Key Differences from Lab 08
 
-| Aspect | Lab 08 (Anonymous) | Lab 10 (Authenticated) |
+| Aspect | Lab E08 (Anonymous) | Lab 10 (Authenticated) |
 |--------|-------------------|----------------------|
 | Authentication | None - all endpoints public | OAuth 2.0 with Microsoft Entra ID |
 | Token Validation | None | JWT validation against JWKS |
