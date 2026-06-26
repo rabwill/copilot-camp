@@ -8,7 +8,7 @@
   data-subtitle="Upgrade the MCP integration from anonymous development mode to authenticated, enterprise-ready access control."
   data-time="90-120 min"
   data-requires="Lab E8 recommended"
-  data-toolkit="OAuth 2.0 + Entra ID"></div>
+  data-toolkit="Azure (free tier) OAuth 2.0 + Entra ID"></div>
 
 <div data-widget="checklist"
   data-items="Entra app registration configured~Client ID, scope, and redirect settings established|OAuth-enabled MCP server running~JWT validation and protected metadata endpoints active|Authenticated Declarative Agent validated~Copilot prompts succeed with authorized token flow"></div>
@@ -36,36 +36,16 @@ In this lab, you'll run an **OAuth 2.0 protected** Model Context Protocol (MCP) 
 
 ## Scenario
 
-Building on the MCP server Lab 08, **Zava Insurance** now needs to secure their claims operations system for production use. While the anonymous MCP server was excellent for development and testing, the security team requires OAuth 2.0 authentication before deploying to production. The development team must now integrate **Microsoft Entra ID** authentication to ensure only authorized users can access sensitive claims data. This authenticated MCP server will validate JWT tokens, implement scope-based permissions, and comply with **RFC 9728** for protected resource metadata discovery, enabling secure integration with **Microsoft 365 Copilot** Declarative Agents.
+<div data-widget="arch"
+  data-rows="row::Claims Adjuster::tunnel::Asks Copilot for claims help|Microsoft 365 Copilot::copilot::Routes requests to Declarative Agent||label::Declarative Agent requests MCP tools with OAuth token||row::Declarative Agent::agent::Uses ai-plugin.json + secure tool metadata|Microsoft Entra ID::purple::Issues access tokens for authorized users||label::OAuth-protected MCP validates JWT + scope before tool execution||row::MCP Server (Node.js)::mcp::Protected tools + RFC 9728 metadata|Claims Data::data::Sensitive records only returned to authorized requests"></div>
 
 ---
 
-## 🎯 Lab Objectives
+<div data-widget="callout"
+  data-type="warn"
+  data-title="Before you begin this lab"
+  data-body="If Lab E8 is still running, stop all related terminal processes first (for example Azurite, MCP server, and Inspector). Then close the previous MCP server project window. This lab uses a different OAuth-protected MCP server, so start with a clean terminal/session state to avoid port and configuration conflicts."></div>
 
-By completing this lab, you will:
-
-- Set up Microsoft Entra ID app registration for OAuth 2.0 authentication
-- Configure environment variables for secure MCP server operation
-- Build and run Zava's OAuth-protected MCP server
-- Understand how JWT token validation works with Microsoft Entra ID
-- Create a Declarative Agent that authenticates with the protected MCP server
-- Test the agent with authenticated natural language queries
-
----
-
-## 📚 Prerequisites
-
-Before starting this lab, ensure you have:
-
-- **Node.js 22+** installed on your machine
-- **VS Code** with **Microsoft 365 Agents Toolkit extension** v6.4.2 or higher
-- **Microsoft 365 developer account** with Copilot license
-- **Azure subscription** with access to Microsoft Entra ID (for app registration)
-- Basic knowledge of TypeScript/JavaScript, REST APIs, JSON, and OAuth 2.0
-- GitHub account for VS Code Dev Tunnels
-- Completion of **Lab 08** (recommended but not required)
-
----
 
 ## Exercise 1: Set Up Your Development Environment
 
@@ -79,6 +59,7 @@ Open your terminal and run:
 git clone https://github.com/microsoft/copilot-camp.git
 cd copilot-camp/src/extend-m365-copilot/path-e-lab10-mcp-auth/zava-mcp-server
 ```
+
 <cc-end-step lab="e10" exercise="1" step="1" />
 
 ### Step 2: Install Dependencies
@@ -155,7 +136,7 @@ After registration, configure redirect URIs for different platforms. **Redirect 
         The Azure Portal UI only supports adding redirect URIs that use HTTPS or `localhost`. Since MCP Inspector uses `http://127.0.0.1:33418` (not `localhost`), you must add this URI manually through the app manifest.
 
    - Go to **Manifest** in the left navigation
-   - Find the `"web"` section and locate `"redirectUriSettings"` (or `"redirectUris"` in some manifest versions)
+   - Find the `"web"` section and `"redirectUris"` 
    - Add `http://127.0.0.1:33418` to the redirect URIs array. The section should look similar to:
      ```json
      "web": {
@@ -215,18 +196,29 @@ In this exercise, you'll configure the OAuth environment variables and start the
 
 ### Step 1: Set Up Public Access with Dev Tunnel
 
-You need a public HTTPS URL for your MCP server before configuring environment variables.
+Copilot and OAuth clients need a public HTTPS address to reach your local MCP server. Create that endpoint first using VS Code Dev Tunnel.
 
-1. In VS Code's terminal panel, select the **Ports** tab
-2. Click **Forward a Port** and enter port `3001`
+<div data-widget="callout"
+  data-type="concept"
+  data-title="Why this step comes first"
+  data-body="You will use this tunnel URL in your &lt;code&gt;.env&lt;/code&gt; settings (for resource identifier, CORS, and server base URL). Without it, OAuth and MCP metadata wiring will fail."></div>
 
-    !!! note "GitHub authentication may be required"
-        If this is your first time using Dev Tunnels in VS Code, you may be prompted to sign in with your GitHub account. Complete the authentication to continue.
+#### 1: Forward port 3001
 
-3. Right-click the forwarded port address and select **Port Visibility** → **Public**
-4. Copy the tunnel URL (e.g., `https://abc123def456.use.devtunnels.ms`)
+1. In VS Code's terminal panel, select the **Ports** tab.
+2. Click **Forward a Port** and enter port `3001`.
 
-**Save this URL** - you'll need it for the environment configuration.
+#### 2: Make it public
+
+1. Right-click the forwarded port address and select **Port Visibility** → **Public**.
+2. Copy the tunnel URL (for example: `https://abc123def456.use.devtunnels.ms`).
+
+<div data-widget="callout"
+  data-type="warn"
+  data-title="GitHub sign-in may be required"
+  data-body="If this is your first time using Dev Tunnels in VS Code, sign in with your GitHub account when prompted before continuing."></div>
+
+Save this URL. You'll use it in the next step for environment configuration.
 
 <cc-end-step lab="e10" exercise="3" step="1" />
 
