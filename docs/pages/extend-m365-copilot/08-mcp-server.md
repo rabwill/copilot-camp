@@ -42,10 +42,19 @@ In this lab, you'll run a complete Model Context Protocol (MCP) server for Zava 
 
 ---
 
+<div data-widget="checklist"
+    data-title="Hands-on flow"
+    data-items="Exercise 1~Clone and set up the MCP server project|Exercise 2~Start Azurite and load sample claims data|Exercise 3~Run and validate MCP server endpoints|Exercise 4~Test tools with MCP Inspector and configure Dev Tunnel|Exercise 5~Create a Declarative Agent connected to MCP|Exercise 6~Configure identity, instructions, and manifest|Exercise 7~Provision, test, and debug the integrated agent"></div>
+
 
 ## Exercise 1: Set Up Your Development Environment
 
 In this exercise, you'll clone Zava's MCP server codebase and set up your local development environment.
+
+<div data-widget="callout"
+    data-type="info"
+    data-title="Exercise outcome"
+    data-body="By the end of this exercise, your local project is cloned, dependencies are installed, and you are ready to run the MCP stack."></div>
 
 ### Step 1: Clone the Repository
 
@@ -97,6 +106,11 @@ You have the code base ready with sample data.
 ## Exercise 2: Start Zava's Local Claims Database
 
 Zava uses Azure Table Storage for their claims database. In this exercise, you'll start a local emulator and load sample data.
+
+<div data-widget="callout"
+    data-type="concept"
+    data-title="Exercise outcome"
+    data-body="By the end of this exercise, Azurite is running and the sample claims dataset is loaded into local tables."></div>
 
 ### Step 1: Start Azure Storage Emulator
 
@@ -188,6 +202,11 @@ Your local claims database is now running with sample data that mirrors Zava's p
 
 Now you'll start Zava's MCP server that enables AI agents to interact with the claims system.
 
+<div data-widget="callout"
+    data-type="info"
+    data-title="Exercise outcome"
+    data-body="By the end of this exercise, the MCP server is live and health/docs/tools endpoints are reachable."></div>
+
 
 
 ### Step 1: Start the MCP Server
@@ -239,6 +258,11 @@ Your MCP server is now running and ready.
 ## Exercise 4: Test AI Agent Interactions
 
 Experience how AI agents interact with Zava's claims system using the MCP Inspector tool.
+
+<div data-widget="callout"
+    data-type="tip"
+    data-title="Exercise outcome"
+    data-body="By the end of this exercise, you can run MCP tools in Inspector and expose your local server through a public Dev Tunnel URL."></div>
 
 ### Step 1: Launch MCP Inspector
 
@@ -353,6 +377,11 @@ The MCP Inspector now connects through your public tunnel. Test the available to
 
 In this exercise, you'll use the Microsoft 365 Agents Toolkit to create a new Declarative Agent project that will connect to Zava's claims system.
 
+<div data-widget="callout"
+    data-type="info"
+    data-title="Exercise outcome"
+    data-body="By the end of this exercise, you have a scaffolded Declarative Agent project with MCP actions fetched into ai-plugin.json."></div>
+
 ### Step 1: Create New Agent using Microsoft 365 Agents Toolkit
 
 1. Open a new window in **VS Code**
@@ -431,6 +460,11 @@ You now have a basic Declarative Agent that is connected to your MCP Server with
 ## Exercise 6: Configure the Agent for Zava's Claims Operations
 
 Transform the basic agent into Zava's intelligent claims assistant by configuring its identity, instructions,  capabilities, and conversation starters.
+
+<div data-widget="callout"
+    data-type="concept"
+    data-title="Exercise outcome"
+    data-body="By the end of this exercise, your agent has a finalized persona, conversation starters, and manifest metadata for Zava claims operations."></div>
 
 ### Step 1: Update Agent Identity and Description
 
@@ -576,6 +610,11 @@ Your agent now has a clear identity as Zava's claims assistant with comprehensiv
 ## Exercise 7: Test the Agent Integration
 
 Test your Declarative Agent to ensure it can successfully communicate with the MCP server and handle claims operations.
+
+<div data-widget="callout"
+    data-type="tip"
+    data-title="Exercise outcome"
+    data-body="By the end of this exercise, you can validate end-to-end tool calls in Copilot and inspect agent behavior using developer debugging."></div>
 
 ### Step 1: Ensure MCP Server is Running
 
