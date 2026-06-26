@@ -9,7 +9,7 @@ title: Lab E0 — Prerequisites & Concepts
      data-title="Prerequisites & Concepts"
      data-subtitle="Install every tool, understand the core concepts, and see exactly what each bundle will build — before writing a single line of code."
      data-time="45–60 min"
-     data-requires="None — first lab"
+     data-requires="M365 admin account required"
      data-toolkit="Windows / Mac / Linux"></div>
 
 <div data-widget="checklist"
@@ -108,7 +108,7 @@ By default, Teams doesn't allow uploading custom apps — an admin toggle must b
 3. Select **Global (Org-wide default)**
 4. Toggle **Upload custom apps** to **On** and click **Save**
 
-<cc-end-step lab="e0" exercise="1" step="1" />
+
 
 <div data-widget="callout"
      data-type="warn"
@@ -119,7 +119,7 @@ By default, Teams doesn't allow uploading custom apps — an admin toggle must b
 
 Go to [m365.cloud.microsoft/chat/](https://m365.cloud.microsoft/chat/). If you see the Copilot Chat interface, you have a valid licence. If you see a licence error, contact your tenant admin — you need a Microsoft 365 Copilot licence assigned to your account.
 
-<cc-end-step lab="e0" exercise="1" step="2" />
+
 
 ---
 
@@ -141,7 +141,7 @@ Version 22 is required — older versions fail silently on certain SDK dependenc
 
 If you have a different version installed, use [nvm](https://github.com/nvm-sh/nvm) (Mac/Linux) or [nvm-windows](https://github.com/coreybutler/nvm-windows) to manage versions side by side.
 
-<cc-end-step lab="e0" exercise="2" step="1" />
+
 
 <div data-widget="step" data-n="2" data-title="Install Microsoft 365 Agents Toolkit"></div>
 
@@ -149,12 +149,10 @@ If you have a different version installed, use [nvm](https://github.com/nvm-sh/n
 2. Search **Microsoft 365 Agents Toolkit** and click **Install**
 3. Click the hexagonal icon in the Activity Bar and sign in with your M365 developer account
 
-<cc-end-step lab="e0" exercise="2" step="2" />
-
 <div data-widget="callout"
      data-type="info"
      data-title="Bundle B requires the pre-release version"
-     data-body="Lab E9 uses Embedded Knowledge which is only in the pre-release build. In the Extensions panel, find Agents Toolkit → click the dropdown arrow next to Install → &lt;strong&gt;Install Pre-Release Version&lt;/strong&gt;. You can switch back to stable at any time."></div>
+     data-body="Lab E9 uses Embedded Knowledge which is only in the pre-release build. In the Extensions panel, find Agents Toolkit → click the dropdown arrow next to Install → &lt;strong&gt;Install Pre-Release Version&lt;/strong&gt; You can switch back to stable at any time."></div>
 
 ---
 
@@ -200,7 +198,7 @@ Open a terminal and run these checks. Every one should pass before you proceed.
 1. In VS Code, open the **Ports** tab (in the terminal panel)
 2. Click **Forward a Port**, enter `3001`, and press Enter
 
-<cc-end-step lab="e0" exercise="4" step="1" />
+
 
 <div data-widget="step" data-n="2" data-title="Make it public"></div>
 
@@ -208,16 +206,12 @@ Open a terminal and run these checks. Every one should pass before you proceed.
 2. Sign in with your GitHub account if prompted
 3. Copy the forwarded address — it looks like `https://abc123def456.use.devtunnels.ms`
 
-<cc-end-step lab="e0" exercise="4" step="2" />
 
 <div data-widget="callout"
      data-type="warn"
      data-title="Tunnels expire on VS Code restart"
      data-body="You will need to recreate the tunnel and update the URL in your config files each new session. In Bundle A, this URL goes into &lt;code&gt;package.json&lt;/code&gt;'s inspector script and into your declarative agent's MCP server config."></div>
 
----8<--- "e-congratulations.md"
-
-## Next step
 
 <div data-widget="labnav"
      data-next="../01-first-agent-new/"
