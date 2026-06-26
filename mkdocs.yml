@@ -22,8 +22,11 @@ theme:
 markdown_extensions:
   - admonition
   - pymdownx.details
+  - pymdownx.superfences
   - pymdownx.snippets:
       base_path: docs/includes
+  - pymdownx.tabbed:
+      alternate_style: true
   - attr_list
   - toc:
       toc_depth: 2

@@ -5,20 +5,20 @@
   data-badge-color="blue"
   data-icon="🧰"
   data-title="Your First Declarative Agent"
-  data-subtitle="Scaffold, customize, provision, and test a minimal Declarative Agent so you're ready for all bundles."
+  data-subtitle="Create the same starter Declarative Agent through Agent Builder or Agents Toolkit, then use that foundation to understand when you need the code-first path."
   data-time="30-45 min"
   data-requires="Lab E0"
-  data-toolkit="Microsoft 365 Agents Toolkit"></div>
+  data-toolkit="Agent Builder or Microsoft 365 Agents Toolkit"></div>
 
 <div data-widget="checklist"
-  data-items="First Declarative Agent scaffolded~Created from Agents Toolkit with no actions|Agent identity and instructions customized~Updated declarativeAgent.json and instruction.txt|Provision and test loop completed~Validated edit -> provision -> test workflow in Copilot"></div>
+  data-items="First Declarative Agent created~Built in Agent Builder or scaffolded with Agents Toolkit|Agent identity and persona customized~Name, instructions, and starters reflect the Zava onboarding scenario|Test loop completed~Validated the same onboarding agent in Microsoft 365 Copilot Chat"></div>
 
 ## Key concepts before you build
 
 <div data-widget="concepts"
-  data-cards="Declarative Agent anatomy::purple::Three core files::&lt;code&gt;declarativeAgent.json&lt;/code&gt; defines behavior, &lt;code&gt;instruction.txt&lt;/code&gt; defines policy/prompting, and &lt;code&gt;manifest.json&lt;/code&gt; defines app packaging metadata.||No Action template::teal::Start minimal on purpose::This template removes API complexity so you can focus on the core provisioning and testing loop first.||Provisioning lifecycle::blue::Edit -> provision -> test::Most labs follow this same cycle. E1 establishes the exact workflow you'll reuse in bundles A-D."></div>
+  data-cards="Declarative Agent anatomy::purple::Persona + instructions + starters::Whether you use Agent Builder or Agents Toolkit, you are defining the same core ingredients: who the agent is, how it should behave, and how users can start using it.||Two creation paths::teal::Same agent, different authoring experience::Agent Builder is the fastest way to understand the persona and experience. Agents Toolkit exposes the project files and deployment workflow you'll extend in later code-first labs.||Edit and test loop::blue::Refine, publish, validate::Both paths teach the same habit: make a small change, publish or provision it, then test the resulting behavior in Copilot Chat."></div>
 
-In this lab, you will scaffold, configure, provision, and test your first Declarative Agent using Microsoft 365 Agents Toolkit, without TypeSpec and without backend APIs. This lab is the mandatory bridge between prerequisites and all bundle tracks.
+In this lab, you will create, configure, and test your first Declarative Agent using one of two tabs: **Agent Builder** or **Microsoft 365 Agents Toolkit**. Both paths produce the same Zava onboarding agent and teach the same persona design fundamentals. The Agent Builder path is the quickest way to understand how a declarative agent is shaped. The Agents Toolkit path is the code-first route you will use in later labs when you need capabilities that Agent Builder alone cannot extend.
 
 ## Scenario
 
@@ -32,11 +32,11 @@ You will build a simple **Zava Onboarding Assistant** that helps new employees w
 
 By completing this lab, you will:
 
-- Understand the three core files in a Declarative Agent
-- Scaffold a new agent project with Agents Toolkit in VS Code
-- Customize identity, instructions, and conversation starters
-- Provision and test the agent in Microsoft 365 Copilot Chat
-- Understand the edit -> provision -> test loop used across all bundles
+- Understand how a Declarative Agent's persona, instructions, and starters fit together
+- Create the same starter agent with Agent Builder or Agents Toolkit
+- Customize identity, instructions, and conversation starters for the Zava scenario
+- Test the agent in Microsoft 365 Copilot Chat
+- Understand why later bundle labs move to a code-first path for deeper extensibility
 
 ---
 
@@ -45,218 +45,336 @@ By completing this lab, you will:
 Before starting this lab, complete:
 
 - **Lab E0**: [00-prerequisites.md](./00-prerequisites)
-- VS Code with **Microsoft 365 Agents Toolkit** (v6.4.2+)
 - Microsoft 365 account with Copilot access
+- If you choose the **Agents Toolkit** tab: VS Code with **Microsoft 365 Agents Toolkit** (v6.4.2+)
+- If you choose the **Agent Builder** tab: permission to create agents in Microsoft 365 Copilot Chat
+
+<div class="ccw-choice">
+  <div class="ccw-choice-card builder">
+    <div class="ccw-choice-label">Agent Builder</div>
+    <div class="ccw-choice-desc">
+      <strong>Fastest path to understand agent persona.</strong><br/>
+      Visual editor, no coding. Best for prototyping and learning the declarative agent shape (who, what, how, starters).
+    </div>
+  </div>
+  <div class="ccw-choice-card toolkit">
+    <div class="ccw-choice-label">Agents Toolkit</div>
+    <div class="ccw-choice-desc">
+      <strong>Code-first path for extensibility.</strong><br/>
+      Project files, VS Code, local provisioning. Prepares you for bundles that add tools, APIs, MCP servers, and authentication.
+    </div>
+  </div>
+</div>
 
 ---
 
-## Exercise 1: Scaffold the project
+## Exercise 1: Create the starter agent
 
-### Step 1: Open Agents Toolkit in VS Code
+=== "Agent Builder"
 
-1. Open VS Code.
-2. Select the **Microsoft 365 Agents Toolkit** icon in the Activity Bar.
-3. Sign in with your Microsoft 365 developer account if prompted.
+    <div data-widget="step" data-n="1" data-title="Open Agent Builder in Copilot Chat"></div>
 
-<cc-end-step lab="e1" exercise="1" step="1" />
+    1. Go to [https://m365.cloud.microsoft/chat/](https://m365.cloud.microsoft/chat/).
+    2. In the left pane, select **Create an agent** or **New agent**.
+    3. If prompted, choose to start from scratch.
 
-### Step 2: Create a new Declarative Agent
+    <div data-widget="step" data-n="2" data-title="Describe the Zava onboarding agent"></div>
 
-1. In Agents Toolkit, select **Create a New Agent/App**.
-2. Select **Declarative Agent**.
-3. Select **No Action** to scaffold a minimal template.
-4. Choose a folder on your machine.
-5. For app name, enter: **Zava Onboarding Agent**.
+    In the Agent Builder prompt, describe the agent with language like this:
 
-<cc-end-step lab="e1" exercise="1" step="2" />
+    ```text
+    Create a declarative agent named Zava Onboarding Assistant.
+    It helps new Zava Insurance employees with common HR and IT onboarding questions.
+    Keep the tone warm, concise, and practical.
+    Focus on office locations, helpdesk support, annual leave, benefits, and mandatory onboarding tasks.
+    ```
 
-### Step 3: Inspect generated structure
+    If Agent Builder asks follow-up questions, keep refining the same persona and scope until the preview looks right.
 
-Open the generated project and review the `appPackage` folder:
+    <div data-widget="step" data-n="3" data-title="Create the agent and inspect the preview"></div>
 
-```text
-ZavaOnboardingAgent/
-├── appPackage/
-│   ├── declarativeAgent.json
-│   ├── instruction.txt
-│   ├── manifest.json
-│   ├── color.png
-│   └── outline.png
-├── env/
-│   └── .env.dev
-└── teamsapp.yml
-```
+    1. Set the name to **Zava Onboarding Assistant**.
+    2. Review the generated description and suggested prompts.
+    3. Select **Create**.
+    4. Open the newly created agent and note the persona, instructions, and conversation starters Agent Builder produced.
 
-- `manifest.json`: Teams app identity and package metadata
-- `declarativeAgent.json`: Agent persona, starters, and references
-- `instruction.txt`: Agent behavior and policy prompt
+    <div data-widget="callout"
+      data-type="info"
+      data-title="What this path teaches"
+      data-body="Agent Builder helps you quickly understand the shape of a declarative agent: persona, behavior, knowledge boundaries, and starters. Later bundle labs switch to the code-first route because that is where you can version files, wire external tools, and add capabilities beyond the Agent Builder surface."></div>
 
-<cc-end-step lab="e1" exercise="1" step="3" />
+=== "Agents Toolkit"
+
+    <div data-widget="step" data-n="1" data-title="Open Agents Toolkit in VS Code"></div>
+
+    1. Open VS Code.
+    2. Select the **Microsoft 365 Agents Toolkit** icon in the Activity Bar.
+    3. Sign in with your Microsoft 365 developer account if prompted.
+
+    <div data-widget="step" data-n="2" data-title="Create a new Declarative Agent"></div>
+
+    1. In Agents Toolkit, select **Create a New Agent/App**.
+    2. Select **Declarative Agent**.
+    3. Select **No Action** to scaffold a minimal template.
+    4. Choose a folder on your machine.
+    5. For app name, enter: **Zava Onboarding Agent**.
+
+    <div data-widget="step" data-n="3" data-title="Inspect generated structure"></div>
+
+    Open the generated project and review the `appPackage` folder:
+
+    ```text
+    ZavaOnboardingAgent/
+    ├── appPackage/
+    │   ├── declarativeAgent.json
+    │   ├── instruction.txt
+    │   ├── manifest.json
+    │   ├── color.png
+    │   └── outline.png
+    ├── env/
+    │   └── .env.dev
+    └── teamsapp.yml
+    ```
+
+    - `manifest.json`: Teams app identity and package metadata
+    - `declarativeAgent.json`: Agent persona, starters, and references
+    - `instruction.txt`: Agent behavior and policy prompt
 
 ---
 
-## Exercise 2: Configure your first agent
+## Exercise 2: Define the persona
 
-### Step 1: Update declarativeAgent.json
+The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a clear role, a narrow knowledge boundary, and useful conversation starters.
 
-Replace the full content of `appPackage/declarativeAgent.json` with:
+=== "Agent Builder"
 
-```json
-{
-  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.6/schema.json",
-  "version": "v1.6",
-  "name": "Zava Onboarding Assistant",
-  "description": "Helps new Zava Insurance employees find answers to common HR and IT onboarding questions.",
-  "instructions": "$[file('instruction.txt')]",
-  "conversation_starters": [
+    <div data-widget="step" data-n="1" data-title="Refine the agent's purpose and description"></div>
+
+    Open the agent for editing and make sure its purpose is clear:
+
+    - Name: **Zava Onboarding Assistant**
+    - Description: Helps new Zava Insurance employees find answers to common HR and IT onboarding questions.
+    - Tone: warm, concise, practical, and trustworthy
+
+    <div data-widget="step" data-n="2" data-title="Add the core persona instructions"></div>
+
+    In the instructions area, add guidance that covers this behavior:
+
+    ```text
+    You are a friendly HR and IT onboarding assistant for new employees at Zava Insurance,
+    a mid-sized home insurance company based in the Pacific Northwest.
+    Answer common onboarding questions about office locations, IT support, annual leave,
+    employee benefits, and mandatory onboarding tasks.
+    Be warm, concise, and practical.
+    If you do not know an answer, say so and direct the employee to the right contact.
+    Do not invent policies or benefits that were not provided.
+    ```
+
+    <div data-widget="step" data-n="3" data-title="Set conversation starters"></div>
+
+    Add or refine suggested prompts so learners can test the same scenario as the toolkit path:
+
+    - IT helpdesk hours
+    - Holiday policy
+    - Office locations
+    - Benefits summary
+
+=== "Agents Toolkit"
+
+    <div data-widget="step" data-n="1" data-title="Update declarativeAgent.json"></div>
+
+    Replace the full content of `appPackage/declarativeAgent.json` with:
+
+    ```json
     {
-      "title": "IT helpdesk hours",
-      "text": "What are the IT helpdesk hours and how do I raise a ticket?"
-    },
-    {
-      "title": "Holiday policy",
-      "text": "How many days of annual leave do I get and how do I book them?"
-    },
-    {
-      "title": "Office locations",
-      "text": "Where are Zava's offices and what are the parking arrangements?"
-    },
-    {
-      "title": "Benefits summary",
-      "text": "Give me a quick summary of the key employee benefits."
+      "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.6/schema.json",
+      "version": "v1.6",
+      "name": "Zava Onboarding Assistant",
+      "description": "Helps new Zava Insurance employees find answers to common HR and IT onboarding questions.",
+      "instructions": "$[file('instruction.txt')]",
+      "conversation_starters": [
+        {
+          "title": "IT helpdesk hours",
+          "text": "What are the IT helpdesk hours and how do I raise a ticket?"
+        },
+        {
+          "title": "Holiday policy",
+          "text": "How many days of annual leave do I get and how do I book them?"
+        },
+        {
+          "title": "Office locations",
+          "text": "Where are Zava's offices and what are the parking arrangements?"
+        },
+        {
+          "title": "Benefits summary",
+          "text": "Give me a quick summary of the key employee benefits."
+        }
+      ]
     }
-  ]
-}
-```
+    ```
 
-<cc-end-step lab="e1" exercise="2" step="1" />
+    <div data-widget="step" data-n="2" data-title="Update instruction.txt"></div>
 
-### Step 2: Update instruction.txt
+    Replace all content in `appPackage/instruction.txt` with:
 
-Replace all content in `appPackage/instruction.txt` with:
+    ```text
+    # Zava Onboarding Assistant
 
-```text
-# Zava Onboarding Assistant
+    ## Role
+    You are a friendly HR and IT onboarding assistant for new employees at Zava Insurance,
+    a mid-sized home insurance company based in the Pacific Northwest.
+    Your job is to answer common questions from people in their first 90 days at Zava.
 
-## Role
-You are a friendly HR and IT onboarding assistant for new employees at Zava Insurance,
-a mid-sized home insurance company based in the Pacific Northwest.
-Your job is to answer common questions from people in their first 90 days at Zava.
+    ## What you know
+    - Zava's offices are in Seattle (HQ), Portland, and Spokane.
+      Seattle HQ is at 1400 5th Ave, open Mon-Fri 8am-6pm.
+      Free parking is available in the basement for HQ staff with a valid pass.
+    - IT Helpdesk: helpdesk@zava-insurance.com or Teams channel #it-help.
+      Hours: Mon-Fri 7am-7pm Pacific. For urgent issues out of hours, call +1-800-ZAVA-ITS.
+    - Annual leave: 20 days per year (prorated in year one). Request via Workday.
+      Christmas shutdown: Dec 24 - Jan 2 is pre-approved leave for all staff.
+    - Benefits include: medical/dental/vision (day 1), 401k with 4% match (after 90 days),
+      $500 annual wellness budget, and monthly WFH stipend of $50.
+    - Mandatory onboarding courses must be completed in your first 30 days via the LMS.
+      Log in at learn.zava-insurance.com using your corporate SSO.
 
-## What you know
-- Zava's offices are in Seattle (HQ), Portland, and Spokane.
-  Seattle HQ is at 1400 5th Ave, open Mon-Fri 8am-6pm.
-  Free parking is available in the basement for HQ staff with a valid pass.
-- IT Helpdesk: helpdesk@zava-insurance.com or Teams channel #it-help.
-  Hours: Mon-Fri 7am-7pm Pacific. For urgent issues out of hours, call +1-800-ZAVA-ITS.
-- Annual leave: 20 days per year (prorated in year one). Request via Workday.
-  Christmas shutdown: Dec 24 - Jan 2 is pre-approved leave for all staff.
-- Benefits include: medical/dental/vision (day 1), 401k with 4% match (after 90 days),
-  $500 annual wellness budget, and monthly WFH stipend of $50.
-- Mandatory onboarding courses must be completed in your first 30 days via the LMS.
-  Log in at learn.zava-insurance.com using your corporate SSO.
+    ## Behaviour guidelines
+    - Be warm, concise, and reassuring.
+    - If you don't know the answer, say so and suggest who to contact.
+    - Don't invent policy details not listed above.
+    - Keep answers short unless the user asks for detail.
+    - Offer a follow-up question at the end.
+    ```
 
-## Behaviour guidelines
-- Be warm, concise, and reassuring.
-- If you don't know the answer, say so and suggest who to contact.
-- Don't invent policy details not listed above.
-- Keep answers short unless the user asks for detail.
-- Offer a follow-up question at the end.
-```
+    <div data-widget="step" data-n="3" data-title="Update manifest.json"></div>
 
-<cc-end-step lab="e1" exercise="2" step="2" />
+    Update the app identity values in `appPackage/manifest.json`:
 
-### Step 3: Update manifest.json
-
-Update the app identity values in `appPackage/manifest.json`:
-
-```json
-{
-  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.23/MicrosoftTeams.schema.json",
-  "manifestVersion": "1.23",
-  "version": "1.0.0",
-  "id": "${{TEAMS_APP_ID}}",
-  "developer": {
-    "name": "Zava Insurance Dev Team",
-    "websiteUrl": "https://www.zava-insurance.com",
-    "privacyUrl": "https://www.zava-insurance.com/privacy",
-    "termsOfUseUrl": "https://www.zava-insurance.com/terms"
-  },
-  "name": {
-    "short": "Zava Onboarding",
-    "full": "Zava Insurance Onboarding Assistant"
-  },
-  "description": {
-    "short": "HR and IT help for new Zava employees",
-    "full": "Answers common onboarding questions for new Zava Insurance employees — office locations, IT helpdesk, leave policy, and benefits."
-  }
-}
-```
-
-<cc-end-step lab="e1" exercise="2" step="3" />
+    ```json
+    {
+      "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.23/MicrosoftTeams.schema.json",
+      "manifestVersion": "1.23",
+      "version": "1.0.0",
+      "id": "${{TEAMS_APP_ID}}",
+      "developer": {
+        "name": "Zava Insurance Dev Team",
+        "websiteUrl": "https://www.zava-insurance.com",
+        "privacyUrl": "https://www.zava-insurance.com/privacy",
+        "termsOfUseUrl": "https://www.zava-insurance.com/terms"
+      },
+      "name": {
+        "short": "Zava Onboarding",
+        "full": "Zava Insurance Onboarding Assistant"
+      },
+      "description": {
+        "short": "HR and IT help for new Zava employees",
+        "full": "Answers common onboarding questions for new Zava Insurance employees — office locations, IT helpdesk, leave policy, and benefits."
+      }
+    }
+    ```
 
 ---
 
 ## Exercise 3: Provision and test
 
-### Step 1: Provision the agent
+=== "Agent Builder"
 
-1. In Agents Toolkit, under **Lifecycle**, select **Provision**.
-2. Wait for a success notification.
-3. Open `env/.env.dev` and confirm `TEAMS_APP_ID` and `M365_TITLE_ID` are populated.
+    <div data-widget="step" data-n="1" data-title="Save or publish the agent"></div>
 
-<cc-end-step lab="e1" exercise="3" step="1" />
+    1. In Agent Builder, select **Create**, **Update**, or **Save** depending on the screen you are on.
+    2. Wait for the updated agent to become available in Copilot Chat.
 
-### Step 2: Open the agent in Copilot Chat
+    <div data-widget="step" data-n="2" data-title="Open the agent in Copilot Chat"></div>
 
-1. Go to [https://m365.cloud.microsoft/chat/](https://m365.cloud.microsoft/chat/).
-2. Open **Agents** in the left pane.
-3. Select **Zava Onboarding**.
-4. Run one of the conversation starters.
+    1. Go to [https://m365.cloud.microsoft/chat/](https://m365.cloud.microsoft/chat/).
+    2. Open **Agents** in the left pane.
+    3. Select **Zava Onboarding Assistant**.
+    4. Run one of the conversation starters.
 
-<cc-end-step lab="e1" exercise="3" step="2" />
+    <div data-widget="step" data-n="3" data-title="Validate behavior with prompts"></div>
 
-### Step 3: Validate behavior with prompts
+    Try these prompts:
 
-Try these prompts:
+    - "Where is the Seattle office and when is it open?"
+    - "How do I submit annual leave?"
+    - "What happens if I need IT support at 9pm?"
+    - "What is the 401k match rate?"
+    - "Tell me about stock options" (agent should not invent data)
 
-- "Where is the Seattle office and when is it open?"
-- "How do I submit annual leave?"
-- "What happens if I need IT support at 9pm?"
-- "What is the 401k match rate?"
-- "Tell me about stock options" (agent should not invent data)
+=== "Agents Toolkit"
 
-<cc-end-step lab="e1" exercise="3" step="3" />
+    <div data-widget="step" data-n="1" data-title="Provision the agent"></div>
+
+    1. In Agents Toolkit, under **Lifecycle**, select **Provision**.
+    2. Wait for a success notification.
+    3. Open `env/.env.dev` and confirm `TEAMS_APP_ID` and `M365_TITLE_ID` are populated.
+
+    <div data-widget="step" data-n="2" data-title="Open the agent in Copilot Chat"></div>
+
+    1. Go to [https://m365.cloud.microsoft/chat/](https://m365.cloud.microsoft/chat/).
+    2. Open **Agents** in the left pane.
+    3. Select **Zava Onboarding**.
+    4. Run one of the conversation starters.
+
+    <div data-widget="step" data-n="3" data-title="Validate behavior with prompts"></div>
+
+    Try these prompts:
+
+    - "Where is the Seattle office and when is it open?"
+    - "How do I submit annual leave?"
+    - "What happens if I need IT support at 9pm?"
+    - "What is the 401k match rate?"
+    - "Tell me about stock options" (agent should not invent data)
 
 ---
 
 ## Exercise 4: Understand the development loop
 
-### Step 1: Enable developer mode in Copilot Chat
+=== "Agent Builder"
 
-In Copilot Chat, run:
+    <div data-widget="step" data-n="1" data-title="Make a small persona update"></div>
 
-```text
--developer on
-```
+    Reopen the agent for editing and add this fact to the instructions or knowledge area:
 
-Submit a query and inspect debug information.
+    ```text
+    The staff canteen at Seattle HQ is on floor 2. It is open Mon-Fri 7:30am-3pm,
+    serves hot meals, salads, and barista coffee, and accepts payment through the Zava staff card.
+    ```
 
-<cc-end-step lab="e1" exercise="4" step="1" />
+    Save or update the agent, then ask: "Is there a canteen at HQ?"
 
-### Step 2: Make a live update and re-provision
+    <div data-widget="step" data-n="2" data-title="Understand where this path stops"></div>
 
-Add this line to `instruction.txt` under "What you know":
+    Agent Builder is excellent for quickly shaping an agent's persona, instructions, starters, and some knowledge or capability settings. The later bundle labs move to the code-first path because external tools, manifests, source control, local services, and richer extensibility require files and code that Agent Builder does not expose directly.
 
-```text
-- The staff canteen (Seattle HQ, floor 2) is open Mon-Fri 7:30am-3pm.
-  It serves hot meals, salads, and barista coffee.
-  Payment via Zava staff card only.
-```
+    <div data-widget="callout"
+      data-type="concept"
+      data-title="Key takeaway"
+      data-body="Use Agent Builder to understand and prototype the declarative agent experience. Use Agents Toolkit when you need to extend that experience with project files, manifests, APIs, MCP servers, authentication, and repeatable source-controlled changes."></div>
 
-Provision again, then ask: "Is there a canteen at HQ?"
+=== "Agents Toolkit"
 
-<cc-end-step lab="e1" exercise="4" step="2" />
+    <div data-widget="step" data-n="1" data-title="Enable developer mode in Copilot Chat"></div>
+
+    In Copilot Chat, run:
+
+    ```text
+    -developer on
+    ```
+
+    Submit a query and inspect debug information.
+
+    <div data-widget="step" data-n="2" data-title="Make a live update and re-provision"></div>
+
+    Add this line to `instruction.txt` under "What you know":
+
+    ```text
+    - The staff canteen (Seattle HQ, floor 2) is open Mon-Fri 7:30am-3pm.
+      It serves hot meals, salads, and barista coffee.
+      Payment via Zava staff card only.
+    ```
+
+    Provision again, then ask: "Is there a canteen at HQ?"
 
 ---8<--- "e-congratulations.md"
 
