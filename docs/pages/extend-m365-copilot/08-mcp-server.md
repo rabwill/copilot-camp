@@ -163,25 +163,7 @@ Check the console output. You should see:
 📄 Loaded 2 items from inspections.json
 ✅ Upserted entity: insp-001
 ✅ Upserted entity: insp-002
-✅ Completed initialization for table: inspections
-📋 Initializing table: inspectors
-✅ Table 'inspectors' created or already exists
-📄 Loaded 4 items from inspectors.json
-✅ Upserted entity: inspector-001
-✅ Upserted entity: inspector-002
-✅ Upserted entity: inspector-003
-✅ Upserted entity: inspector-004
-✅ Completed initialization for table: inspectors
-📋 Initializing table: contractors
-✅ Table 'contractors' created or already exists
-📄 Loaded 3 items from contractors.json
-✅ Upserted entity: contractor-001
-✅ Upserted entity: contractor-002
-✅ Upserted entity: contractor-003
-✅ Completed initialization for table: contractors
-📋 Initializing table: purchaseOrders
-✅ Table 'purchaseOrders' created or already exists
-📄 Loaded 2 items from purchaseOrders.json
+.....
 ✅ Upserted entity: po-001
 ✅ Upserted entity: po-002
 ✅ Completed initialization for table: purchaseOrders
