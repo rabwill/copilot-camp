@@ -1,7 +1,7 @@
-# Lab E1 (NEW): Your First Declarative Agent
+# Lab E1 : Your First Declarative Agent
 
 <div data-widget="hero"
-  data-badge="On-ramp · Lab E1 (NEW)"
+  data-badge="On-ramp · Lab E1 "
   data-badge-color="blue"
   data-icon="🧰"
   data-title="Your First Declarative Agent"

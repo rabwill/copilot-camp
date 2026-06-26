@@ -14,7 +14,7 @@ title: Declarative Agent Developer Bundles
 <div data-widget="onramp"
      data-title="Complete these two labs first (required)"
      data-sub="This on-ramp is mandatory for all bundles. Total time: ~75–90 min."
-     data-steps="Prerequisites::prereq::Lab E0 — Prerequisites &amp; Concepts::Install and verify tools, configure tenant settings, and build the core mental model for Declarative Agents and MCP.::Go to Lab E0::../00-prerequisites/|First Agent (NEW)::lab::Lab E1 (NEW) — Your First Declarative Agent::Scaffold, configure, provision, and test your first Declarative Agent without TypeSpec. This replaces the old TypeSpec-first E1 flow.::Go to Lab E1 (NEW)::../01-first-agent-new/"></div>
+     data-steps="Prerequisites::prereq::Lab E0 — Prerequisites &amp; Concepts::Install and verify tools, configure tenant settings, and build the core mental model for Declarative Agents and MCP.::Go to Lab E0::../00-prerequisites/|First Agent (NEW)::lab::Lab E1  — Your First Declarative Agent::Scaffold, configure, provision, and test your first Declarative Agent without TypeSpec. This replaces the old TypeSpec-first E1 flow.::Go to Lab E1 ::../01-first-agent-new/"></div>
 
 <div data-widget="sectionlabel" data-text="Learning bundles"></div>
 

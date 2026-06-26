@@ -9,7 +9,7 @@
             <li><strong>🚦 Mandatory on-ramp</strong>
                 <ul>
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/00-prerequisites">Lab E0 - Prerequisites</a></li>
-                    <li><a href="/copilot-camp/pages/extend-m365-copilot/01-first-agent-new">Lab E1 (NEW) - Your First Declarative Agent</a></li>
+                    <li><a href="/copilot-camp/pages/extend-m365-copilot/01-first-agent-new">Lab E1 - Your First Declarative Agent</a></li>
                 </ul>
             </li>
             <li><strong>🔌 Bundle A - MCP Foundations</strong>

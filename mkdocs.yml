@@ -53,7 +53,7 @@ plugins:
               - Bundle Overview: 'pages/extend-m365-copilot/bundles.md'
               - Mandatory On-ramp:
                     - Lab E0 - Prerequisites: 'pages/extend-m365-copilot/00-prerequisites.md'
-                    - Lab E1 (NEW) - Your First Declarative Agent: 'pages/extend-m365-copilot/01-first-agent-new.md'
+                    - Lab E1 - Your First Declarative Agent: 'pages/extend-m365-copilot/01-first-agent-new.md'
               - Bundle A - MCP Foundations:
                     - Start Bundle A: 'pages/extend-m365-copilot/bundle-a.md'
               - Bundle B - MCP Advanced:

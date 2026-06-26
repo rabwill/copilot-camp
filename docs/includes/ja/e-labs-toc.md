@@ -8,7 +8,7 @@
             <li><strong>🚦 必須オンランプ</strong>
                 <ul>
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/00-prerequisites">ラボ E0 - 前提条件</a></li>
-                    <li><a href="/copilot-camp/pages/extend-m365-copilot/01-first-agent-new">ラボ E1 (NEW) - 最初の宣言型エージェント</a></li>
+                    <li><a href="/copilot-camp/pages/extend-m365-copilot/01-first-agent-new">ラボ E1  - 最初の宣言型エージェント</a></li>
                 </ul>
             </li>
             <li><strong>🔌 バンドル A - MCP Foundations</strong>

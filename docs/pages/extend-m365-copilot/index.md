@@ -22,7 +22,7 @@ title: Extend Microsoft 365 Copilot
 In the Extend Path of Copilot Developer Camp, you first complete a mandatory on-ramp, then choose a bundle based on your implementation style and scenario.
 
 Your journey is:
-- **On-ramp (required): E0 + E1 (NEW)** — Set up your environment and build your first Declarative Agent without TypeSpec
+- **On-ramp (required): E0 + E1 ** — Set up your environment and build your first Declarative Agent without TypeSpec
 - **Choose your build path:**
      - **MCP path (Bundles A/B)** — Build agent capabilities using MCP servers, then add security, orchestration, and rich UI
      - **API path (Bundle C)** — Build a Declarative Agent that calls a custom API directly (non-MCP)
@@ -35,7 +35,7 @@ By the end, you will have an HR-focused Copilot agent that can be adapted to you
 
 | Section                            | Labs | Focus                                                 |
 | ---------------------------------- | ---- | ------------------------------------------------------- |
-| **Mandatory On-ramp**              | E0 + E1 (NEW) | Complete prerequisites and build your first Declarative Agent before any bundle |
+| **Mandatory On-ramp**              | E0 + E1  | Complete prerequisites and build your first Declarative Agent before any bundle |
 | **Bundle A — MCP Foundations**     | E8 + E10 | Build, connect, and secure an MCP server with OAuth/Entra ID |
 | **Bundle B — MCP Advanced**        | E8 + E9 + E11 | Add orchestration and rich interactive widget experiences |
 | **Bundle C — API-Based Declarative Agent**     | E2 + E3 + E4 + E5 + E6a | Build a Declarative Agent that retrieves data from a custom API (not MCP) |
