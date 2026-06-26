@@ -34,7 +34,7 @@ By completing this lab, you will:
 
 - Understand how a Declarative Agent's persona, instructions, and starters fit together
 - Create the same starter agent with Agent Builder or Agents Toolkit
-- Customize identity, instructions, and conversation starters for the Zava scenario
+- Customize identity, instructions, and Suggested prompt(s) for the Zava scenario
 - Test the agent in Microsoft 365 Copilot Chat
 - Understand why later bundle labs move to a code-first path for deeper extensibility
 
@@ -75,39 +75,35 @@ Before starting this lab, complete:
     ### Step 1 - Open Agent Builder in Copilot Chat
 
     1. Go to [https://m365.cloud.microsoft/chat/](https://m365.cloud.microsoft/chat/).
-    2. In the left pane, select **Create an agent** or **New agent**.
+    2. In the left pane, select **Create agent** or **New agent**.
     3. You will see *Build your own specialist agent* screen where you can use natural language prompt to create your agent. 
 
     ### Step 2 - Describe the Zava onboarding agent
 
-    In the Agent Builder prompt, describe the agent with language like this:
+    In the Agent Builder send your prompt to create agent: 
 
     ```text
+
     Create a declarative agent named Zava Onboarding Assistant.
     It helps new Zava Insurance employees with common HR and IT onboarding questions.
     Keep the tone warm, concise, and practical.
     Focus on office locations, helpdesk support, annual leave, benefits, and mandatory onboarding tasks.
+
     ```
 
-    > If Agent Builder asks follow-up questions, keep refining the same persona and scope until the preview looks right. 
-    
-    When the draft looks right, Agent Builder opens the details panel with key fields prefilled, including Name (**Zava Onboarding Assistant**) and initial instructions.
-    
+    Agent Builder takes a while to create your agent and opens the details panel with key fields prefilled, including Name (**Zava Onboarding Assistant**) and initial instructions.
+   
+
     ### Step 3 - Review the agent details
 
-    Review the generated details, and add **Suggested prompt(s)** (called *conversation starters* in some UI versions), then select **Create**.
+    Review the generated details, and **Suggested prompt(s)** (called *conversation starters* in some UI versions), then select **Create**.
 
-    Useful **Suggested prompt(s)** to add:
-
-    - What are the IT helpdesk hours and how do I raise a ticket?
-    - How many days of annual leave do I get, and how do I book them?
-    - Where are Zava's offices, and what are the Seattle HQ opening hours?
-    - Give me a quick summary of Zava employee benefits.
 
     <div data-widget="callout"
       data-type="info"
       data-title="What this path teaches"
-      data-body="Agent Builder helps you quickly understand the shape of a declarative agent: persona, behavior, knowledge boundaries, and conversation starters. Later bundle labs switch to the code-first route because that is where you can version files, wire external tools, and add capabilities beyond the Agent Builder surface."></div>
+      data-body="Agent Builder helps you quickly understand the shape of a declarative agent: persona, behavior, knowledge boundaries, and Suggested prompt(s). Later bundle labs switch to the code-first route because that is where you can version files, wire external tools, and add capabilities beyond the Agent Builder surface."></div>
+
 
 === "Agents Toolkit"
 
@@ -127,7 +123,7 @@ Before starting this lab, complete:
 
     ### Step 3 - Inspect generated structure
 
-    Open the generated project and review the `appPackage` folder:
+    Open the generated project and review the `appPackage` folder (similar files):
 
     ```text
     ZavaOnboardingAgent/
@@ -139,18 +135,24 @@ Before starting this lab, complete:
     │   └── outline.png
     ├── env/
     │   └── .env.dev
-    └── teamsapp.yml
+    └── m365agents.yml
     ```
 
     - `manifest.json`: Teams app identity and package metadata
     - `declarativeAgent.json`: Agent persona, starters, and references
     - `instruction.txt`: Agent behavior and policy prompt
 
+    This is the code-first equivalent of the Agent Builder details panel:
+
+    - Agent name and description: `declarativeAgent.json`
+    - Persona instructions: `instruction.txt`
+    - **Suggested prompt(s)**: `conversation_starters` in `declarativeAgent.json`
+
 ---
 
 ## Exercise 2: Define the persona
 
-The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a clear role, a narrow knowledge boundary, and useful conversation starters.
+The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a clear role, a narrow knowledge boundary, and useful **Suggested prompt(s)**.
 
 === "Agent Builder"
 
@@ -173,27 +175,40 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
     In the instructions area, replace the auto-generated one with below: 
 
     ```text
-    You are a friendly HR and IT onboarding assistant for new employees at Zava Insurance,
-    a mid-sized home insurance company based in the Pacific Northwest.
-    Answer common onboarding questions about office locations, IT support, annual leave,
-    employee benefits, and mandatory onboarding tasks.
-    Be warm, concise, and practical.
-    If you do not know an answer, say so and direct the employee to the right contact.
-    Do not invent policies or benefits that were not provided.
+      # Zava Onboarding Assistant
+
+      ## Role
+      You are a friendly HR and IT onboarding assistant for new employees at Zava Insurance,
+      a mid-sized home insurance company based in the Pacific Northwest.
+      Your job is to answer common questions from people in their first 90 days at Zava.
+
+      ## What you know
+      - Zava's offices are in Seattle (HQ), Portland, and Spokane.
+        Seattle HQ is at 1400 5th Ave, open Mon-Fri 8am-6pm.
+        Free parking is available in the basement for HQ staff with a valid pass.
+      - IT Helpdesk: helpdesk@zava-insurance.com or Teams channel #it-help.
+        Hours: Mon-Fri 7am-7pm Pacific. For urgent issues out of hours, call +1-800-ZAVA-ITS.
+      - Annual leave: 20 days per year (prorated in year one). Request via Workday.
+        Christmas shutdown: Dec 24 - Jan 2 is pre-approved leave for all staff.
+      - Benefits include: medical/dental/vision (day 1), 401k with 4% match (after 90 days),
+        $500 annual wellness budget, and monthly WFH stipend of $50.
+      - Mandatory onboarding courses must be completed in your first 30 days via the LMS.
+        Log in at learn.zava-insurance.com using your corporate SSO.
+
+      ## Behaviour guidelines
+      - Be warm, concise, and reassuring.
+      - If you don't know the answer, say so and suggest who to contact.
+      - Don't invent policy details not listed above.
+      - Keep answers short unless the user asks for detail.
+      - Offer a follow-up question at the end.
     ```
 
-    ### Step 3 - Set conversation starters
-
-    Add or refine **Suggested prompt(s)** so learners can test the same scenario as the toolkit path:
-
-    - IT helpdesk hours
-    - Holiday policy
-    - Office locations
-    - Benefits summary
 
 === "Agents Toolkit"
 
     ### Step 1 - Update declarativeAgent.json
+
+    This step mirrors the Agent Builder details panel edits, but in source files.
 
     Replace the full content of `appPackage/declarativeAgent.json` with:
 
@@ -263,17 +278,7 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
     Update the app identity values in `appPackage/manifest.json`:
 
     ```json
-    {
-      "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.23/MicrosoftTeams.schema.json",
-      "manifestVersion": "1.23",
-      "version": "1.0.0",
-      "id": "${{TEAMS_APP_ID}}",
-      "developer": {
-        "name": "Zava Insurance Dev Team",
-        "websiteUrl": "https://www.zava-insurance.com",
-        "privacyUrl": "https://www.zava-insurance.com/privacy",
-        "termsOfUseUrl": "https://www.zava-insurance.com/terms"
-      },
+      
       "name": {
         "short": "Zava Onboarding",
         "full": "Zava Insurance Onboarding Assistant"
@@ -281,8 +286,8 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
       "description": {
         "short": "HR and IT help for new Zava employees",
         "full": "Answers common onboarding questions for new Zava Insurance employees — office locations, IT helpdesk, leave policy, and benefits."
-      }
-    }
+      }    
+
     ```
 
 ---
@@ -345,7 +350,7 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
 
     ### Step 1 - Make a small persona update
 
-    Reopen the agent for editing and add this fact to the instructions or knowledge area:
+    Reopen the agent for editing and add this fact to the instructions area:
 
     ```text
     The staff canteen at Seattle HQ is on floor 2. It is open Mon-Fri 7:30am-3pm,
@@ -365,17 +370,7 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
 
 === "Agents Toolkit"
 
-    ### Step 1 - Enable developer mode in Copilot Chat
-
-    In Copilot Chat, run:
-
-    ```text
-    -developer on
-    ```
-
-    Submit a query and inspect debug information.
-
-    ### Step 2 - Make a live update and re-provision
+    ### Step 1 - Make a live update and re-provision
 
     Add this line to `instruction.txt` under "What you know":
 
@@ -385,7 +380,25 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
       Payment via Zava staff card only.
     ```
 
-    Provision again, then ask: "Is there a canteen at HQ?"
+    Then bump the app version in `appPackage/manifest.json` (e.g. `"version": "1.0.1"`) so Copilot picks up the update, and provision again from Agents Toolkit under **Lifecycle → Provision**.
+
+    ### Step 2 - Enable developer mode and validate
+
+    In Copilot Chat, turn on developer mode to inspect what the agent receives:
+
+    ```text
+    -developer on
+    ```
+
+    Then submit this query and inspect the debug information that appears below the response:
+
+    ```text
+    Is there a canteen at HQ?
+    ```
+
+    The agent should now answer using the new canteen fact you added to `instruction.txt`.
+
+
 
     
 
