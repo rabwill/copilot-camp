@@ -31,6 +31,7 @@ Your journey is:
 
 By the end, you will have an HR-focused Copilot agent that can be adapted to your production architecture, whether your organization uses MCP, direct APIs, connector-grounded data, or CLI-driven validation and evaluation workflows.
 
+
 <div data-widget="sectionlabel" data-text="Learning path sections"></div>
 
 | Section                            | Labs | Focus                                                 |

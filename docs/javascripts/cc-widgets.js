@@ -1201,9 +1201,45 @@
     bundleseq:     renderBundleSeq,
   };
 
+  /* ── tab synchronization ────────────────────────────────────────────── */
+  /* When learner selects a tab in one exercise, switch all matching tabs
+     across the page to that same selection (e.g., "Agent Builder" everywhere) */
+  function setupTabSync() {
+    const tabInputs = document.querySelectorAll("input[type='radio'][id][name]");
+    const tabLabels = document.querySelectorAll("label[for]");
+
+    tabLabels.forEach(label => {
+      label.addEventListener("click", (e) => {
+        const forAttr = label.getAttribute("for");
+        const clickedInput = document.getElementById(forAttr);
+        if (!clickedInput || clickedInput.type !== "radio") return;
+
+        // Extract the tab name (label text) from the clicked label
+        const tabName = label.textContent.trim();
+        if (!tabName) return;
+
+        // Find all radio inputs with the same name prefix pattern (per pymdownx.tabbed group)
+        // Then find their matching labels, and check if label text matches tabName
+        tabInputs.forEach(input => {
+          // Only sync within same "group" concept — tabs that share the same labeling scheme
+          // Look for labels with matching text content
+          const label2 = document.querySelector(`label[for="${input.id}"]`);
+          if (!label2) return;
+
+          const tabName2 = label2.textContent.trim();
+          if (tabName2 === tabName && input.id !== forAttr) {
+            // Click this input to switch its tab group to the same selection
+            input.click();
+          }
+        });
+      });
+    });
+  }
+
   /* ── main render pass ────────────────────────────────────────────────── */
   function renderAll() {
     injectStyles();
+    setupTabSync();
 
     document.querySelectorAll("[data-widget]").forEach(el => {
       const name = el.dataset.widget;

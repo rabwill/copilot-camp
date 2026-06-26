@@ -72,13 +72,13 @@ Before starting this lab, complete:
 
 === "Agent Builder"
 
-    <div data-widget="step" data-n="1" data-title="Open Agent Builder in Copilot Chat"></div>
+    ### Step 1 - Open Agent Builder in Copilot Chat
 
     1. Go to [https://m365.cloud.microsoft/chat/](https://m365.cloud.microsoft/chat/).
     2. In the left pane, select **Create an agent** or **New agent**.
     3. If prompted, choose to start from scratch.
 
-    <div data-widget="step" data-n="2" data-title="Describe the Zava onboarding agent"></div>
+    ### Step 2 - Describe the Zava onboarding agent
 
     In the Agent Builder prompt, describe the agent with language like this:
 
@@ -91,7 +91,7 @@ Before starting this lab, complete:
 
     If Agent Builder asks follow-up questions, keep refining the same persona and scope until the preview looks right.
 
-    <div data-widget="step" data-n="3" data-title="Create the agent and inspect the preview"></div>
+    ### Step 3 - Create the agent and inspect the preview
 
     1. Set the name to **Zava Onboarding Assistant**.
     2. Review the generated description and suggested prompts.
@@ -105,13 +105,13 @@ Before starting this lab, complete:
 
 === "Agents Toolkit"
 
-    <div data-widget="step" data-n="1" data-title="Open Agents Toolkit in VS Code"></div>
+    ### Step 1 - Open Agents Toolkit in VS Code
 
     1. Open VS Code.
     2. Select the **Microsoft 365 Agents Toolkit** icon in the Activity Bar.
     3. Sign in with your Microsoft 365 developer account if prompted.
 
-    <div data-widget="step" data-n="2" data-title="Create a new Declarative Agent"></div>
+    ### Step 2 - Create a new Declarative Agent
 
     1. In Agents Toolkit, select **Create a New Agent/App**.
     2. Select **Declarative Agent**.
@@ -119,7 +119,7 @@ Before starting this lab, complete:
     4. Choose a folder on your machine.
     5. For app name, enter: **Zava Onboarding Agent**.
 
-    <div data-widget="step" data-n="3" data-title="Inspect generated structure"></div>
+    ### Step 3 - Inspect generated structure
 
     Open the generated project and review the `appPackage` folder:
 
@@ -148,7 +148,7 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
 
 === "Agent Builder"
 
-    <div data-widget="step" data-n="1" data-title="Refine the agent's purpose and description"></div>
+    ### Step 1 - Refine the agent's purpose and description
 
     Open the agent for editing and make sure its purpose is clear:
 
@@ -156,7 +156,7 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
     - Description: Helps new Zava Insurance employees find answers to common HR and IT onboarding questions.
     - Tone: warm, concise, practical, and trustworthy
 
-    <div data-widget="step" data-n="2" data-title="Add the core persona instructions"></div>
+    ### Step 2 - Add the core persona instructions
 
     In the instructions area, add guidance that covers this behavior:
 
@@ -170,7 +170,7 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
     Do not invent policies or benefits that were not provided.
     ```
 
-    <div data-widget="step" data-n="3" data-title="Set conversation starters"></div>
+    ### Step 3 - Set conversation starters
 
     Add or refine suggested prompts so learners can test the same scenario as the toolkit path:
 
@@ -181,7 +181,7 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
 
 === "Agents Toolkit"
 
-    <div data-widget="step" data-n="1" data-title="Update declarativeAgent.json"></div>
+    ### Step 1 - Update declarativeAgent.json
 
     Replace the full content of `appPackage/declarativeAgent.json` with:
 
@@ -213,7 +213,7 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
     }
     ```
 
-    <div data-widget="step" data-n="2" data-title="Update instruction.txt"></div>
+    ### Step 2 - Update instruction.txt
 
     Replace all content in `appPackage/instruction.txt` with:
 
@@ -246,7 +246,7 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
     - Offer a follow-up question at the end.
     ```
 
-    <div data-widget="step" data-n="3" data-title="Update manifest.json"></div>
+    ### Step 3 - Update manifest.json
 
     Update the app identity values in `appPackage/manifest.json`:
 
@@ -279,19 +279,19 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
 
 === "Agent Builder"
 
-    <div data-widget="step" data-n="1" data-title="Save or publish the agent"></div>
+    ### Step 1 - Save or publish the agent
 
     1. In Agent Builder, select **Create**, **Update**, or **Save** depending on the screen you are on.
     2. Wait for the updated agent to become available in Copilot Chat.
 
-    <div data-widget="step" data-n="2" data-title="Open the agent in Copilot Chat"></div>
+    ### Step 2 - Open the agent in Copilot Chat
 
     1. Go to [https://m365.cloud.microsoft/chat/](https://m365.cloud.microsoft/chat/).
     2. Open **Agents** in the left pane.
     3. Select **Zava Onboarding Assistant**.
     4. Run one of the conversation starters.
 
-    <div data-widget="step" data-n="3" data-title="Validate behavior with prompts"></div>
+    ### Step 3 - Validate behavior with prompts
 
     Try these prompts:
 
@@ -303,20 +303,20 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
 
 === "Agents Toolkit"
 
-    <div data-widget="step" data-n="1" data-title="Provision the agent"></div>
+    ### Step 1 - Provision the agent
 
     1. In Agents Toolkit, under **Lifecycle**, select **Provision**.
     2. Wait for a success notification.
     3. Open `env/.env.dev` and confirm `TEAMS_APP_ID` and `M365_TITLE_ID` are populated.
 
-    <div data-widget="step" data-n="2" data-title="Open the agent in Copilot Chat"></div>
+    ### Step 2 - Open the agent in Copilot Chat
 
     1. Go to [https://m365.cloud.microsoft/chat/](https://m365.cloud.microsoft/chat/).
     2. Open **Agents** in the left pane.
     3. Select **Zava Onboarding**.
     4. Run one of the conversation starters.
 
-    <div data-widget="step" data-n="3" data-title="Validate behavior with prompts"></div>
+    ### Step 3 - Validate behavior with prompts
 
     Try these prompts:
 
@@ -332,7 +332,7 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
 
 === "Agent Builder"
 
-    <div data-widget="step" data-n="1" data-title="Make a small persona update"></div>
+    ### Step 1 - Make a small persona update
 
     Reopen the agent for editing and add this fact to the instructions or knowledge area:
 
@@ -343,7 +343,7 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
 
     Save or update the agent, then ask: "Is there a canteen at HQ?"
 
-    <div data-widget="step" data-n="2" data-title="Understand where this path stops"></div>
+    ### Step 2 - Understand where this path stops
 
     Agent Builder is excellent for quickly shaping an agent's persona, instructions, starters, and some knowledge or capability settings. The later bundle labs move to the code-first path because external tools, manifests, source control, local services, and richer extensibility require files and code that Agent Builder does not expose directly.
 
@@ -354,7 +354,7 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
 
 === "Agents Toolkit"
 
-    <div data-widget="step" data-n="1" data-title="Enable developer mode in Copilot Chat"></div>
+    ### Step 1 - Enable developer mode in Copilot Chat
 
     In Copilot Chat, run:
 
@@ -364,7 +364,7 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
 
     Submit a query and inspect debug information.
 
-    <div data-widget="step" data-n="2" data-title="Make a live update and re-provision"></div>
+    ### Step 2 - Make a live update and re-provision
 
     Add this line to `instruction.txt` under "What you know":
 
@@ -376,11 +376,17 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
 
     Provision again, then ask: "Is there a canteen at HQ?"
 
+    
+
 ---8<--- "e-congratulations.md"
 
 You are now ready to choose a bundle path from the landing page.
 
-## Next step
+<div data-widget="callout"
+     data-type="tip"
+     data-title="Pro-code vs. no-code path"
+     data-body="These bundles mainly teaches the pro-code approach using Agents Toolkit for maximum extensibility with custom tools, APIs, and MCP servers. If you prefer a no-code experience, check out <a href='https://microsoft.github.io/agent-academy/' target='_blank'>Agent Academy</a> to build and extend Agents using Copilot Studio."></div>
+
 
 <div data-widget="labnav"
   data-next="../bundles/"
