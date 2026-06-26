@@ -71,12 +71,13 @@ In this exercise, you'll clone Zava's MCP server codebase and set up your local 
 
 ### Step 1: Clone the Repository
 
-Open your terminal and run:
+Open your terminal and run: 
 
 ```bash
 git clone https://github.com/microsoft/copilot-camp.git
 cd src/extend-m365-copilot/path-e-lab08-mcp-server/zava-mcp-server
 ```
+
 <cc-end-step lab="e8" exercise="1" step="1" />
 
 ### Step 2: Install Dependencies
@@ -311,7 +312,7 @@ You should see claims like:
 }
 ```
 
-![image of mcp inspector tool interacting with zava mcp server](../../../assets/images/extend-m365-copilot-08/mcp-inspector.png)
+![image of mcp inspector tool interacting with zava mcp server](../../assets/images/extend-m365-copilot-08/mcp-inspector.png)
 
 <cc-end-step lab="e8" exercise="4" step="3" />
 
