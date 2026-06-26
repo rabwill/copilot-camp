@@ -44,9 +44,9 @@ By completing this lab, you will:
 
 Before starting this lab, complete:
 
-- **Lab E0**: [00-prerequisites.md](./00-prerequisites)
+- **Lab E0**: [Prerequisites & Concepts](../00-prerequisites)
 - Microsoft 365 account with Copilot access
-- If you choose the **Agents Toolkit** tab: VS Code with **Microsoft 365 Agents Toolkit** (v6.4.2+)
+- If you choose the **Agents Toolkit** tab: VS Code with **Microsoft 365 Agents Toolkit** (v6.10.2+)
 - If you choose the **Agent Builder** tab: permission to create agents in Microsoft 365 Copilot Chat
 
 <div class="ccw-choice">
@@ -76,7 +76,7 @@ Before starting this lab, complete:
 
     1. Go to [https://m365.cloud.microsoft/chat/](https://m365.cloud.microsoft/chat/).
     2. In the left pane, select **Create an agent** or **New agent**.
-    3. If prompted, choose to start from scratch.
+    3. You will see *Build your own specialist agent* screen where you can use natural language prompt to create your agent. 
 
     ### Step 2 - Describe the Zava onboarding agent
 
@@ -89,19 +89,25 @@ Before starting this lab, complete:
     Focus on office locations, helpdesk support, annual leave, benefits, and mandatory onboarding tasks.
     ```
 
-    If Agent Builder asks follow-up questions, keep refining the same persona and scope until the preview looks right.
+    > If Agent Builder asks follow-up questions, keep refining the same persona and scope until the preview looks right. 
+    
+    When the draft looks right, Agent Builder opens the details panel with key fields prefilled, including Name (**Zava Onboarding Assistant**) and initial instructions.
+    
+    ### Step 3 - Review the agent details
 
-    ### Step 3 - Create the agent and inspect the preview
+    Review the generated details, and add **Suggested prompt(s)** (called *conversation starters* in some UI versions), then select **Create**.
 
-    1. Set the name to **Zava Onboarding Assistant**.
-    2. Review the generated description and suggested prompts.
-    3. Select **Create**.
-    4. Open the newly created agent and note the persona, instructions, and conversation starters Agent Builder produced.
+    Useful **Suggested prompt(s)** to add:
+
+    - What are the IT helpdesk hours and how do I raise a ticket?
+    - How many days of annual leave do I get, and how do I book them?
+    - Where are Zava's offices, and what are the Seattle HQ opening hours?
+    - Give me a quick summary of Zava employee benefits.
 
     <div data-widget="callout"
       data-type="info"
       data-title="What this path teaches"
-      data-body="Agent Builder helps you quickly understand the shape of a declarative agent: persona, behavior, knowledge boundaries, and starters. Later bundle labs switch to the code-first route because that is where you can version files, wire external tools, and add capabilities beyond the Agent Builder surface."></div>
+      data-body="Agent Builder helps you quickly understand the shape of a declarative agent: persona, behavior, knowledge boundaries, and conversation starters. Later bundle labs switch to the code-first route because that is where you can version files, wire external tools, and add capabilities beyond the Agent Builder surface."></div>
 
 === "Agents Toolkit"
 
@@ -150,15 +156,21 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
 
     ### Step 1 - Refine the agent's purpose and description
 
-    Open the agent for editing and make sure its purpose is clear:
+    Continue with the agent you just created and switch to edit mode:
+
+    1. In the left navigation, select **Agents** (if needed).
+    2. Select **Zava Onboarding Assistant**.
+    3. Open the agent menu (**...**) and choose **Edit** (or **Manage/Edit details**, depending on your UI).
+
+    Then make sure its purpose is clear:
 
     - Name: **Zava Onboarding Assistant**
-    - Description: Helps new Zava Insurance employees find answers to common HR and IT onboarding questions.
-    - Tone: warm, concise, practical, and trustworthy
+    - Description: You can change it to  `Helps new Zava Insurance employees find answers to common HR and IT onboarding questions`.
+ 
 
     ### Step 2 - Add the core persona instructions
 
-    In the instructions area, add guidance that covers this behavior:
+    In the instructions area, replace the auto-generated one with below: 
 
     ```text
     You are a friendly HR and IT onboarding assistant for new employees at Zava Insurance,
@@ -172,7 +184,7 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
 
     ### Step 3 - Set conversation starters
 
-    Add or refine suggested prompts so learners can test the same scenario as the toolkit path:
+    Add or refine **Suggested prompt(s)** so learners can test the same scenario as the toolkit path:
 
     - IT helpdesk hours
     - Holiday policy
@@ -286,10 +298,9 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
 
     ### Step 2 - Open the agent in Copilot Chat
 
-    1. Go to [https://m365.cloud.microsoft/chat/](https://m365.cloud.microsoft/chat/).
-    2. Open **Agents** in the left pane.
-    3. Select **Zava Onboarding Assistant**.
-    4. Run one of the conversation starters.
+    1. Go to the agent you created or open **Agents** in the left pane.
+    2. Select **Zava Onboarding Assistant**.
+    3. Run one of the **Suggested prompt(s)**.
 
     ### Step 3 - Validate behavior with prompts
 
@@ -314,7 +325,7 @@ The end goal in both tabs is the same: a **Zava Onboarding Assistant** with a cl
     1. Go to [https://m365.cloud.microsoft/chat/](https://m365.cloud.microsoft/chat/).
     2. Open **Agents** in the left pane.
     3. Select **Zava Onboarding**.
-    4. Run one of the conversation starters.
+    4. Run one of the **Suggested prompt(s)**.
 
     ### Step 3 - Validate behavior with prompts
 
