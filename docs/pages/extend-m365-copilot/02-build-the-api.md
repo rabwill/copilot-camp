@@ -33,7 +33,7 @@ In this lab you will set up an API based on Azure Functions and install it as an
 
 ## Introduction
 
-In this lab you will set up a REST API for Trey Research, a hypothetical consulting company. It provides API's for accessing information about consultants (using the `/api/consultants` path) and about the current user (using the `/api/me` path). For now the API doesn't support authentication, so the current user will always be "Avery Howard"; in [Lab E6](./06a-add-authentication-ttk.md) you will add authentication and the ability to access the logged in user.
+In this lab you will set up a REST API for Trey Research, a hypothetical consulting company. It provides API's for accessing information about consultants (using the `/api/consultants` path) and about the current user (using the `/api/me` path). For now the API doesn't support authentication, so the current user will always be "Avery Howard"; in [Lab E6a](./06a-add-authentication-ttk.md) you will add authentication and the ability to access the logged in user.
 
 The code consists of Azure Functions written in TypeScript, backed by a database in Azure Table storage. When you run the app locally, table storage will be provided by the Azurite storage emulator.
 
@@ -54,7 +54,12 @@ This lab calls for a couple of additional prerequisites; please install them now
 
 ### Step 2: Download the starting application
 
-Begin by downloading the source code zip file for the base project using [this link](https://download-directory.github.io/?url=https://github.com/microsoft/copilot-camp/tree/main/src/extend-m365-copilot/path-e-lab02-build-api/trey-research&filename=path-e-lab02-build-api){target=_blank}
+Begin by downloading the source code for the base project.
+
+[⬇ Download path-e-lab02-build-api.zip](https://download-directory.github.io/?url=https://github.com/microsoft/copilot-camp/tree/main/src/extend-m365-copilot/path-e-lab02-build-api/trey-research&filename=path-e-lab02-build-api){target=_blank}
+
+!!! tip "Download not working?"
+    The download service uses the GitHub API which has a rate limit of 60 requests/hour per IP. If the button above fails, download directly via GitHub: go to the [trey-research folder on GitHub](https://github.com/microsoft/copilot-camp/tree/main/src/extend-m365-copilot/path-e-lab02-build-api/trey-research){target=_blank}, click **Code → Download ZIP**, then extract only the `trey-research` subfolder.
 
 Unzip and copy `path-e-lab02-build-api` folder to a location on your computer where you want to do your work. These instructions will refer to this as the "working folder" going forward.
 
