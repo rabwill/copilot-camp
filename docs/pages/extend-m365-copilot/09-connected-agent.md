@@ -7,18 +7,18 @@
     data-title="Build Connected Agent Orchestration"
     data-subtitle="Create specialized agents and orchestrate them together so users get unified answers across pricing knowledge and live claims systems."
     data-time="120+ min"
-    data-requires="Microsoft 365 developer account"
+    data-requires="Lab E8 (project running)"
     data-toolkit="Connected agents + embedded knowledge"></div>
 
 <div data-widget="checklist"
-    data-items="Zava Claims Assistant created~Declarative Agent connected to remote MCP server|Specialized procurement agent created~EmbeddedKnowledge configured with pricing content|Orchestrator agent connected to multiple agents~Zava Care routes across procurement and claims capabilities|Hybrid responses validated~Combined embedded knowledge and MCP-backed live data in one conversation"></div>
+    data-items="Specialized procurement agent created~EmbeddedKnowledge configured with pricing content|Orchestrator agent connected to multiple agents~Zava Care routes across procurement and claims capabilities|Hybrid responses validated~Combined embedded knowledge and MCP-backed live data in one conversation"></div>
 
 ## Key concepts before you build
 
 <div data-widget="concepts"
     data-cards="Connected agent model::coral::Specialists coordinated by an orchestrator::Each agent handles a focused domain while an orchestrator unifies user interaction.||Embedded knowledge::teal::Fast local content grounding::Embedded files provide low-latency retrieval for stable content like pricing and policy references.||Hybrid architecture::blue::Live tools plus static knowledge::Combining MCP tools and embedded sources balances freshness, coverage, and response quality."></div>
 
-In this lab, you'll build a multi-agent orchestration system for Zava Insurance. You'll start by creating a **Zava Claims Assistant** declarative agent connected to a remote MCP server — no prior lab required. Next, you'll create a **Zava Procurement** agent with embedded contractor pricing knowledge for instant pricing intelligence. Finally, you'll create a **Zava Care** orchestrator agent that connects both specialized agents, enabling claims adjusters to access embedded pricing data and real-time claims information through a single, unified conversational interface.
+In this lab, you'll build a multi-agent orchestration system for Zava Insurance. First, you'll create a **Zava Procurement** agent with embedded contractor pricing knowledge for instant pricing intelligence. Then, you'll create a **Zava Care** orchestrator agent that connects both **Zava Procurement** and **Zava Claims Assistant** (from Lab E8), enabling claims adjusters to access embedded pricing data and real-time claims information from the MCP server through a single, unified conversational interface.
 
 <div class="lab-intro-video">
     <div style="flex: 1; min-width: 0;">
@@ -60,134 +60,32 @@ For complex business scenarios like insurance claims processing, Connected Agent
 
 ---
 
-## Exercise 1: Create the Zava Claims Assistant
+## Exercise 1: Verify Your Lab E8 Environment
 
-In this exercise, you'll create a **Zava Claims Assistant** declarative agent that connects to a remote MCP server hosted on Azure. This gives you a fully functional claims agent without any local server setup, and makes this lab self-contained — no previous lab required.
+Before building the connected agents, confirm that your Lab E8 MCP server is still running and the **Zava Claims** agent is responding. This lab depends on it.
 
-> 💡 **Want to go deeper?** Lab E8 walks through building and hosting the MCP server yourself. Once you've completed this lab you can revisit [Lab E8](./08-mcp-server.md) to understand what's running behind the scenes.
+### Step 1: Start the MCP server and dev tunnel
 
-### Step 1: Create New Agent using Microsoft 365 Agents Toolkit
-
-1. Open a new window in **VS Code**
-2. Click the **Microsoft 365 Agents Toolkit** icon in the Activity Bar (left sidebar)
-3. Sign in with your Microsoft 365 developer account if prompted
-4. In the Agents Toolkit panel, click **"Create a New Agent/App"**
-5. Select **"Declarative Agent"** from the template options
-6. Select **"Add an Action"** to connect your agent to a data source
-7. Select **"Start with an MCP server"**
-8. Enter the remote MCP server URL: `https://zava-insurance-mcp.azurewebsites.net/mcp`
-9. Select **Default folder**
-10. Enter the application name: `ZavaClaims`
-
-You will be directed to the newly created project, which has the file `.vscode/mcp.json` open. This is the MCP server configuration file.
-
-- Select the **Start** button to connect to the remote server and fetch its tools.
-- Once connected, you will see the number of available tools 1️⃣.
-- Select **ATK: Fetch action from MCP** 2️⃣ to choose which tools to add to the agent.
-
-!!! note "Don't see the ATK: Fetch action from MCP option?"
-    If you don't see the **ATK: Fetch action from MCP** option, try restarting VS Code and reopening the project.
-
-- When prompted to provide the action manifest, select **ai-plugin.json**.
-- Select the following tools to add:
-
-    - `create_claim`
-    - `create_inspection`
-    - `get_claim`
-    - `get_claims`
-    - `get_contractors`
-    - `get_inspection`
-    - `get_inspections`
-    - `update_claim`
-    - `update_inspection`
-    - `get_inspectors`
-
-This populates `appPackage/ai-plugin.json` with the selected tools and the MCP server URL, ready for the agent to use.
+1. Open the **ZavaClaims** project from Lab E8 in VS Code
+2. Confirm **Azurite** is running (check the status bar or re-run the task if needed)
+3. In the terminal, start the MCP server if it isn't already running:
+   ```bash
+   npm run start:mcp-http
+   ```
+4. Confirm your **dev tunnel** is active and the public URL is reachable. If it has expired, restart it from the **Microsoft 365 Agents Toolkit** panel → **Lifecycle** → **Start tunnel**
 
 <cc-end-step lab="e9" exercise="1" step="1" />
 
-### Step 2: Configure the Agent
+### Step 2: Confirm the agent is working
 
-Replace the content of `appPackage/declarativeAgent.json` with the following:
+1. Open a browser and go to [https://m365.cloud.microsoft/chat/](https://m365.cloud.microsoft/chat/){target=_blank}
+2. Under **Agents**, find your **Zava Claims** agent from Lab E8
+3. Send a quick test message: *"Show me all open claims"*
+4. Confirm the agent responds with live claims data from the MCP server
 
-```json
-{
-    "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.7/schema.json",
-    "version": "v1.7",
-    "name": "Zava Claims Assistant${{APP_NAME_SUFFIX}}",
-    "description": "An intelligent agent that helps Zava insurance employees manage and process claims efficiently, with real-time access to claims data via the Zava Insurance MCP server.",
-    "instructions": "$[file('instruction.txt')]",
-    "conversation_starters": [
-        {
-            "title": "View open claims",
-            "text": "Show me all open insurance claims"
-        },
-        {
-            "title": "Check claim status",
-            "text": "What is the current status of claim CLM-001?"
-        },
-        {
-            "title": "Find claims by damage type",
-            "text": "List all roof damage claims that are still open"
-        },
-        {
-            "title": "Contractor availability",
-            "text": "Which contractors are available for emergency water damage repairs?"
-        }
-    ],
-    "actions": [
-        {
-            "id": "action_1",
-            "file": "ai-plugin.json"
-        }
-    ]
-}
-```
+If the agent is not responding or returns errors, revisit [Lab E8](./08-mcp-server.md) to restore the environment before continuing.
 
 <cc-end-step lab="e9" exercise="1" step="2" />
-
-### Step 3: Update Agent Instructions
-
-Replace the content of `appPackage/instruction.txt` with:
-
-```txt
-You are the Zava Claims Assistant, an intelligent agent designed to help Zava insurance employees manage and process insurance claims efficiently.
-
-# Core Capabilities
-You have real-time access to Zava's claims system through the MCP server, which provides:
-- Claims data: status, policy details, damage assessments, and timelines
-- Inspection records: scheduling, findings, and documentation
-- Contractor information: qualifications, availability, and service areas
-- Purchase orders: assignments, costs, approvals, and completion status
-
-# Primary Responsibilities
-1. Retrieve and summarize claim information and current status
-2. Create, update, or close claims as requested
-3. Schedule and manage inspections
-4. Help identify and assign appropriate contractors
-5. Track purchase orders through approval and completion
-
-# Interaction Guidelines
-- Always retrieve up-to-date information from the MCP server before responding
-- Present information in a clear, organized format
-- Confirm details with the user before creating or modifying records
-- Be concise and professional — claims adjusters need quick, actionable answers
-- For pricing questions, note that a separate Zava Procurement agent handles contractor rates
-```
-
-<cc-end-step lab="e9" exercise="1" step="3" />
-
-### Step 4: Provision and Test the Agent
-
-1. In VS Code, open the **Microsoft 365 Agents Toolkit** panel
-2. Click **"Provision"** in the Lifecycle section and wait for it to complete
-3. Open a browser and go to [https://m365.cloud.microsoft/chat/](https://m365.cloud.microsoft/chat/){target=_blank}
-4. Under **Agents** on the left-hand side, find **"Zava Claims Assistant"**
-5. Try a conversation starter such as *"Show me all open insurance claims"*
-
-> 📌 **Keep this project open** — you will need the agent's Title ID later when building the orchestrator in Exercise 5.
-
-<cc-end-step lab="e9" exercise="1" step="4" />
 
 ---
 
@@ -434,16 +332,16 @@ Replace the content of `appPackage/declarativeAgent.json` with Zava's configurat
     "instructions": "$[file('instruction.txt')]",
     "conversation_starters": [
         {
-            "title": "End-to-End Claims Processing",
-            "text": "For all moderate-severity roof or water damage claims , group them by city and propose contractor assignments using our approved network. For each claim, estimate the repair cost using current pricing for inspection, repair, and materials, and highlight where contractor selection changes the total cost by more than 15%."
+            "title": "Storm Surge - Seattle Emergency Claims",
+            "text": "We have a cluster of emergency storm claims filed June 26–29 in Seattle, Tacoma, and Vancouver — several marked URGENT. List all open or under-investigation roof and wind damage claims from this period ranked by estimated loss, then get current emergency tarping and temporary repair rates from Thompson Roofing Solutions to estimate response costs for the top five."
         },
         {
-            "title": "Contractor Recommendations for Emergency Roof Damage",
-            "text": "Find all open roof damage claims that require emergency work, then recommend the top three approved contractors with 24/7 response coverage and include their latest pricing for tarping and temporary roof repairs. Prioritize by claim severity and estimated loss"
+            "title": "Open Flooding Claim - Angela Lewis",
+            "text": "For claim CN202505021 (Angela Lewis, Portland OR — severe flooding, $48,089 estimated loss, currently open), show the full claim details and any existing inspections, then recommend the most cost-effective water restoration contractor from our approved network with current extraction and drying rates from Pacific Water Restoration."
         },
         {
-            "title": "Emergency Response Coordination",
-            "text": "Find urgent claims needing immediate attention and match with emergency contractor pricing"
+            "title": "Open Roof Claims - City Cost Breakdown",
+            "text": "Find all open and under-investigation roof damage claims, group them by city, then pull current repair pricing from Thompson Roofing Solutions. Flag any claim where the estimated loss exceeds $40,000 as high priority and show which contractor assignment gives the best cost coverage ratio."
         }
     ]
 }
@@ -462,39 +360,40 @@ You are ZavaCare, an orchestrator agent for Zava Insurance. You coordinate two s
 ## Your specialist agents
 
 **Zava Claims** — use for anything about live claims data:
-- Finding, creating, or updating claims and inspections
+- Finding, filtering, and summarising claims by status, damage type, city, or date
+- Retrieving inspections linked to a claim
 - Listing approved contractors and their availability
 - Checking purchase order status
 
-**Zava Procurement** — use for contractor pricing:
-- Current rates for specific repair types (roofing, water damage, structural, etc.)
-- Comparing costs across approved contractors
-- Pricing documents for Pacific Water Restoration, Thompson Roofing Solutions, and Wilson General Contractors
+**Zava Procurement** — use for contractor pricing from three approved vendors:
+- **Pacific Water Restoration** — water extraction, drying, mold remediation, flood restoration
+- **Thompson Roofing Solutions** — roofing repairs, emergency tarping, shingle replacement, storm damage
+- **Wilson General Contractors** — structural repairs, foundation work, general construction and renovation
 
 ## Routing rules
 
 | User asks about | Delegate to |
 |---|---|
-| Claim status, inspections, contractors | Zava Claims |
-| Pricing, cost estimates, rate sheets | Zava Procurement |
-| Both (e.g. "recommend contractors with pricing") | Both agents — combine the results |
+| Claim status, inspections, contractor lists | Zava Claims |
+| Pricing, rate sheets, cost estimates | Zava Procurement |
+| "Recommend a contractor with pricing" or similar | Both — get the contractor list from Zava Claims, rates from Zava Procurement |
 
 ## Example
 
-**User:** "For all moderate-severity roof or water damage claims, group them by city and propose contractor assignments using our approved network. For each claim, estimate the repair cost and highlight where contractor selection changes the total cost by more than 15%."
+**User:** "We have emergency storm claims from late June in Seattle and Tacoma — list the open urgent roof and wind damage claims ranked by estimated loss, then estimate response costs using Thompson Roofing's emergency rates."
 
 **Your approach:**
-1. Ask **Zava Claims** for all moderate-severity roof and water damage claims, grouped by city.
-2. Ask **Zava Claims** for the approved contractor list filtered to roofing and water restoration.
-3. Ask **Zava Procurement** for current pricing from each relevant contractor.
-4. Match contractors to claims by city and repair type, calculate cost estimates, and flag any pairing where switching contractor changes the total by more than 15%.
-5. Present a table: Claim ID · City · Damage type · Recommended contractor · Estimated cost · Cost variance note.
+1. Ask **Zava Claims** for all open or under-investigation roof and wind damage claims filed after June 25, 2026, filtered to Seattle, Tacoma, and surrounding WA cities.
+2. Sort results by `estimatedLoss` descending and flag any with "URGENT" in the notes.
+3. Ask **Zava Procurement** for Thompson Roofing Solutions' emergency tarping and temporary repair rates.
+4. For each top claim, multiply the relevant rate by a rough scope estimate and present as a cost band.
+5. Return a table: Claim # · Policyholder · City · Damage type · Estimated loss · URGENT flag · Estimated response cost.
 
 ## Response format
 
-- Lead with a direct answer or summary table
-- Cite the source agent for each data point (e.g. "per Zava Claims", "per Zava Procurement")
-- For multi-step requests, show a brief plan before executing
+- Lead with a direct summary or table
+- Cite the source for each data point (e.g. "per Zava Claims", "per Zava Procurement / Thompson Roofing")
+- For multi-step requests, state your plan in one sentence before executing
 - Flag missing data rather than guessing
 ```
 
@@ -506,7 +405,7 @@ To connect your orchestrator agent to the two specialized agents, you need to li
 
 #### 4.1: Get the Zava Claims Agent ID
 
-1. **Open your ZavaClaims project** (created in Exercise 1 of this lab) in VS Code
+1. **Open your ZavaClaims project** (created in Lab E8) in VS Code
 2. Navigate to the `env/.env.dev` file
 3. Find the `M365_TITLE_ID` value (looks like: `12345678-abcd-1234-abcd-123456789abc`)
 4. **Copy this entire GUID** and paste it somewhere safe - label it as **Claims Agent ID**
