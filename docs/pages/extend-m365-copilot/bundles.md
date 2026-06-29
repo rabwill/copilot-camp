@@ -7,7 +7,7 @@ title: Declarative Agent Developer Bundles
      data-badge-color="blue"
      data-title="Declarative Agent Developer Bundles"
      data-subtitle="Complete the mandatory on-ramp first, then choose a focused bundle path based on your goals."
-     data-path="0::Prerequisites (E0)|1::First Declarative Agent (E1 NEW)|*A::MCP Foundations|*B::Multi-Agent Workflows|*C::MCP App|*D::API-Based Declarative Agent|*E::DA with Connectors|*F::DA + CLI Tools"></div>
+     data-path="0::Prerequisites (E0)|1::First Declarative Agent (E1)|*A::MCP Foundations|*B::Multi-Agent Workflows|*C::MCP App|*D::API-Based Declarative Agent|*E::DA with Connectors|*F::DA + CLI Tools"></div>
 
 <div data-widget="sectionlabel" data-text="Mandatory on-ramp"></div>
 
@@ -117,7 +117,7 @@ title: Declarative Agent Developer Bundles
      data-lab2-items="Add Graph connector integration|Ground agent with indexed data|Validate grounded responses"
      data-arc="Labs: E2 + E3 + E4 + E7"
      data-start-url="../bundle-e/"></div>
-
+<!-- 
 <div data-widget="bundle"
      data-icon="🛠️"
      data-label="Bundle F"
@@ -136,7 +136,7 @@ title: Declarative Agent Developer Bundles
      data-lab2-title="Evaluate and iterate with CLI tools"
      data-lab2-items="Run eval commands against sample prompts|Interpret metrics and failures|Apply iterative prompt/tool improvements"
      data-arc="Labs: E12 + E13 (placeholders)"
-     data-start-url="../bundle-f/"></div>
+     data-start-url="../bundle-f/"></div> -->
 
 <div data-widget="footernote"
-     data-text="Mandatory order: complete On-ramp (E0 + E1 NEW) first, then pick any bundle."></div>
+     data-text="Mandatory order: complete On-ramp (E0 + E1) first, then pick any bundle."></div>
