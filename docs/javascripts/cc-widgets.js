@@ -945,8 +945,7 @@
         </div>
         <div class="ccw-bundle-labs">
           ${labCard("lab1")}
-          <div class="ccw-bundle-trans">→<br><small>${esc(d.transition || "")}</small></div>
-          ${labCard("lab2")}
+          ${d.lab2Badge ? `<div class="ccw-bundle-trans">→<br><small>${esc(d.transition || "")}</small></div>${labCard("lab2")}` : ""}
         </div>
         <div class="ccw-bundle-foot">
           <em>${esc(d.arc)}</em>
