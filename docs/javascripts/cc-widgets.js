@@ -327,9 +327,10 @@
   border:.5px solid rgba(0,0,0,.1);border-radius:12px;padding:3px 10px;
   white-space:nowrap;margin-left:auto;flex-shrink:0;align-self:flex-start}
 .ccw-bundle-labs{display:grid;grid-template-columns:1fr 36px 1fr;
-  align-items:center;padding:18px 22px}
-.ccw-lab-card{background:var(--md-default-bg-color--light,#F9F8F5);
-  border:.5px solid rgba(0,0,0,.1);border-radius:8px;padding:14px 16px}
+  align-items:center;padding:18px 22px;background:rgba(0,0,0,.04);border-radius:0}
+.ccw-lab-card{background:#fff;
+  border:.5px solid rgba(0,0,0,.12);border-radius:8px;padding:14px 16px;
+  box-shadow:0 2px 6px rgba(0,0,0,.07)}
 .ccw-lab-card .ccw-ln{font-size:.7rem;font-weight:700;padding:2px 8px;
   border-radius:10px;display:inline-block;margin-bottom:8px}
 .ccw-lab-card h3{font-weight:600;margin:0 0 8px}
@@ -364,15 +365,16 @@
 .ccw-explainer-note{color:var(--md-default-fg-color--light,#5F5E5A);margin:0;line-height:1.6}
 
 /* ── onramp strip ── */
-.ccw-onramp{background:var(--md-default-bg-color,#fff);
+.ccw-onramp{background:rgba(0,0,0,.04);
   border:.5px solid rgba(0,0,0,.12);border-radius:12px;
   padding:24px 28px 20px;margin-bottom:32px}
 .ccw-onramp-title{font-weight:600;margin:0 0 4px}
 .ccw-onramp-sub{color:var(--md-default-fg-color--light,#5F5E5A);margin:0 0 18px}
 .ccw-onramp-row{display:flex;align-items:stretch;gap:10px;flex-wrap:nowrap}
 .ccw-ostep{flex:1 1 0;min-width:0;display:flex;flex-direction:column;
-  background:var(--md-default-bg-color--light,#F9F8F5);
-  border:.5px solid rgba(0,0,0,.1);border-radius:10px;padding:16px 18px}
+  background:#fff;
+  border:.5px solid rgba(0,0,0,.12);border-radius:10px;padding:16px 18px;
+  box-shadow:0 2px 6px rgba(0,0,0,.07)}
 .ccw-ostep-badge{font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:10px;
   display:inline-block;margin-bottom:8px;align-self:flex-start}
 .ccw-ostep h3{font-weight:600;margin:0 0 8px;line-height:1.35}
