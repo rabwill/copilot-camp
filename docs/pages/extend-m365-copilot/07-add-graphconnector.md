@@ -83,6 +83,9 @@ CONNECTOR_BASE_URL=https://localhost:3000/
 - Once granted, the connector creates an external connection, provisions the schema and ingests the sample contents in the **content** folder to your Microsoft 365 tenant. This takes a while, so keep the project running. 
 - Once all files in the **content** folder are loaded, the debugger can be stopped. 
 - You can also close this connector project folder.
+- To verify the connection status, go to [https://admin.cloud.microsoft/#/copilot/connectors](https://admin.cloud.microsoft/#/copilot/connectors){target=_blank} to check the connection. Its state should be **"Ready"**.
+
+
 
 <cc-end-step lab="e7" exercise="1" step="2" />
 
@@ -90,7 +93,7 @@ CONNECTOR_BASE_URL=https://localhost:3000/
 
 Now that your data is loaded into Microsoft 365 tenant, let's test if a regular search is picking up the contents in Microsoft365.com.
 
-Go to [https://www.microsoft365.com/](https://www.microsoft365.com/){target=_blank} and in the search box above, type `thanks Avery`.
+Go to [https://m365.cloud.microsoft/search](https://m365.cloud.microsoft/search){target=_blank} and in the search box above, type `thanks Avery`.
 
 You will see the results as below from the external connection which are basically the clients' feedback for consultant Avery Howard.
 
@@ -187,6 +190,8 @@ In the immersive experience of Trey Genie, use below prompts and test them
 ---8<--- "e-congratulations.md"
 
 You have completed lab Add Copilot Connector, Well done!
+
+<div data-widget="labnav"></div>
 
 <!-- <cc-award badgeId="Extend" badgeName="Extend" badgeUrl="#" /> -->
 
