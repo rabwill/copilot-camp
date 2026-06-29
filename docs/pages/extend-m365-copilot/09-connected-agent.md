@@ -332,16 +332,8 @@ Replace the content of `appPackage/declarativeAgent.json` with Zava's configurat
     "instructions": "$[file('instruction.txt')]",
     "conversation_starters": [
         {
-            "title": "Storm Surge - Seattle Emergency Claims",
-            "text": "We have a cluster of emergency storm claims filed June 26–29 in Seattle, Tacoma, and Vancouver — several marked URGENT. List all open or under-investigation roof and wind damage claims from this period ranked by estimated loss, then get current emergency tarping and temporary repair rates from Thompson Roofing Solutions to estimate response costs for the top five."
-        },
-        {
-            "title": "Open Flooding Claim - Angela Lewis",
-            "text": "For claim CN202505021 (Angela Lewis, Portland OR — severe flooding, $48,089 estimated loss, currently open), show the full claim details and any existing inspections, then recommend the most cost-effective water restoration contractor from our approved network with current extraction and drying rates from Pacific Water Restoration."
-        },
-        {
-            "title": "Open Roof Claims - City Cost Breakdown",
-            "text": "Find all open and under-investigation roof damage claims, group them by city, then pull current repair pricing from Thompson Roofing Solutions. Flag any claim where the estimated loss exceeds $40,000 as high priority and show which contractor assignment gives the best cost coverage ratio."
+            "title": "Open roof damage claims ",
+            "text": "Find all open roof damage claims that require emergency work, then recommend the top three approved contractors with 24/7 response coverage and include their latest pricing for tarping and temporary roof repairs. Prioritize by claim severity and estimated loss"
         }
     ]
 }
@@ -484,12 +476,14 @@ To connect your orchestrator agent to the two specialized agents, you need to li
 Find me all open roof damage claims along with contractor pricing insights.
 ```
 Test the conversation starters of this agent as well to understand how multi-agent co-ordination works.
+Notice how Zava Care orchestrated calls to both the Zava Claims agent 1️⃣ for live claims data and the Zava Procurement agent 2️⃣ for contractor pricing — demonstrating seamless multi-agent collaboration. 
 
+![image of orchestration](../../assets/images/extend-m365-copilot-09/demo.png)
 <cc-end-step lab="e9" exercise="6" step="2" />
 
 ## Congratulations! 🎉
 
-You've successfully built Zava Insurance's Connected Agent orchestration system! This achievement represents the culmination of a sophisticated multi-agent architecture that represents the future of enterprise AI systems - specialized, coordinated, and infinitely extensible! 🚀
+You've successfully built Zava Insurance's Connected Agent orchestration system!
 
 
 <cc-award badgeId="DeclarativePioneer" badgeName="Declarative Pioneer" />
