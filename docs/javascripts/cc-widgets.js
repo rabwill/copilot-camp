@@ -612,24 +612,30 @@
 
   const BUNDLES = {
     a: {
-      name: "Bundle A",
+      name: "Bundle A — MCP Foundations",
       color: "teal",
       labs: [
         { url: "08-mcp-server/", label: "Lab E8 - Connect Declarative Agent to MCP Server" },
-        { url: "10-mcp-auth/", label: "Lab E10 - Connect Declarative Agent to OAuth-Protected MCP Server" },
+        { url: "10-mcp-auth/", label: "Lab E10 - OAuth-Protected MCP Server" },
       ],
     },
     b: {
-      name: "Bundle B",
+      name: "Bundle B — Multi-Agent Workflows",
       color: "coral",
       labs: [
         { url: "08-mcp-server/", label: "Lab E8 - Connect Declarative Agent to MCP Server" },
-        { url: "09-connected-agent/", label: "Lab E9 - Connected Agents" },
-        { url: "11-mcp-app/", label: "Lab E11 - Build an MCP App with Interactive Widgets" },
+        { url: "09-connected-agent/", label: "Lab E9 - Connected Agents Orchestration" },
       ],
     },
     c: {
-      name: "Bundle C",
+      name: "Bundle C — MCP App",
+      color: "green",
+      labs: [
+        { url: "11-mcp-app/", label: "Lab E11 - MCP App with Interactive Widgets" },
+      ],
+    },
+    d: {
+      name: "Bundle D — API-Based Declarative Agent",
       color: "blue",
       labs: [
         { url: "02-build-the-api/", label: "Lab E2 - Build a Backend API" },
@@ -639,8 +645,8 @@
         { url: "06a-add-authentication-ttk/", label: "Lab E6a - Add Entra ID Authentication" },
       ],
     },
-    d: {
-      name: "Bundle D",
+    e: {
+      name: "Bundle E — Declarative Agents with Copilot Connectors",
       color: "purple",
       labs: [
         { url: "02-build-the-api/", label: "Lab E2 - Build a Backend API" },
@@ -649,8 +655,8 @@
         { url: "07-add-graphconnector/", label: "Lab E7 - Add Copilot Connector" },
       ],
     },
-    e: {
-      name: "Bundle E",
+    f: {
+      name: "Bundle F — DA + CLI Tools",
       color: "gray",
       labs: [
         { url: "12-da-cli-wiqd/", label: "Lab E12 - DA CLI with WIQD Tooling" },

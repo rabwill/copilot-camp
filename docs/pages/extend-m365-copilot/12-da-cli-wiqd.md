@@ -3,7 +3,7 @@ title: Lab E12 — DA CLI with WIQD Tooling (Placeholder)
 ---
 
 <div data-widget="hero"
-     data-badge="Bundle E · Lab E12"
+     data-badge="Bundle F · Lab E12"
      data-badge-color="gray"
      data-icon="🧪"
      data-title="DA CLI with WIQD Tooling"

@@ -1,5 +1,5 @@
 ---
-title: "Bundle E — Declarative Agents with Connectors: Grounding Your Agent"
+title: "Bundle E — Declarative Agents with Copilot Connectors"
 ---
 
 <div data-widget="hero"
@@ -12,7 +12,7 @@ title: "Bundle E — Declarative Agents with Connectors: Grounding Your Agent"
      data-requires="E0 + E1 "
      data-extra="Labs E2 + E3 + E4 + E7"></div>
 
-<div data-widget="sectionlabel" data-text="Bundle E · DA with Connectors"></div>
+<div data-widget="sectionlabel" data-text="Bundle E · Declarative Agents with Copilot Connectors"></div>
 
 <div data-widget="callout"
      data-type="info"

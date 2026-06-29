@@ -3,7 +3,7 @@ title: Lab E13 — DA CLI with Evals Tooling (Placeholder)
 ---
 
 <div data-widget="hero"
-     data-badge="Bundle E · Lab E13"
+     data-badge="Bundle F · Lab E13"
      data-badge-color="amber"
      data-icon="📈"
      data-title="DA CLI with Evals Tooling"
@@ -15,7 +15,7 @@ title: Lab E13 — DA CLI with Evals Tooling (Placeholder)
 <div data-widget="callout"
      data-type="info"
      data-title="Placeholder content"
-     data-body="This page is a placeholder for an upcoming eval-focused lab. It keeps the Bundle E sequence navigable while full implementation details are prepared."></div>
+     data-body="This page is a placeholder for an upcoming eval-focused lab. It keeps the Bundle F sequence navigable while full implementation details are prepared."></div>
 
 <div data-widget="checklist"
      data-variant="soft"

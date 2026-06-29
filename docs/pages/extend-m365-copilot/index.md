@@ -29,7 +29,7 @@ Your journey is:
      - **Bundle B — Multi-Agent Workflows** — Compose connected agents and orchestrate multi-agent workflows inside Copilot
      - **Bundle C — MCP App** — Extend an MCP server with React + Fluent UI interactive widgets
      - **Bundle D — API-Based Declarative Agent** — Build a Declarative Agent that retrieves data from a custom API (not MCP)
-     - **Bundle E — Declarative Agents with Connectors** — Ground your agent using connectors for domain relevance
+     - **Bundle E — Declarative Agents with Copilot Connectors** — Ground your agent using connectors for domain relevance
      <!-- - **Bundle F — DA + CLI Tools** — Build, validate, and evaluate using CLI-first workflows (coming soon) -->
 
 
@@ -43,7 +43,7 @@ Your journey is:
 | **Bundle B — Multi-Agent Workflows**  | E8 + E9 | Compose connected agents and orchestrate multi-agent workflows inside Copilot |
 | **Bundle C — MCP App**     | E11 | Extend an MCP server with React + Fluent UI interactive widgets |
 | **Bundle D — API-Based Declarative Agent**  | E2 + E3 + E4 + E5 + E6a | Build a Declarative Agent that retrieves data from a custom API (not MCP) |
-| **Bundle E — DA with Connectors**  | E2 + E3 + E4 + E7 | Ground your agent using connectors for domain relevance |
+| **Bundle E — Declarative Agents with Copilot Connectors**  | E2 + E3 + E4 + E7 | Ground your agent using connectors for domain relevance |
 <!-- | **Bundle F — DA + CLI Tools**      | E12 + E13 (coming soon) | Build, validate, and evaluate using CLI-first workflows | -->
 
 ---

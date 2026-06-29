@@ -65,7 +65,7 @@ plugins:
                     - Start Bundle C: 'pages/extend-m365-copilot/bundle-c.md'
               - Bundle D - API-Based Declarative Agent:
                     - Start Bundle D: 'pages/extend-m365-copilot/bundle-d.md'
-              - Bundle E - DA with Connectors:
+              - Bundle E - Declarative Agents with Copilot Connectors:
                     - Start Bundle E: 'pages/extend-m365-copilot/bundle-e.md'
             - Custom Engine Agents:
               - Welcome : 'pages/custom-engine/index.md'

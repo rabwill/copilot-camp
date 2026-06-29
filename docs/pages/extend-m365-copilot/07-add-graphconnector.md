@@ -1,7 +1,7 @@
 # Lab E7 - Integration: Add Knowledge capability to Trey Genie using a Microsoft Copilot Connector
 
 <div data-widget="hero"
-    data-badge="Bundle D · Lab E7"
+    data-badge="Bundle E · Lab E7"
     data-badge-color="purple"
     data-icon="🔗"
     data-title="Add Copilot Connector Grounding"
