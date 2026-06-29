@@ -1082,6 +1082,8 @@ This panel shows which tools were called, the parameters passed, and the respons
 
 Congratulations! You've successfully built an MCP app with interactive widgets, added a new Status Timeline visualization, and integrated it with Microsoft 365 Copilot through a Declarative Agent.
 
+<div data-widget="labnav"></div>
+
 ## Learn More
 
 - [Add interactive UI widgets to declarative agents](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-ui-widgets) — official documentation on widget support in Microsoft 365 Copilot

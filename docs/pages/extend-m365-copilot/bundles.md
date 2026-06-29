@@ -48,7 +48,7 @@ title: Declarative Agent Developer Bundles
      data-time="~6 hrs"
      data-lab1-badge="Labs E8 + E9"
      data-lab1-badge-color="amber"
-     data-lab1-title="MCP foundations + orchestration"
+     data-lab1-title="MCP foundations + Connected agents orchestration"
      data-lab1-items="Build MCP foundation (E8)|Implement connected agents (E9)|Validate orchestration routing"
      data-transition="then visualise"
      data-lab2-badge="Lab E11"

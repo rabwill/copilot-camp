@@ -53,24 +53,10 @@ For complex business scenarios like insurance claims processing, Connected Agent
 - **Consistent user experience** despite backend complexity
 - **Maintainable architecture** with clear separation of concerns
 
-## 🎯 Lab Objectives
 
-By completing this lab, you will:
+## Scenario
 
-1. **Create a Declarative Agent with embedded knowledge** using contractor pricing documents
-2. **Build a connected orchestrator agent** that coordinates multiple specialized agents
-3. **Test multi-agent orchestration** by combining real-time MCP data with embedded knowledge
-4. **Understand hybrid AI architectures** that leverage both live data sources and static knowledge bases
-
----
-
-## 📚 Prerequisites
-
-Before starting this lab, ensure you have:
-
-- **Completed Lab 8**: Zava's Declarative Agent with MCP server integration working properly
-- **Microsoft 365 Agents Toolkit** Pre-release version (For Embedded Knowledge)
-- **Active Microsoft 365 Copilot license** for testing 
+![image of scenario flow](../../assets/images/extend-m365-copilot-09/flow.png)
 
 ---
 
@@ -172,7 +158,8 @@ Replace the content of `appPackage/declarativeAgent.json` with below configurati
     ]
 }
 ```
-  <cc-end-step lab="e9" exercise="2" step="2" />
+
+<cc-end-step lab="e9" exercise="2" step="2" />
 
 ### Step 3: Create Detailed Agent Instructions
 
@@ -355,6 +342,7 @@ Replace the content of `appPackage/declarativeAgent.json` with Zava's configurat
 }
 
 ```
+
 <cc-end-step lab="e9" exercise="4" step="2" />
 
 ### Step 3: Create Detailed Agent Instructions

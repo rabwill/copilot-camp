@@ -33,7 +33,7 @@ This advanced track assumes the same foundation from E0/E1 plus comfort with the
 
 <div data-widget="bundleseq"
      data-bundle-key="b"
-     data-steps="e8::Lab E8::amber::Connect Declarative Agent to MCP Server::Run Azurite + seed claims data~Start the Zava MCP server~Wire tools via ai-plugin.json~Validate natural language tool calls::../08-mcp-server/|e9::Labs E8 + E9::amber::MCP Foundations + Orchestration::Build MCP foundation (E8)~Implement connected agents (E9)~Validate orchestration routing::../09-connected-agent/|e11::Lab E11::green::MCP App with Interactive Widgets::Run the MCP app~Build React + Fluent UI widget~Register tool UI mapping~Test in Copilot conversation::../11-mcp-app/"></div>
+     data-steps="e8::Lab E8::amber::Connect Declarative Agent to MCP Server::Run Azurite + seed claims data~Start the Zava MCP server~Wire tools via ai-plugin.json~Validate natural language tool calls::../08-mcp-server/|e9::Labs E8 + E9::amber::MCP Foundations + Connected Agents Orchestration::Build MCP foundation (E8)~Implement connected agents (E9)~Validate orchestration routing::../09-connected-agent/|e11::Lab E11::green::MCP App with Interactive Widgets::Run the MCP app~Build React + Fluent UI widget~Register tool UI mapping~Test in Copilot conversation::../11-mcp-app/"></div>
 
 <div data-widget="labnav"
      data-prev="../bundles/"
