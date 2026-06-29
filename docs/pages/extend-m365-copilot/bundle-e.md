@@ -1,37 +1,39 @@
 ---
-title: "Bundle E — DA + CLI Tools: Build, Validate, Evaluate"
+title: "Bundle E — Declarative Agents with Connectors: Grounding Your Agent"
 ---
 
 <div data-widget="hero"
-     data-badge="Bundle E · DA + CLI Tools"
-     data-badge-color="gray"
-     data-icon="🛠️"
-     data-title="Use CLI-first workflows for rapid DA iteration"
-     data-subtitle="This placeholder bundle focuses on command-line tooling for Declarative Agent inspection and evaluation, including WIQD-style and Evals workflows."
-     data-time="~3 hrs (placeholder)"
+     data-badge="Bundle E · Grounding with Connectors"
+     data-badge-color="purple"
+     data-icon="🔗"
+     data-title="Start with API fundamentals, then ground the agent"
+     data-subtitle="This bundle reuses the API-based Declarative Agent core and then extends it with connector-based grounding so responses can draw from indexed enterprise content."
+     data-time="~5 hrs"
      data-requires="E0 + E1 "
-     data-extra="Labs E12 + E13 (placeholder)"></div>
+     data-extra="Labs E2 + E3 + E4 + E7"></div>
 
-<div data-widget="sectionlabel" data-text="Bundle E · DA + CLI Tools"></div>
+<div data-widget="sectionlabel" data-text="Bundle E · DA with Connectors"></div>
 
 <div data-widget="callout"
      data-type="info"
-     data-title="Placeholder bundle"
-     data-body="Complete &lt;a href='../00-prerequisites/'&gt;Lab E0 — Prerequisites&lt;/a&gt; and &lt;a href='../01-first-agent-new/'&gt;Lab E1  — Your First Declarative Agent&lt;/a&gt; first. This bundle is a scaffold for upcoming CLI-focused labs."></div>
+     data-title="Best for developers focused on grounded responses"
+     data-body="Complete &lt;a href='../00-prerequisites/'&gt;Lab E0 — Prerequisites&lt;/a&gt; and &lt;a href='../01-first-agent-new/'&gt;Lab E1  — Your First Declarative Agent&lt;/a&gt; first. Choose this bundle if you want the agent to answer from indexed data sources instead of relying only on API actions."></div>
 
 <div data-widget="checklist"
-     data-items="CLI-first developer workflow~Run tools and checks primarily from terminal commands|Inspection loop with WIQD-style tooling~Validate DA behavior and tool wiring quickly|Evaluation loop with Evals tooling~Measure response quality and iterate on prompts/tools"></div>
+     data-items="A solid API-backed Declarative Agent core~You will reuse the same fundamentals as Bundle C through E4|Connector-based grounding on top of that core~You will ingest and index data before testing grounded answers|A path tuned for enterprise knowledge scenarios~This is the bundle for search and grounding rather than MCP"></div>
 
 ---
 
 ## Prerequisites & key concepts
 
+This bundle shares the API core with Bundle C, then adds grounding through connectors.
+
 <div data-widget="concepts"
-     data-cards="CLI-first mindset::gray::Fast feedback in terminal::Run repeatable commands for validation and diagnostics without relying on portal/manual steps.||Inspection workflows::teal::Find integration issues early::WIQD-style tooling helps verify manifest wiring, tool behavior, and DA runtime configuration.||Evaluation workflows::amber::Measure quality continuously::Evals tooling gives comparable, repeatable metrics over prompt/test datasets.||Iteration loop::blue::Improve with evidence::Use inspection + eval outputs to refine instructions, tools, and DA configs. "></div>
+     data-cards="Prerequisites::amber::E0 + E1  completed::You should complete the on-ramp before beginning the API + connector grounding sequence.||Shared API core::blue::E2-E4 mirror Bundle C::You first establish a working API-backed declarative agent, including plugin action design and validation.||Grounding strategy::purple::Connector-backed response quality::Lab E7 introduces indexed enterprise content so answers are grounded in curated data instead of only API action outputs.||Enterprise retrieval mindset::teal::Search + context + trust::Connector-based grounding is best when responses must reference knowledge sources users can inspect and validate."></div>
 
 <div data-widget="bundleseq"
      data-bundle-key="e"
-     data-steps="e12::Lab E12::gray::DA CLI with WIQD Tooling (Placeholder)::Set up a CLI-first DA workflow~Run WIQD-style inspection commands~Capture findings for iteration::../12-da-cli-wiqd/|e13::Lab E13::amber::DA CLI with Evals Tooling (Placeholder)::Set up eval command flow~Run sample evaluations~Apply improvements from metrics::../13-da-cli-evals/"></div>
+     data-steps="e2::Lab E2::blue::Build a Backend API::Scaffold the Node.js API project~Define the data model and routes~Verify the API returns data locally::../02-build-the-api/|e3::Lab E3::blue::Add Declarative Agent and API Plugin::Scaffold the declarative agent~Add ai-plugin.json and wire actions~Validate agent queries the API::../03-add-declarative-agent/|e4::Lab E4::blue::Enhance API and Plugin::Add filtering and paging~Expand plugin actions~Test enhanced queries in Copilot::../04-enhance-api-plugin/|e7::Lab E7::purple::Add Copilot Connector::Register the Microsoft Graph connector~Ingest and index sample data~Ground the declarative agent with indexed data~Validate grounded responses in Copilot::../07-add-graphconnector/"></div>
 
 <div data-widget="labnav"
      data-prev="../bundles/"

@@ -59,16 +59,14 @@ plugins:
                     - Lab E1 - Your First Declarative Agent: 'pages/extend-m365-copilot/01-first-agent-new.md'
               - Bundle A - MCP Foundations:
                     - Start Bundle A: 'pages/extend-m365-copilot/bundle-a.md'
-              - Bundle B - MCP Advanced:
+              - Bundle B - Multi-Agent Workflows in Copilot:
                     - Start Bundle B: 'pages/extend-m365-copilot/bundle-b.md'
-              - Bundle C - API-Based Declarative Agent:
+              - Bundle C - MCP App:
                     - Start Bundle C: 'pages/extend-m365-copilot/bundle-c.md'
-              - Bundle D - DA with Connectors:
+              - Bundle D - API-Based Declarative Agent:
                     - Start Bundle D: 'pages/extend-m365-copilot/bundle-d.md'
-              - Bundle E - DA + CLI Tools:
+              - Bundle E - DA with Connectors:
                     - Start Bundle E: 'pages/extend-m365-copilot/bundle-e.md'
-                    - Lab E12 - DA CLI with WIQD Tooling (Placeholder): 'pages/extend-m365-copilot/12-da-cli-wiqd.md'
-                    - Lab E13 - DA CLI with Evals Tooling (Placeholder): 'pages/extend-m365-copilot/13-da-cli-evals.md'
             - Custom Engine Agents:
               - Welcome : 'pages/custom-engine/index.md'
               - Start with Microsoft Foundry:

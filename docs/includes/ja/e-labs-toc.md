@@ -18,16 +18,21 @@
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/10-mcp-auth">ラボ E10 - 宣言型エージェントを OAuth で保護された MCP サーバーに接続する</a></li>
                 </ul>
             </li>
-            <li><strong>🕸️ バンドル B - MCP Advanced</strong>
+            <li><strong>🕸️ バンドル B - Multi-Agent Workflows in Copilot</strong>
                 <ul>
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/bundle-b">バンドル B を開始</a></li>
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/09-connected-agent">ラボ E9 - 接続されたエージェント</a></li>
+                </ul>
+            </li>
+            <li><strong>🖼️ バンドル C - MCP アプリ</strong>
+                <ul>
+                    <li><a href="/copilot-camp/pages/extend-m365-copilot/bundle-c">バンドル C を開始</a></li>
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/11-mcp-app">ラボ E11 - インタラクティブ ウィジェットを含む MCP アプリを構築する</a></li>
                 </ul>
             </li>
-            <li><strong>🧭 バンドル C - API ベースの宣言型エージェント</strong>
+            <li><strong>🧭 バンドル D - API ベースの宣言型エージェント</strong>
                 <ul>
-                    <li><a href="/copilot-camp/pages/extend-m365-copilot/bundle-c">バンドル C を開始</a></li>
+                    <li><a href="/copilot-camp/pages/extend-m365-copilot/bundle-d">バンドル D を開始</a></li>
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/02-build-the-api">ラボ E2 - バックエンド API を構築する</a></li>
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/03-add-declarative-agent">ラボ E3 - 宣言型エージェントと API プラグインを追加する</a></li>
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/04-enhance-api-plugin">ラボ E4 - API とプラグインを強化する</a></li>
@@ -35,9 +40,9 @@
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/06a-add-authentication-ttk">ラボ E6a - Entra ID 認証を追加する</a></li>
                 </ul>
             </li>
-            <li><strong>🔗 バンドル D - コネクタでエージェントをグラウンディングする</strong>
+            <li><strong>🔗 バンドル E - コネクタでエージェントをグラウンディングする</strong>
                 <ul>
-                    <li><a href="/copilot-camp/pages/extend-m365-copilot/bundle-d">バンドル D を開始</a></li>
+                    <li><a href="/copilot-camp/pages/extend-m365-copilot/bundle-e">バンドル E を開始</a></li>
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/07-add-graphconnector">ラボ E7 - Copilot コネクタを追加する</a></li>
                 </ul>
             </li>

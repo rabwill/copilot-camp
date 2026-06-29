@@ -7,7 +7,7 @@ title: Declarative Agent Developer Bundles
      data-badge-color="blue"
      data-title="Declarative Agent Developer Bundles"
      data-subtitle="Complete the mandatory on-ramp first, then choose a focused bundle path based on your goals."
-     data-path="0::Prerequisites (E0)|1::First Declarative Agent (E1 NEW)|*A::MCP Foundations|*B::MCP Advanced|*C::API-Based Declarative Agent|*D::DA with Connectors|*E::DA + CLI Tools"></div>
+     data-path="0::Prerequisites (E0)|1::First Declarative Agent (E1 NEW)|*A::MCP Foundations|*B::Multi-Agent Workflows|*C::MCP App|*D::API-Based Declarative Agent|*E::DA with Connectors|*F::DA + CLI Tools"></div>
 
 <div data-widget="sectionlabel" data-text="Mandatory on-ramp"></div>
 
@@ -43,25 +43,45 @@ title: Declarative Agent Developer Bundles
      data-label="Bundle B"
      data-bundle-key="b"
      data-label-color="coral"
-     data-title="MCP Advanced: Orchestrate, Scale &amp; Visualise"
-     data-tagline="Start with MCP foundations, then add connected-agent orchestration and interactive UI widgets."
-     data-time="~6 hrs"
-     data-lab1-badge="Labs E8 + E9"
+     data-title="Multi-Agent Workflows in Copilot"
+     data-tagline="Build an MCP server, compose connected agents, and orchestrate multi-agent workflows inside Copilot."
+     data-time="~4 hrs"
+     data-lab1-badge="Labs E9"
      data-lab1-badge-color="amber"
-     data-lab1-title="MCP foundations + Connected agents orchestration"
+     data-lab1-title="Connected agents orchestration"
      data-lab1-items="Build MCP foundation (E8)|Implement connected agents (E9)|Validate orchestration routing"
-     data-transition="then visualise"
-     data-lab2-badge="Lab E11"
+     data-transition="then extend"
+     data-lab2-badge="Bundle C →"
      data-lab2-badge-color="green"
-     data-lab2-title="MCP App with Interactive Widgets"
-     data-lab2-items="Run MCP app|Build React + Fluent UI widget|Register tool UI mapping|Test in Copilot conversation"
-     data-arc="Labs: E8 + E9 + E11"
+     data-lab2-title="Add interactive widgets (Bundle C)"
+     data-lab2-items="Build on E8 + E9|Add React + Fluent UI widgets (E11)|See Bundle C for the standalone widget path"
+     data-arc="Labs: E8 + E9"
      data-start-url="../bundle-b/"></div>
 
 <div data-widget="bundle"
-     data-icon="🧭"
+     data-icon="🖼️"
      data-label="Bundle C"
      data-bundle-key="c"
+     data-label-color="green"
+     data-title="MCP App: Interactive Widgets"
+     data-tagline="Extend a working MCP server with React + Fluent UI widgets that render tool results as interactive UI inside Copilot."
+     data-time="~2 hrs"
+     data-lab1-badge="Lab E11"
+     data-lab1-badge-color="green"
+     data-lab1-title="MCP App with Interactive Widgets"
+     data-lab1-items="Run MCP app scaffold|Build React + Fluent UI widget|Register tool-to-widget mapping|Test interactive rendering in Copilot"
+     data-transition=""
+     data-lab2-badge=""
+     data-lab2-badge-color=""
+     data-lab2-title=""
+     data-lab2-items=""
+     data-arc="Lab: E11"
+     data-start-url="../bundle-c/"></div>
+
+<div data-widget="bundle"
+     data-icon="🧭"
+     data-label="Bundle D"
+     data-bundle-key="d"
      data-label-color="blue"
      data-title="API-Based Declarative Agent: From API to Agent"
      data-tagline="Build a Declarative Agent that retrieves data from a custom API (not MCP)."
@@ -76,12 +96,12 @@ title: Declarative Agent Developer Bundles
      data-lab2-title="Complete the fundamentals flow"
      data-lab2-items="Add adaptive cards (E5)|Add authentication with toolkit (E6a)|Validate complete experience"
      data-arc="Labs: E2 + E3 + E4 + E5 + E6a"
-     data-start-url="../bundle-c/"></div>
+     data-start-url="../bundle-d/"></div>
 
 <div data-widget="bundle"
      data-icon="🔗"
-     data-label="Bundle D"
-     data-bundle-key="d"
+     data-label="Bundle E"
+     data-bundle-key="e"
      data-label-color="purple"
      data-title="Declarative Agents with Connectors: Grounding Your Agent"
      data-tagline="Follow the declarative agent core and then ground responses with connectors."
@@ -96,12 +116,12 @@ title: Declarative Agent Developer Bundles
      data-lab2-title="Connector grounding"
      data-lab2-items="Add Graph connector integration|Ground agent with indexed data|Validate grounded responses"
      data-arc="Labs: E2 + E3 + E4 + E7"
-     data-start-url="../bundle-d/"></div>
+     data-start-url="../bundle-e/"></div>
 
 <div data-widget="bundle"
      data-icon="🛠️"
-     data-label="Bundle E"
-     data-bundle-key="e"
+     data-label="Bundle F"
+     data-bundle-key="f"
      data-label-color="gray"
      data-title="DA + CLI Tools: Build, Validate, Evaluate"
      data-tagline="Focus on command-line workflows for Declarative Agent development, including WIQD-style tooling and eval loops."
@@ -116,7 +136,7 @@ title: Declarative Agent Developer Bundles
      data-lab2-title="Evaluate and iterate with CLI tools"
      data-lab2-items="Run eval commands against sample prompts|Interpret metrics and failures|Apply iterative prompt/tool improvements"
      data-arc="Labs: E12 + E13 (placeholders)"
-     data-start-url="../bundle-e/"></div>
+     data-start-url="../bundle-f/"></div>
 
 <div data-widget="footernote"
      data-text="Mandatory order: complete On-ramp (E0 + E1 NEW) first, then pick any bundle."></div>

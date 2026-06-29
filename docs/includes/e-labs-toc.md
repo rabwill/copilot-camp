@@ -19,16 +19,21 @@
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/10-mcp-auth">Lab E10 - Connect Declarative Agent to OAuth-Protected MCP Server</a></li>
                 </ul>
             </li>
-            <li><strong>🕸️ Bundle B - MCP Advanced</strong>
+            <li><strong>🕸️ Bundle B - Multi-Agent Workflows in Copilot</strong>
                 <ul>
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/bundle-b">Start Bundle B</a></li>
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/09-connected-agent">Lab E9 - Connected Agents</a></li>
+                </ul>
+            </li>
+            <li><strong>🖼️ Bundle C - MCP App</strong>
+                <ul>
+                    <li><a href="/copilot-camp/pages/extend-m365-copilot/bundle-c">Start Bundle C</a></li>
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/11-mcp-app">Lab E11 - Build an MCP App with Interactive Widgets</a></li>
                 </ul>
             </li>
-            <li><strong>🧭 Bundle C - API-Based Declarative Agent</strong>
+            <li><strong>🧭 Bundle D - API-Based Declarative Agent</strong>
                 <ul>
-                    <li><a href="/copilot-camp/pages/extend-m365-copilot/bundle-c">Start Bundle C</a></li>
+                    <li><a href="/copilot-camp/pages/extend-m365-copilot/bundle-d">Start Bundle D</a></li>
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/02-build-the-api">Lab E2 - Build a Backend API</a></li>
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/03-add-declarative-agent">Lab E3 - Add Declarative Agent and API Plugin</a></li>
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/04-enhance-api-plugin">Lab E4 - Enhance API and Plugin</a></li>
@@ -36,9 +41,9 @@
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/06a-add-authentication-ttk">Lab E6a - Add Entra ID Authentication</a></li>
                 </ul>
             </li>
-            <li><strong>🔗 Bundle D - DA with Connectors</strong>
+            <li><strong>🔗 Bundle E - DA with Connectors</strong>
                 <ul>
-                    <li><a href="/copilot-camp/pages/extend-m365-copilot/bundle-d">Start Bundle D</a></li>
+                    <li><a href="/copilot-camp/pages/extend-m365-copilot/bundle-e">Start Bundle E</a></li>
                     <li><a href="/copilot-camp/pages/extend-m365-copilot/07-add-graphconnector">Lab E7 - Add Copilot Connector</a></li>
                 </ul>
             </li>
