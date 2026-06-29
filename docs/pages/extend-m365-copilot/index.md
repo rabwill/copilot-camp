@@ -22,14 +22,16 @@ title: Extend Microsoft 365 Copilot
 In the Extend Path of Copilot Developer Camp, you first complete a mandatory on-ramp, then choose a bundle based on your implementation style and scenario.
 
 Your journey is:
-- **On-ramp (required): E0 + E1 ** — Set up your environment and build your first Declarative Agent
-- **Choose your build path:**
-     - **MCP path (Bundles A/B)** — Build agent capabilities using MCP servers, then add security, orchestration, and rich UI
-     - **API path (Bundle C)** — Build a Declarative Agent that calls a custom API directly (non-MCP)
-     - **Connector grounding path (Bundle D)** — Build a Declarative Agent grounded with connectors
-     - **CLI tooling path (Bundle E)** — Build and iterate Declarative Agents using CLI-first workflows (WIQD/Evals placeholders)
 
-By the end, you will have an HR-focused Copilot agent that can be adapted to your production architecture, whether your organization uses MCP, direct APIs, connector-grounded data, or CLI-driven validation and evaluation workflows.
+- **Mandatory on-ramp: E0 + E1** — Set up your environment and build your first Declarative Agent
+- **Then choose your bundle:**
+     - **Bundle A — MCP Foundations** — Build, connect, and secure an MCP server with OAuth 2.0 and Entra ID
+     - **Bundle B — Multi-Agent Workflows** — Compose connected agents and orchestrate multi-agent workflows inside Copilot
+     - **Bundle C — MCP App** — Extend an MCP server with React + Fluent UI interactive widgets
+     - **Bundle D — API-Based Declarative Agent** — Build a Declarative Agent that retrieves data from a custom API (not MCP)
+     - **Bundle E — Declarative Agents with Connectors** — Ground your agent using connectors for domain relevance
+     <!-- - **Bundle F — DA + CLI Tools** — Build, validate, and evaluate using CLI-first workflows (coming soon) -->
+
 
 
 <div data-widget="sectionlabel" data-text="Learning path sections"></div>
@@ -37,11 +39,12 @@ By the end, you will have an HR-focused Copilot agent that can be adapted to you
 | Section                            | Labs | Focus                                                 |
 | ---------------------------------- | ---- | ------------------------------------------------------- |
 | **Mandatory On-ramp**              | E0 + E1  | Complete prerequisites and build your first Declarative Agent before any bundle |
-| **Bundle A — MCP Foundations**     | E8 + E10 | Build, connect, and secure an MCP server with OAuth/Entra ID |
-| **Bundle B — MCP Advanced**        | E8 + E9 + E11 | Add orchestration and rich interactive widget experiences |
-| **Bundle C — API-Based Declarative Agent**     | E2 + E3 + E4 + E5 + E6a | Build a Declarative Agent that retrieves data from a custom API (not MCP) |
-| **Bundle D — DA with Connectors**  | E2 + E3 + E4 + E7 | Ground your agent using connectors for domain relevance |
-| **Bundle E — DA + CLI Tools**      | E12 + E13 (placeholder) | Use CLI-first workflows for tool inspection and eval-driven iteration |
+| **Bundle A — MCP Foundations**     | E8 + E10 | Build, connect, and secure an MCP server with OAuth 2.0 and Entra ID |
+| **Bundle B — Multi-Agent Workflows**  | E8 + E9 | Compose connected agents and orchestrate multi-agent workflows inside Copilot |
+| **Bundle C — MCP App**     | E11 | Extend an MCP server with React + Fluent UI interactive widgets |
+| **Bundle D — API-Based Declarative Agent**  | E2 + E3 + E4 + E5 + E6a | Build a Declarative Agent that retrieves data from a custom API (not MCP) |
+| **Bundle E — DA with Connectors**  | E2 + E3 + E4 + E7 | Ground your agent using connectors for domain relevance |
+<!-- | **Bundle F — DA + CLI Tools**      | E12 + E13 (coming soon) | Build, validate, and evaluate using CLI-first workflows | -->
 
 ---
 
