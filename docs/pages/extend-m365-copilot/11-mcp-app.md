@@ -34,29 +34,11 @@ In this lab, you'll run a Model Context Protocol (MCP) app that powers an **Acce
 
 ## Scenario
 
-**Contoso Corp** manages access requests across multiple systems like GitHub, SAP, Production Database, and more. Today, employees email their managers, who forward requests to IT, leading to delays and lost context. The IT team wants a streamlined, AI-powered approval workflow where employees can submit access requests, managers can approve or reject them, and everyone can track the status, all through natural language conversations with an AI agent.
-
-The development team has built an **MCP app** with interactive widgets that render rich UI directly inside the agent's response:
-
-- **Request Form Widget** — lets employees fill out and submit access requests
-- **Approval Panel Widget** — lets managers review, approve, or reject pending requests
-
-In this lab, you'll run the base app, explore its tools with MCP Inspector, **add a Status Timeline widget** so anyone can track the progress of a request, and then connect the MCP server to a Declarative Agent in Microsoft 365 Copilot.
+<div data-widget="arch"
+    data-rows="row::Contoso Employee::user::&quot;Submit an access request for GitHub&quot;|Microsoft 365 Copilot::copilot::Routes request to the Declarative Agent||label::Declarative Agent calls MCP tools → server returns structuredContent + UI resource URL||row::Declarative Agent::agent::declarativeAgent.json + ai-plugin.json|MCP App Server::mcp::Request · Approval · Status tools · runs locally||label::Host loads UI resource → widget receives structuredContent via MCP Apps SDK||row::Request Form Widget::widget::Employee fills form · submits via callServerTool()|Approval Panel Widget::widget::Manager approves or rejects directly in chat"></div>
 
 ---
 
-## 🎯 Lab Objectives
-
-By completing this lab, you will:
-
-- Understand how MCP apps serve interactive widgets alongside tool results
-- Run and test an existing MCP app with request and approval widgets
-- Use MCP Inspector to explore tools
-- Add a new **Status Timeline** widget and its corresponding server tool
-- Integrate the MCP server into a Declarative Agent using Microsoft 365 Agents Toolkit
-- Test the full workflow in Microsoft 365 Copilot
-
----
 
 ## � What Are MCP Apps with Interactive Widgets?
 
@@ -70,14 +52,6 @@ Traditional AI agent responses are text-based. When an agent retrieves data, it 
 - **Dashboards and visualizations** — display KPIs, timelines, and status indicators with color-coded visual cues
 - **Action panels** — managers can approve, reject, or take action directly from the widget
 - **Fullscreen mode** — widgets can expand to fullscreen for complex interactions
-
-### How It Works
-
-An MCP app pairs each tool with a **UI resource** — a self-contained HTML file (built with React, Fluent UI, or any web framework) that renders the tool's structured data as an interactive widget. When the AI host calls a tool:
-
-1. The **tool handler** runs on the server and returns `structuredContent` (the data)
-2. The **UI resource** (HTML widget) is loaded by the host and receives the data via the [MCP Apps SDK](https://modelcontextprotocol.github.io/ext-apps/api/documents/Overview.html)
-3. The widget renders the data as interactive UI and can **call back to the server** using `app.callServerTool()` for actions like submitting forms or recording decisions
 
 ### Cross-Platform Support
 
@@ -96,17 +70,6 @@ This means you can **build once and deploy across multiple AI hosts**, reaching 
 
 ---
 
-## �📚 Prerequisites
-
-Before starting this lab, ensure you have:
-
-- **Node.js 22+** installed on your machine
-- **VS Code** with **Microsoft 365 Agents Toolkit extension** (Version 6.8.0 was used when writing this lab)
-- **Microsoft 365 developer account** 
-- Basic knowledge of **TypeScript**, **React**, and **JSON**
-- GitHub account for using VS Code tunneling
-
----
 
 ## Exercise 1: Set Up and Run the Base MCP App
 
