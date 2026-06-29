@@ -74,44 +74,47 @@ In this exercise, you'll use the Microsoft 365 Agents Toolkit to create a new De
 5. Select **"Declarative Agent"** from the template options
 6. Select **"No Action"** from the options
 7. Select **Default folder**
-8. Enter the application name - `Zava Procurement`
+8. Enter the application name - `Zava Procurement`. This will create the new agent and open up the project in a new VS Code window.
 
-This will create the new agent and open up the project in a new VS Code window.
 
   <cc-end-step lab="e9" exercise="1" step="1" />
 
-### Step 2: Understand how to embed files 
+### Step 2: Download files to your machine
 
-Navigate to the `appPackage` folder and explore its contents. You'll recognize familiar files from your previous declarative agent work: the `manifest.json` file (which defines your agent's capabilities) and the `declarativeAgent.json` file (which configures your agent's behavior).
+Go to [this url](https://download-directory.github.io/?url=https://github.com/microsoft/copilot-camp/tree/main/docs/assets/docs/extend-m365-copilot-09&filename=EmbeddedKnowledge){target=_blank} and extract all files.
 
-The key addition you'll notice is the `EmbeddedKnowledge` folder. This is where you'll store Zava's contractor pricing data files that will be embedded directly into your agent, enabling instant access to pricing intelligence without requiring live database queries.
+<cc-end-step lab="e9" exercise="1" step="2" />
 
-!!! note
-    Sample PDF files without sensitivity labels are provided for testing purposes. If you choose to test with your own files—especially Office documents—ensure they comply with the sensitivity labels configured in your tenant.
+### Step 3: Understand how to add Embedded Knowledge Capability
 
-  <cc-end-step lab="e9" exercise="1" step="2" />
+1. Within this new project, go to the **Microsoft 365 Agents Toolkit** icon 1️⃣ in the Activity Bar (left sidebar) again
+2. Go to **Development** 2️⃣ section and select **Add Capability**, 3️⃣ choose **Embedded Knowledge** 4️⃣.
+
+
+![image of adding capability](../../assets/images/extend-m365-copilot-09/flow-embed.png)
+
+3. Choose the **manifest.json** file as selected by default.
+4. Select the downloaded EmbeddedKnowledge folder (extracted) and select all files to load. 
+5. Continue loading and once done, you will have a new folder under **appPackage** called **EmbeddedKnowledge** with files as shown in the image below:
+
+![image of file structure](../../assets/images/extend-m365-copilot-09/file-structure.png)
+
+<cc-end-step lab="e9" exercise="1" step="3" />
 
 ## Exercise 2: Configure the Agent for Zava's contractor procurement knowledge
 
-### Step 1: Download files to your machine
-Go to [this url](https://download-directory.github.io/?url=https://github.com/microsoft/copilot-camp/tree/main/docs/assets/docs/extend-m365-copilot-09&filename=EmbeddedKnowledge){target=_blank} and extract all files into the `appPackage/EmbeddedKnowledge` folder inside your newly created declarative agent project.
+### Step 1: Update Agent Identity and Description
 
-
-  <cc-end-step lab="e9" exercise="2" step="1" />
-
-### Step 2: Update Agent Identity and Description
-
-Replace the content of `appPackage/declarativeAgent.json` with below configuration:
-
+Replace the content of `appPackage/declarativeAgent.json` with below configuration to add conversation starters:
 
 ```json
 {
-    "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.6/schema.json",
-    "version": "v1.6",
-    "name": "Zava Procurement",
-    "description": "An agent that helps insurance adjusters streamline the search of the right procurement information by leveraging embedded knowledge from Zava approved partners' network of trusted contractors and service providers.",
+    "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.7/schema.json",
+    "version": "v1.7",
+    "name": "Zava Procurement${{APP_NAME_SUFFIX}}",
+    "description": "Declarative agent created with Microsoft 365 Agents Toolkit",
     "instructions": "$[file('instruction.txt')]",
-    "conversation_starters": [
+     "conversation_starters": [
         {
             "title": "Water damage restoration pricing",
             "text": "What are the rates for emergency water extraction and drying services?"
@@ -159,9 +162,9 @@ Replace the content of `appPackage/declarativeAgent.json` with below configurati
 }
 ```
 
-<cc-end-step lab="e9" exercise="2" step="2" />
+<cc-end-step lab="e9" exercise="2" step="1" />
 
-### Step 3: Create Detailed Agent Instructions
+### Step 2: Create Detailed Agent Instructions
 
 ```txt
 # Role and Purpose
@@ -216,28 +219,15 @@ When answering queries:
 !!! warning "Responsible AI Content Guidelines"
     If you encounter errors indicating that your "Declarative Copilot content violates Responsible AI guidelines", try simplifying the instructions. Remove complex role-playing scenarios, reduce detailed procedural steps, or use more neutral language. Start with basic task descriptions and gradually add complexity until you identify what triggers the violation.
 
-  <cc-end-step lab="e9" exercise="2" step="3" />
+<cc-end-step lab="e9" exercise="2" step="2" />
 
-### Step 4: Update the Teams App Manifest
+### Step 3: Update the Teams App Manifest
 
-Open `appPackage/manifest.json` and update it with Zava's branding:
+Open `appPackage/manifest.json` and update **name** and **description** with Zava's branding:
 
 ```json
 {
-    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.23/MicrosoftTeams.schema.json",
-    "manifestVersion": "1.23",
-    "version": "1.0.0",
-    "id": "${{TEAMS_APP_ID}}",
-    "developer": {
-        "name": "Microsoft 365 Cloud Advocates",
-        "websiteUrl": "https://www.example.com",
-        "privacyUrl": "https://www.example.com/privacy",
-        "termsOfUseUrl": "https://www.example.com/termofuse"
-    },
-    "icons": {
-        "color": "color.png",
-        "outline": "outline.png"
-    },
+....
     "name": {
         "short": "Zava Procurement${{APP_NAME_SUFFIX}}",
         "full": "Full name for Zava Procurement"
@@ -246,21 +236,7 @@ Open `appPackage/manifest.json` and update it with Zava's branding:
         "short": "Get procurement data from embedded knowledge with Zava Procurement",
         "full": "Zava Procurement helps you access procurement data seamlessly within Microsoft 365 apps by leveraging embedded knowledge."
     },
-    "accentColor": "#FFFFFF",
-    "composeExtensions": [],
-    "permissions": [
-        "identity",
-        "messageTeamMembers"
-    ],
-    "copilotAgents": {
-        "declarativeAgents": [            
-            {
-                "id": "declarativeAgent",
-                "file": "declarativeAgent.json"
-            }
-        ]
-    },
-    "validDomains": []
+   ....
 }
 ```
 
